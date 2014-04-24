@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project basedir="." >
+<project basedir="." default="build" name="edsolstice">
    
     <property name="edsolstice.lib" value="./webapps/edsolstice.lib/WEB-INF/lib" />
     <property name="edsolstice_webapp_dir" value="./webapps/edsolstice/WEB-INF" />
@@ -13,12 +13,14 @@
 	<property name="DEBUG" value="${env.DEBUG}" />
 	<property name="CLASSPATH" value="${env.CLASSPATH}" />
 
-	<filelist id="edsolstice.lib.classpath" dir="${edsolstice.lib}">
+	<filelist id="libs" dir="${edsolstice.lib}">
 		<file name="log4j-1.2.16.jar" />
 		<file name="apache-log4j-extras-1.0.jar" />
 	</filelist>
-
-
+	
+	<path id="project.classpath">
+			<filelist refid="libs" />
+    </path>
 	<target name="init">
 		<mkdir dir="${classes_dir}" />
 		<mkdir dir="${mfg_dir}" />
@@ -47,17 +49,19 @@
 	</target>
 	
 	
-        <target depends="init" name="edsolsticeCompile">
+        <target depends="init" name="build">
            <echo message="${ant.project.name}: ${ant.file}" />
-           <javac destdir="${source_dir}" debug="${DEBUG}" source="1.7" target="1.7">
+           <javac destdir="${classes_dir}" debug="${DEBUG}" source="1.7" target="1.7">
            <src path="${source_dir}" />
                <include name="com/edsolstice/educationportal/rest/*.java" />
            	   <include name="com/edsolstice/educationportal/model/*.java" />
+           	
+           	<classpath refid="project.classpath" />
                
            </javac>
      </target>
 
-        <target depends="edsolsticeCompile" name="edsolstice">
+        <target depends="build" name="mfg">
          <echo message="${ant.project.name}: ${ant.file}" />
          <jar destfile="${mfg_dir}/edsolstice.jar" basedir="source/" >
          	 <include name="com/edsolstice/educationportal/rest/*.class" />
@@ -67,9 +71,11 @@
              <war destfile="${mfg_dir}/edsolstice.war" webxml="${edsolstice_webapp_dir}/web.xml" >
              	<classes dir="${source_dir}">
                      
-                     <include name="com/hp/commandview/utils/edsolstice/exceptions/*.class" />
-                       </classes>
-                              <fileset dir="${edsolstice_webapp_dir}" />
+             		 <include name="com/edsolstice/educationportal/rest/*.class" />
+             		 <include name="com/edsolstice/educationportal/model/*.class" />
+                 </classes>
+                     
+             	      <fileset dir="${edsolstice_webapp_dir}" />
   
                      </war>   
 
