@@ -2,7 +2,7 @@
 
 <project basedir="." default="build" name="edsolstice">
    
-    <property name="edsolstice.lib" value="./webapps/edsolstice.lib/WEB-INF/lib" />
+    <property name="edsolstice.lib" value="./webapps/edsolstice/WEB-INF/lib" />
     <property name="edsolstice_webapp_dir" value="./webapps/edsolstice/WEB-INF" />
 	<property name="mfg_dir" value="./mfg" />
 	      
@@ -21,10 +21,16 @@
 	<path id="project.classpath">
 			<filelist refid="libs" />
     </path>
+	
+	
+	
+	
+	
 	<target name="init">
 		<mkdir dir="${classes_dir}" />
 		<mkdir dir="${mfg_dir}" />
 	</target>
+	
 	<target name="clean_dir">
 		<echo>run as: ${user.name}</echo>
 		<delete>
@@ -41,9 +47,7 @@
 			<fileset dir="${source_dir}">
 				<include name="**/*.class" />
 			</fileset>
-			<fileset dir="${test_dir}">
-				<include name="**/*.class" />
-			</fileset>
+			
 		</delete>
     		
 	</target>
@@ -63,13 +67,13 @@
 
         <target depends="build" name="mfg">
          <echo message="${ant.project.name}: ${ant.file}" />
-         <jar destfile="${mfg_dir}/edsolstice.jar" basedir="source/" >
+         <jar destfile="${mfg_dir}/edsolstice.jar" basedir="${classes_dir}" >
          	 <include name="com/edsolstice/educationportal/rest/*.class" />
          	<include name="com/edsolstice/educationportal/model/*.class" />
          </jar>
 
              <war destfile="${mfg_dir}/edsolstice.war" webxml="${edsolstice_webapp_dir}/web.xml" >
-             	<classes dir="${source_dir}">
+             	<classes dir="${classes_dir}">
                      
              		 <include name="com/edsolstice/educationportal/rest/*.class" />
              		 <include name="com/edsolstice/educationportal/model/*.class" />

@@ -1,6 +1,6 @@
 package com.edsolstice.educationportal.model;
 
-public class Student {
+public class Student extends EDSBaseObject	 {
 String name;
 
 public String getName() {
