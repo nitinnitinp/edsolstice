@@ -9,8 +9,8 @@
 	<property name="lib_dir" value="./build/lib" />
 	      
 	
-	<property name="classes_dir" value="build/classes/" />
-	<property name="source_dir" value="source/" />
+	<property name="classes_dir" value="./build/classes" />
+	<property name="source_dir" value="./source" />
 	<property name="PWD" value="${env.PWD}" />
 	<property name="DEBUG" value="${env.DEBUG}" />
 	<property name="CLASSPATH" value="${env.CLASSPATH}" />
@@ -110,11 +110,7 @@
 	
         <target depends="init, download" name="build">
            <echo message="${ant.project.name}: ${ant.file}" />
-           <javac destdir="${classes_dir}" debug="${DEBUG}" source="1.7" target="1.7">
-           <src path="${source_dir}" />
-               <include name="com/edsolstice/educationportal/rest/*.java" />
-           	   <include name="com/edsolstice/educationportal/model/*.java" />
-           	
+             <javac destdir="${classes_dir}" srcdir="${source_dir}" includeantruntime="false" debug="${DEBUG}" source="1.7" target="1.7" >
            	<classpath refid="project.classpath" />
                
            </javac>
