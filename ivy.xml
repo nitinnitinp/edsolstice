@@ -1,0 +1,22 @@
+<ivy-module version="2.0" xmlns:maven="http://maven.apache.org">
+    <info organisation="com.edsolstice" module="edsolstice"/>    
+<!--     <configurations defaultconfmapping="source->default"> -->
+<!--         <conf name="source"  description="default->master jars"/> -->
+
+<!--     </configurations> -->
+    <dependencies>
+         
+        <dependency org="org.codehaus.jackson"     name="jackson-mrbean"            rev="1.9.12"          conf="default->master" />
+        <dependency org="xml-apis"                 name="xml-apis"                  rev="1.4.01"          conf="default->master" />
+        <dependency org="jaxen"                    name="jaxen"                     rev="1.1-beta-6"      conf="default->master" />     
+        <dependency org="commons-collections"      name="commons-collections"       rev="3.2.1"           conf="default->master" />        
+        <dependency org="log4j"                    name="log4j"                     rev="1.2.17"          conf="default->master" />
+        <dependency org="org.json"                 name="json"                      rev="20080701"        conf="default->master" />
+        <dependency org="commons-beanutils"        name="commons-beanutils"         rev="1.8.3"           conf="default->master" />
+        <dependency org="org.apache.commons"       name="commons-vfs2"              rev="2.0"             conf="default->master" />
+        <dependency org="org.apache.commons"       name="commons-lang3"             rev="3.1"             conf="default->master" />
+       
+    
+        
+            </dependencies>    
+</ivy-module>

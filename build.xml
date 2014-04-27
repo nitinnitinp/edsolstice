@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<project basedir="." default="build" name="edsolstice">
-   
-    <property name="edsolstice.lib" value="./webapps/edsolstice/WEB-INF/lib" />
-    <property name="edsolstice_webapp_dir" value="./webapps/edsolstice/WEB-INF" />
+	
+	<project xmlns:ivy="antlib:org.apache.ivy.ant" basedir="."  name="edsolstice" default="build">
+	    
+	  
+    <property name="edsolstice.lib" value="./libs" />
+    <property name="edsolstice_webapp_dir" value="./webapps/edsolstice" />
 	<property name="mfg_dir" value="./mfg" />
+	<property name="lib_dir" value="./build/lib" />
 	      
 	
 	<property name="classes_dir" value="build/classes/" />
@@ -13,18 +15,19 @@
 	<property name="DEBUG" value="${env.DEBUG}" />
 	<property name="CLASSPATH" value="${env.CLASSPATH}" />
 
-	<filelist id="libs" dir="${edsolstice.lib}">
-		<file name="log4j-1.2.16.jar" />
-		<file name="apache-log4j-extras-1.0.jar" />
-	</filelist>
-	
 	<path id="project.classpath">
-			<filelist refid="libs" />
+		<fileset dir="${lib_dir}">
+	     <include name="**/*.jar"/>
+	   </fileset>
     </path>
 	
-	
-	
-	
+		<path id="ivy.lib.path">  
+		    <fileset dir="${edsolstice.lib}" includes="ivy*.jar" />  
+		</path>  
+		  
+		<taskdef resource="org/apache/ivy/ant/antlib.xml"  
+				         uri="antlib:org.apache.ivy.ant"   
+				         classpathref="ivy.lib.path" />  
 	
 	<target name="init">
 		<mkdir dir="${classes_dir}" />
@@ -43,6 +46,7 @@
 		<echo>run as: ${user.name}</echo>
 		<delete dir="${classes_dir}" />
 		<delete dir="${mfg_dir}" />
+		<delete dir="${lib_dir}" />
 		<delete>
 			<fileset dir="${source_dir}">
 				<include name="**/*.class" />
@@ -52,8 +56,19 @@
     		
 	</target>
 	
+		
+
+	    <target name="download" description="--> retrieve dependencies with ivy">
+	    	
+	    	  <!-- Copy files from the ivy cache into the build/downloads directory.  The [conf] phrase causes a
+	    	             separate directory to be created for each configuration listed in ivy.xml -->
+	    	<!-- if you need javadoce in ivy.xml we need to replace conf "default->master" and need to below pattern aslib/[artifact]-[type]-[revision].[ext]  -->
+	    	        	<ivy:settings file="ivy-settings.xml" />
+	    	        	<ivy:retrieve pattern="${lib_dir}/[artifact]-[revision].[ext]" />	        
+	    </target>
 	
-        <target depends="init" name="build">
+	
+        <target depends="init, download" name="build">
            <echo message="${ant.project.name}: ${ant.file}" />
            <javac destdir="${classes_dir}" debug="${DEBUG}" source="1.7" target="1.7">
            <src path="${source_dir}" />
@@ -72,20 +87,20 @@
          	<include name="com/edsolstice/educationportal/model/*.class" />
          </jar>
 
-             <war destfile="${mfg_dir}/edsolstice.war" webxml="${edsolstice_webapp_dir}/web.xml" >
-             	<classes dir="${classes_dir}">
-                     
-             		 <include name="com/edsolstice/educationportal/rest/*.class" />
-             		 <include name="com/edsolstice/educationportal/model/*.class" />
-                 </classes>
-                     
-             	      <fileset dir="${edsolstice_webapp_dir}" />
-  
+             <war destfile="${mfg_dir}/edsolstice.war">
+             	 <classes dir="${classes_dir}"/>
+             	           <fileset dir="${edsolstice_webapp_dir}" />
+             	            <lib dir="${lib_dir}">
+             	                    <include name="*.jar"/>
+             	                </lib>                     
                      </war>   
 
         </target>
-	
-	
+
+	   
+	   
+
+
 </project>
 
 
