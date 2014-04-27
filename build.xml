@@ -57,7 +57,47 @@
 	</target>
 	
 		
+		 <!-- create Eclipse .classpath file based on path ids defined above. -->
+		    <target name="buildClassPath" description="output a classpath for Eclipse project">
 
+		        <path id="eclipse.project.classpath">
+		        	<fileset dir="${lib_dir}">
+		        		     <include name="**/*.jar"/>
+		        		  </fileset>
+		           
+		        </path>
+		    	
+		    	       
+		    	        <path id="edsolstice.root">
+		    	            <pathelement location="."/>
+		    	        </path>
+		    	        <pathconvert property="edsolstice.root.dir" refid="edsolstice.root" dirsep="/"/>
+		   
+		    	        <property name="lib.line.prefix" value="&#09;&lt;classpathentry kind=&quot;lib&quot; path=&quot;"/>
+		    	        <property name="line.suffix" value="&quot;/&gt;${line.separator}"/>
+		    	        <pathconvert property="classpathProp" refid="eclipse.project.classpath" dirsep="/" pathsep="${line.suffix}">
+		    	            <map from="${edsolstice.root.dir}/" to="${lib.line.prefix}"/>
+		    	        </pathconvert>
+		    	
+		    	
+		    	<!--      <echo message="Eclipse classpath is: " />
+		    	        <echo message=" " />
+		    	        <echo>${classpathProp}</echo>  -->
+		    	        
+		    	        <!-- write the .classpath file -->
+		    	        <copy file="${edsolstice.root.dir}/tools/eclipse/classpath.txt" tofile="${edsolstice.root.dir}/.classpath"
+		    	              overwrite="true" filtering="true">
+		    	            <filterset>
+		    	                <!-- note the end tag appended to the substitution -->
+		    	                <filter token="LIBRARIES" value="${classpathProp}&quot;/&gt;"/>
+
+		    	                <!-- discourage editing of a generated file -->
+		    	                <filter token="COMMENTS"
+		    	                        value="&lt;!-- This file is generated with the ant target 'buildClassPath' from the template tools/eclipse/classpath.txt.  Please make changes to the template file rather than this file.  --&gt;"/>
+		    	            </filterset>
+		    	        </copy>
+		    	    </target>
+		    	
 	    <target name="download" description="--> retrieve dependencies with ivy">
 	    	
 	    	  <!-- Copy files from the ivy cache into the build/downloads directory.  The [conf] phrase causes a

@@ -16,7 +16,10 @@
         <dependency org="org.apache.commons"       name="commons-vfs2"              rev="2.0"             conf="default->master" />
         <dependency org="org.apache.commons"       name="commons-lang3"             rev="3.1"             conf="default->master" />
        
-    
+      
+        <dependency org="org.slf4j"                name="slf4j-log4j12"             rev="1.6.6"           conf="default->master" />
+        <dependency org="org.jboss.resteasy"       name="jaxrs-api"                 rev="3.0.2.Final"     conf="default->master" />
+        <dependency org="org.jboss.resteasy"       name="resteasy-jackson-provider" rev="3.0.2.Final"     conf="default->master" />
         
             </dependencies>    
 </ivy-module>
