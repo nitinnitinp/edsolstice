@@ -118,17 +118,15 @@
 
         <target depends="build" name="mfg">
          <echo message="${ant.project.name}: ${ant.file}" />
-         <jar destfile="${mfg_dir}/edsolstice.jar" basedir="${classes_dir}" >
-         	 <include name="com/edsolstice/educationportal/rest/*.class" />
-         	<include name="com/edsolstice/educationportal/model/*.class" />
+         <jar destfile="${mfg_dir}/edsolstice.jar" >
+         	<fileset dir="${classes_dir}" />
          </jar>
 
              <war destfile="${mfg_dir}/edsolstice.war">
-             	 <classes dir="${classes_dir}"/>
-             	           <fileset dir="${edsolstice_webapp_dir}" />
-             	            <lib dir="${lib_dir}">
-             	                    <include name="*.jar"/>
-             	                </lib>                     
+             	            <classes dir="${classes_dir}" />
+             	            <fileset dir="${edsolstice_webapp_dir}" />
+             	            <lib dir="${lib_dir}"> <include name="*.jar"/></lib>     
+             	            
                      </war>   
 
         </target>

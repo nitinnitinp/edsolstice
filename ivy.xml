@@ -15,11 +15,13 @@
         <dependency org="commons-beanutils"        name="commons-beanutils"         rev="1.8.3"           conf="default->master" />
         <dependency org="org.apache.commons"       name="commons-vfs2"              rev="2.0"             conf="default->master" />
         <dependency org="org.apache.commons"       name="commons-lang3"             rev="3.1"             conf="default->master" />
-       
+<!--         <dependency org="org.reflections"          name="reflections"               rev="0.9.9-RC1"       conf="default->master" /> -->
       
         <dependency org="org.slf4j"                name="slf4j-log4j12"             rev="1.6.6"           conf="default->master" />
         <dependency org="org.jboss.resteasy"       name="jaxrs-api"                 rev="3.0.2.Final"     conf="default->master" />
+        <dependency org="org.jboss.resteasy"       name="resteasy-jaxrs"            rev="2.3.1.GA"     conf="default->master" />
         <dependency org="org.jboss.resteasy"       name="resteasy-jackson-provider" rev="3.0.2.Final"     conf="default->master" />
-        
-            </dependencies>    
+        <dependency org="org.scannotation"         name="scannotation"              rev="1.0.3"             conf="default->master" />
+         <dependency org="junit"                    name="junit"                     rev="4.11"               conf="default->master" />
+         </dependencies>    
 </ivy-module>
