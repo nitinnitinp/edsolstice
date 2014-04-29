@@ -4,6 +4,7 @@
     @COMMENTS@
 	
 	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="src" path="src"/>
 	
 	@LIBRARIES@
 	

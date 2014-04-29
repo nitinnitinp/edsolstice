@@ -6,11 +6,13 @@
     <property name="edsolstice.lib" value="./libs" />
     <property name="edsolstice_webapp_dir" value="./webapps/edsolstice" />
 	<property name="mfg_dir" value="./mfg" />
-	<property name="lib_dir" value="./build/lib" />
+	<property name="lib_dir" value="./build/compile" />
 	      
 	
 	<property name="classes_dir" value="./build/classes" />
+	<property name="src_classes_dir" value="./build/src/classes" />
 	<property name="source_dir" value="./source" />
+	<property name="src_dir" value="./src" />
 	<property name="PWD" value="${env.PWD}" />
 	<property name="DEBUG" value="${env.DEBUG}" />
 	<property name="CLASSPATH" value="${env.CLASSPATH}" />
@@ -20,6 +22,11 @@
 	     <include name="**/*.jar"/>
 	   </fileset>
     </path>
+		<path id="jetty.classpath">
+				<fileset dir="build/jetty">
+			     <include name="**/*.jar"/>
+			   </fileset>
+		</path>
 	
 		<path id="ivy.lib.path">  
 		    <fileset dir="${edsolstice.lib}" includes="ivy*.jar" />  
@@ -31,6 +38,7 @@
 	
 	<target name="init">
 		<mkdir dir="${classes_dir}" />
+		<mkdir dir="${src_classes_dir}" />
 		<mkdir dir="${mfg_dir}" />
 	</target>
 	
@@ -45,15 +53,10 @@
 	<target name="clean">
 		<echo>run as: ${user.name}</echo>
 		<delete dir="${classes_dir}" />
+		<delete dir="${src_classes_dir}" />
 		<delete dir="${mfg_dir}" />
 		<delete dir="${lib_dir}" />
-		<delete>
-			<fileset dir="${source_dir}">
-				<include name="**/*.class" />
-			</fileset>
-			
-		</delete>
-    		
+		
 	</target>
 	
 		
@@ -64,6 +67,9 @@
 		        	<fileset dir="${lib_dir}">
 		        		     <include name="**/*.jar"/>
 		        		  </fileset>
+		        	<fileset dir="build/jetty">
+		        	    <include name="**/*.jar"/>
+		            </fileset>
 		           
 		        </path>
 		    	
@@ -104,23 +110,56 @@
 	    	             separate directory to be created for each configuration listed in ivy.xml -->
 	    	<!-- if you need javadoce in ivy.xml we need to replace conf "default->master" and need to below pattern aslib/[artifact]-[type]-[revision].[ext]  -->
 	    	        	<ivy:settings file="ivy-settings.xml" />
-	    	        	<ivy:retrieve pattern="${lib_dir}/[artifact]-[revision].[ext]" />	        
+	    	        	<ivy:retrieve pattern="build/[conf]/[artifact]-[revision].[ext]" />	        
 	    </target>
 	
 	
         <target depends="init, download" name="build">
            <echo message="${ant.project.name}: ${ant.file}" />
-             <javac destdir="${classes_dir}" srcdir="${source_dir}" includeantruntime="false" debug="${DEBUG}" source="1.7" target="1.7" >
-           	<classpath refid="project.classpath" />
-               
+             <javac destdir="${classes_dir}"  includeantruntime="false" debug="${DEBUG}" source="1.7" target="1.7" >
+           
+                         <src>
+                             <pathelement location="${source_dir}"/>
+                         </src>
+             	
+             	<classpath refid="project.classpath" />
+             	<classpath refid="jetty.classpath" />
+             	
            </javac>
+        	
+        	<javac destdir="${src_classes_dir}"  includeantruntime="false" debug="${DEBUG}" source="1.7" target="1.7" >
+        	           
+        	                         <src>
+        	                             <pathelement location="${src_dir}"/>
+        	                         </src>
+        	             	
+        	             	<classpath refid="project.classpath" />
+        	             	<classpath refid="jetty.classpath" />
+        	               
+        	           </javac>
      </target>
 
         <target depends="build" name="mfg">
          <echo message="${ant.project.name}: ${ant.file}" />
-         <jar destfile="${mfg_dir}/edsolstice.jar" >
-         	<fileset dir="${classes_dir}" />
-         </jar>
+             <jar destfile="${mfg_dir}/edsolstice.jar" >
+         	          <fileset dir="${classes_dir}" />
+         	          
+             </jar>
+        	
+        	<manifestclasspath property="lib.list" jarfile="${mfg_dir}/start.jar">
+                	    	    <classpath refid="jetty.classpath"/>
+              </manifestclasspath>
+
+        	
+        	    <jar destfile="${mfg_dir}/start.jar" >
+        	         	<fileset dir="${src_classes_dir}"/>
+        	    	
+        	            	    	<manifest>
+        	    	     <attribute name="Main-Class" value="com.edsolstice.jetty.StartJettyServer"/>
+        	    		<attribute name="Class-Path" value="${lib.list}"/> 
+        	    	 </manifest>
+
+        	    </jar>
 
              <war destfile="${mfg_dir}/edsolstice.war">
              	            <classes dir="${classes_dir}" />
@@ -131,7 +170,19 @@
 
         </target>
 
-	   
+		 <target name="startJetty"
+		            description="Starts up Jetty. A new build will cause jetty to hot-deploy the changed wars">
+		 	                             
+		        <java fork="true" jar="${mfg_dir}/start.jar" maxmemory="2000m">
+		        </java>
+		 	
+		    </target>
+
+		    <target name="stopJetty" description="Stops Jetty in a clean way">
+		        <java fork="true" dir="${mfg_dir}" jar="${mfg_dir}/start.jar">
+		            <arg value="--stop"/>
+		        </java>
+		    </target>
 	   
 
 
