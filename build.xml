@@ -173,15 +173,13 @@
 		 <target name="startJetty"
 		            description="Starts up Jetty. A new build will cause jetty to hot-deploy the changed wars">
 		 	                             
-		        <java fork="true" jar="${mfg_dir}/start.jar" maxmemory="2000m">
+		        <java fork="true" jar="${mfg_dir}/start.jar">
 		        </java>
 		 	
 		    </target>
 
 		    <target name="stopJetty" description="Stops Jetty in a clean way">
-		        <java fork="true" dir="${mfg_dir}" jar="${mfg_dir}/start.jar">
-		            <arg value="--stop"/>
-		        </java>
+		        <delete file="${mfg_dir}/jetty_server_pid"/>
 		    </target>
 	   
 
