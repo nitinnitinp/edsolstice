@@ -1,54 +1,115 @@
 <ivy-module version="2.0" xmlns:maven="http://maven.apache.org">
-    <info organisation="com.edsolstice" module="edsolstice"/>    
-    <configurations>
-        
-        <conf name="compile"  description="compile->master jars"/>
-        <conf name="jetty" extends="compile" description="jetty jars"/>
-        
-    </configurations>
-    
-    <dependencies>
-         
-        <dependency org="org.codehaus.jackson"     name="jackson-mrbean"            rev="1.9.12"          conf="compile->master" />
-        <dependency org="xml-apis"                 name="xml-apis"                  rev="1.4.01"          conf="compile->master" />
-        <dependency org="jaxen"                    name="jaxen"                     rev="1.1-beta-6"      conf="compile->master" />     
-        <dependency org="commons-collections"      name="commons-collections"       rev="3.2.1"           conf="compile->master" />        
-        <dependency org="log4j"                    name="log4j"                     rev="1.2.17"          conf="compile->master" />
-        <dependency org="org.json"                 name="json"                      rev="20080701"        conf="compile->master" />
-        <dependency org="commons-beanutils"        name="commons-beanutils"         rev="1.8.3"           conf="compile->master" />
-        <dependency org="org.apache.commons"       name="commons-vfs2"              rev="2.0"             conf="compile->master" />
-        <dependency org="org.apache.commons"       name="commons-lang3"             rev="3.1"             conf="compile->master" />
-        <dependency org="org.reflections"          name="reflections"               rev="0.9.9-RC1"       conf="compile->master" />
-       
-        <dependency org="org.eclipse.jetty"        name="jetty-ajp"                 rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-annotations"         rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-client"              rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-continuation"        rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-deploy"              rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-http"                rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-io"                  rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-jmx"                 rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-jndi"                rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-overlay-deployer"    rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-plus"                rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-policy"              rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-rewrite"             rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-security"            rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-server"              rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-servlet"             rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-servlets"            rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-util"                rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-webapp"              rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-websocket"           rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="org.eclipse.jetty"        name="jetty-xml"                 rev="8.1.5.v20120716" conf="jetty->master" />
-        <dependency org="javax.servlet"            name="javax.servlet-api"         rev="3.0.1"           conf="jetty->master"/>
-       
-       
-          <dependency org="org.slf4j"                name="slf4j-log4j12"             rev="1.6.6"           conf="compile->master" />
-        <dependency org="org.jboss.resteasy"       name="jaxrs-api"                 rev="3.0.2.Final"     conf="compile->master" />
-        <dependency org="org.jboss.resteasy"       name="resteasy-jaxrs"            rev="2.3.1.GA"     conf="compile->master" />
-        <dependency org="org.jboss.resteasy"       name="resteasy-jackson-provider" rev="3.0.2.Final"     conf="compile->master" />
-        <dependency org="org.scannotation"         name="scannotation"              rev="1.0.3"             conf="compile->master" />
-         <dependency org="junit"                    name="junit"                     rev="4.11"               conf="compile->master" />
-         </dependencies>    
+	<info organisation="com.edsolstice" module="edsolstice" />
+	<configurations>
+
+		<conf name="compile" description="compile->master jars" />
+		<conf name="jetty" description="jetty jars" />
+
+	</configurations>
+
+	<dependencies>
+
+		<dependency org="org.reflections" name="reflections" rev="0.9.9-RC1"
+			conf="compile->master" />
+		<dependency org="javax.activation" name="activation" rev="1.0.2"
+			conf="compile->master" />
+		<dependency org="org.scannotation" name="scannotation" rev="1.0.3"
+			conf="compile->master" />
+
+		<dependency org="org.codehaus.jackson" name="jackson-mapper-asl"
+			rev="1.9.13" conf="compile->master" />
+		<dependency org="org.codehaus.jackson" name="jackson-core-asl"
+			rev="1.9.13" conf="compile->master" />
+		<dependency org="org.codehaus.jackson" name="jackson-jaxrs"
+			rev="1.9.13" conf="compile->master" />
+		<dependency org="org.codehaus.jackson" name="jackson-xc"
+			rev="1.9.13" conf="compile->master" />
+		<dependency org="javassist" name="javassist" rev="3.12.1.GA"
+			conf="compile->master" />
+
+		<dependency org="org.jboss.resteasy" name="jaxrs-api" rev="3.0.8.Final"
+			conf="compile->master" />
+		<dependency org="org.jboss.spec.javax.annotation" name="jboss-annotations-api_1.1_spec"
+			rev="1.0.1.Final" conf="compile->master" />
+		<dependency org="net.jcip" name="jcip-annotations" rev="1.0"
+			conf="compile->master" />
+		<dependency org="org.jboss.resteasy" name="resteasy-client"
+			rev="3.0.4.Final" conf="compile->master" />
+		<dependency org="org.jboss.resteasy" name="jaxrs-api" rev="3.0.4.Final"
+			conf="compile->master" />
+		<dependency org="org.jboss.resteasy" name="resteasy-jackson-provider"
+			rev="3.0.4.Final" conf="compile->master" />
+		<dependency org="org.jboss.resteasy" name="resteasy-jaxrs"
+			rev="2.3.0.GA" conf="compile->master" />
+
+
+
+		<dependency org="org.apache.commons" name="commons-lang3"
+			rev="3.1" conf="compile->master" />
+		<dependency org="commons-collections" name="commons-collections"
+			rev="3.2.1" conf="compile->master" />
+		<dependency org="log4j" name="log4j" rev="1.2.17" conf="compile->master" />
+		<dependency org="commons-beanutils" name="commons-beanutils"
+			rev="1.8.3" conf="compile->master" />
+		<dependency org="com.google.guava" name="guava" rev="16.0"
+			conf="compile->master" />
+
+
+
+		<dependency org="org.eclipse.jetty" name="jetty-ajp" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-annotations"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-client"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-continuation"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-deploy"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-http" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-io" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-jmx" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-jndi" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-overlay-deployer"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-plus" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-policy"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-rewrite"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-security"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-server"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-servlet"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-servlets"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-util" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-webapp"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-websocket"
+			rev="8.1.5.v20120716" conf="jetty->master" />
+		<dependency org="org.eclipse.jetty" name="jetty-xml" rev="8.1.5.v20120716"
+			conf="jetty->master" />
+		<dependency org="javax.servlet" name="javax.servlet-api"
+			rev="3.0.1" conf="jetty->master" />
+
+
+
+
+		<!-- <dependency org="javassist" name="javassist" rev="3.12.1.GA" conf="jetty->master" 
+			/> -->
+
+
+
+
+
+	</dependencies>
 </ivy-module>
