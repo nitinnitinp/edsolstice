@@ -1,0 +1,135 @@
+body {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 62.5%; /* Causes base font size to be ~10px */
+}
+
+/* Site wide styles */
+#register label {
+    width: 125px;
+    font-weight: bold;
+    display:block;
+    float: left;
+    line-height: 1.8em;
+    text-align: right;
+}
+
+#login label {
+    width: 70px;
+    font-weight: bold;
+    display:block;
+    float: left;
+    line-height: 1.8em;
+    text-align: right;
+}
+
+input[type=text], input[type=password], textarea {
+    width: 175px;
+    margin-left: 5px;
+}
+/* Registration Page Styles */
+#register #content {
+    width: 644px;
+    margin: 20px auto;
+}
+
+#register section {
+    font-size: 1.4em;
+    width: 600px;
+    background-color: #ccc;
+    position: relative;
+    z-index: 1003;
+}
+#register section p {
+    padding-bottom: 20px;
+}
+#register p.ui-state-error {
+    padding: 5px;
+    display: none;
+}
+#register header, #register section div.ui-widget-content {
+    padding: 12px;
+}
+#register section form div {
+    padding: 8px 0px;
+}
+#register #btnRegister {
+    margin-left: 20px;
+}
+#register #cancel {
+    margin-left: 400px;
+}
+#register .ui-widget-overlay {
+    z-index: 1002;
+}
+
+#login #title {
+    width: 100%;
+    height : 100px;
+        background-color: #ccc;
+    position: relative;
+    align : right;
+}
+
+#login #footer {
+    position: bottom;
+    z-index: 1003;
+    height: 100px;
+}
+
+#login #leftpanel {
+    width: 74%;
+    height : 400px;
+    background-color: #ccc;
+    position: relative;
+    align : right;
+    z-index: 1003;
+    float: left;
+}
+
+
+
+/* Login Page Styles */
+#login #content {
+    width: 25%;
+    margin: 5px left;
+    float: right;
+}
+#login section {
+    font-size: 1.4em;
+    width: 100%;
+    height : 400px;
+    background-color: #ccc;
+    position: relative;
+    z-index: 1003;
+}
+#login section p {
+     padding-bottom: 20px;
+}
+#login p.ui-state-error {
+    padding: 5px;
+    display: none;
+}
+#login header, #login section div.ui-widget-content {
+    padding: 12px;
+}
+#login section form {
+    height : 265px;
+    
+}
+#login section form div {
+    padding: 8px 0px;
+    
+}
+#login #btnLogin {
+    margin-left: 80px;
+}
+#login .ui-widget-overlay {
+    z-index: 1002;
+}
+
+/* todo styles */
+#todo #content {
+    width: 400px;
+    margin: auto;
+    text-align: right;
+}
