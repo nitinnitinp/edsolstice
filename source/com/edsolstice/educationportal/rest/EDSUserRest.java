@@ -35,12 +35,8 @@ public class EDSUserRest {
 	@POST
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
-	public Response createUsers(@Context HttpHeaders requestHeaders,
-		EDSUserCreate user,
+	public Response createSession(@Context HttpHeaders requestHeaders, EDSUserCreate user, 
 			@Context UriInfo uriInfo) throws Exception  {
-		//EDSUserCreate createUser=user.convert(EDSUserCreate.class);
-		//String response = "user : " +createUser.getUserName()+ " has created " ;
-		System.out.println(user);
 		return Response.status(200).entity(user).build();
 
 
@@ -52,13 +48,8 @@ public class EDSUserRest {
 	@GET
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
-	public EDSUserCreate getUser (@Context HttpHeaders requestHeaders,
-			
+	public EDSUserCreate getUser (@Context HttpHeaders requestHeaders,		
 			@Context UriInfo uriInfo) throws Exception  {
-		//EDSUserCreate createUser=user.convert(EDSUserCreate.class);
-		//String response = "user : " +createUser.getUserName()+ " has created " ;
-		//System.out.println(user);
-		
 		EDSUserCreate user = new EDSUserCreate();
 		user.setUserName("nitin");
 		user.setPassword("password");
