@@ -26,7 +26,7 @@ $("#btnLogin").button().bind ("click", function(){
 });
 
 $("#btnsignUp").button().bind ("click", function(){
-            document.location = 'registration.html';
+            document.location = 'html/registration.html';
             
 
     return false;
