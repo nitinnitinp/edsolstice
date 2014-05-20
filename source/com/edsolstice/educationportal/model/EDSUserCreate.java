@@ -5,13 +5,15 @@ package com.edsolstice.educationportal.model;
 public class EDSUserCreate {
 
 	private String userName;
+	private String surName;
 	private String password;
+	private String cPassword;
 	private String role;
 	private String emailId;
-	private int mobileNumber;
-	private String departmentName;
-	private String dateOfBirth; // dd//mm//yyyy
-
+	private int mobile;
+	private String department;
+	private String college;
+	
 
 	public String getUserName() {
 		return userName;
@@ -45,29 +47,46 @@ public class EDSUserCreate {
 		this.emailId = emailId;
 	}
 
-	public int getMobileNumber() {
-		return mobileNumber;
-	}
+    public int getMobile() {
+        return mobile;
+    }
 
-	public void setMobileNumber(int mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+    public void setMobile(int mobile) {
+        this.mobile = mobile;
+    }
 
-	public String getDepartmentName() {
-		return departmentName;
-	}
+    public String getcPassword() {
+        return cPassword;
+    }
 
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
-	}
+    public void setcPassword(String cPassword) {
+        this.cPassword = cPassword;
+    }
 
-	public String getDateOfBirth() {
-		return dateOfBirth;
-	}
+    public String getDepartment() {
+        return department;
+    }
 
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
+    public String getSurName() {
+        return surName;
+    }
+
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
+    }
+
+	
 
 }
