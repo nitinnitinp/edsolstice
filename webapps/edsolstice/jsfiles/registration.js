@@ -9,8 +9,17 @@ $.ajax( {
      
     
     data: JSON.stringify ({ 
-	"userName": "John", 
-	"password": "Boston" 
+	"userName": $("#fname").val(), 
+    "surName": $("#lname").val(),
+	"password": $("#password").val(), 
+    "cPpassword": $("#cPpassword").val(),
+    "department": $("#department").val(),
+    "college": $("#college").val(),
+    "mobile": $("#mobile").val(),
+    "emailId": $("#emailId").val(),
+    "role": $("#type").val()
+		
+			
 		}),
 		
 	dataType: 'json',
