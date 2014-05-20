@@ -2,18 +2,24 @@ $("#btnRegister").button().bind ("click", function() {
 
 $.ajax( {
 	
-    type: "POST",
-    url: "edsolstice/rest/registrationservice/users",
-    data: { 
-	userName: "John", 
-	password: "Boston" 
-		} ,
+    type: 'POST',
+    url: '/edsolstice/rest/registrationservice/users',
+    contentType:'application/json',
+    async: false,
+     
     
-    error : function(){
-      alert("error");	
+    data: JSON.stringify ({ 
+	"userName": "John", 
+	"password": "Boston" 
+		}),
+		
+	dataType: 'json',
+    
+   error: function(jqXHR, textStatus, ex) {
+        alert(textStatus + "," + ex + "," + jqXHR.status);	
     },
     
-    success : function(){
+    success : function(xhr){
       alert("success");	
     }
 }
