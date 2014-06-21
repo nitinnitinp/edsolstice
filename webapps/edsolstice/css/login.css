@@ -1,0 +1,59 @@
+fieldset{padding:10px 0px;
+margin:0;
+border:0;
+}
+
+#loginform {
+	position: relative;
+}
+
+
+
+.edsoltice-login-button {
+	border: 0 none;
+	color: #ffffff;
+	height: 35px;
+	width: 100px;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
+}
+
+.purple-bg {
+	border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -o-border-radius: 2x;
+	background-color: #6E329D;
+	background-image: linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	background-image: -moz-linear-gradient(left center , #6E329D 0%, #6E329D 100%);
+	background-image: -o-linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	background-image: -webkit-linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	background-image: -ms-linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	border: 1px solid #522675;
+}
+
+
+
+
+.signup-link {
+	border-top: 1px solid #dfdfdf;
+	margin-top: 10px;
+	padding-top: 20px;
+    position: relative;
+}
+
+
+
+.mm-or {
+	top: 69px;
+	color: #666666;
+	font-size: bold;
+	background-color:  #ffffff;
+	position: absolute;
+	text-align: center;
+	top: -8px;
+	width: 40px;
+	left: 90px;
+}

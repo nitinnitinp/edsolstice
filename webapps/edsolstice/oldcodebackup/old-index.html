@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ 
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<!-- Declare our jQuery UI Theme CSS, this came from the download builder -->
+<link href="libs/css/ui-lightness/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css" />
+<!-- Our styles -->
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+</head>
+ 
+<body id="login">
+<div id="title">
+</div>
+
+<div id="leftpanel">
+</div>
+
+
+ 
+<div id="content">
+    <!-- 
+Our login form container, we define this as the widget container
+with ui-widget, and make the containers corners rounded 
+with the ui-corner-all class. 
+-->
+    <section class="ui-widget ui-corner-all">
+        <!-- 
+A header for the widget container, defined by ui-widget-header
+and we are expecting only the top corners to be rounded 
+with the ui-corner-top class. 
+-->
+        <header class="ui-widget-header ui-corner-top">
+            Login</header>
+        <!-- 
+Define the start of the widget's content with ui-widget-content
+Make the bottom of the content container corner rounded 
+with the ui-corner-bottom class. 
+-->
+        <div class="ui-widget-content ui-corner-bottom">
+            <p>Please login here</p>
+            <!-- 
+The CSS Framework provides a ui-state-error class to help style
+error messages.  We'll use this class to style an error message 
+on an incorrect login attempt
+-->
+            <p class="ui-state-error">Login username/password incorrect.</p>
+            <!-- Our login form -->
+            <form>
+                <div>
+                    <label for="username">Username:</label>
+                    <input id="username" type="text"> </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password"> </div>
+                <div>
+                    <input id="btnLogin" type="submit" value="Login">  <input id="btnsignUp" type="button" value="RegisterHere"> </div>
+            </form>
+        </div>
+    </section>
+</div>
+
+<div id="footer">
+</div>
+
+<!-- 
+An element that's used to create a overlay effect for the login widget.
+The framework class ui-widget-overlay defines the style. 
+-->
+<div class="ui-widget-overlay" style="z-index: 1002;">
+</div>
+<!-- include jQuery, jQuery UI, and our script file -->
+<script src="libs/js/jquery-1.10.2.js"></script>
+<script src="libs/js/jquery-ui-1.10.4.min.js"></script>
+<script src="jsfiles/login.js"></script>
+ 
+</body>
+ 
+</html>

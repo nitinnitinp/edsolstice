@@ -1,0 +1,24 @@
+@import url("menu.css");
+@import url("common.css");
+
+#student-rightcolumnwrap {
+    width: 25%;
+    margin-left: -25%;
+    height:500px;
+    float: right;
+}
+
+img {
+	height: 100px;
+	width: 100px;
+	padding-top : 10px;
+	padding-bottom : 10px;
+}
+
+#student-rightcolumn {
+    background: #f96e5b;
+    border-radius: 10px;
+    height : 495px;
+    border: 1px solid #3eabeb;
+    margin: 5px;
+}

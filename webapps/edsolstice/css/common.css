@@ -1,0 +1,64 @@
+#inputs{
+	align : center;
+}
+
+#inputs p#usernameP{color:#252525;font-weight:bold;font-size:14px;padding-top:0;padding-bottom:18px;}
+
+p {
+    padding: 10px;
+}
+
+#inputs input {
+	border: 1px solid #bababa;
+	margin-bottom: 15px;
+	font-size: 107% !important;
+	padding: 5px;
+	height: 23px;
+	width: 208px;
+	border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -o-border-radius: 3px;
+
+}
+
+#inputs input:focus {
+	border: 1px solid #783ba8;
+}
+
+.hreflinks {
+	margin-bottom: 20px;
+}
+.hreflinks a {
+	font-size: 107%;
+	color: #046fc9;
+}
+.hreflinks a:hover {
+	text-decoration: none;
+}
+
+.edsoltice-button {
+	border: 0 none;
+	color: #ffffff;
+	height: 35px;
+	width: 200px;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
+}
+
+.purple-bg {
+	border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -o-border-radius: 2x;
+	background-color: #6E329D;
+	background-image: linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	background-image: -moz-linear-gradient(left center , #6E329D 0%, #6E329D 100%);
+	background-image: -o-linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	background-image: -webkit-linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	background-image: -ms-linear-gradient(center, #6E329D 0%, #6E329D 100%);
+	border: 1px solid #522675;
+}

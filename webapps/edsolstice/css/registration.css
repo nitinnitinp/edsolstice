@@ -1,0 +1,96 @@
+@import url("reset.css");
+@import url("common.css");
+
+.radiosets {
+	display:inline
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color:#333;
+}
+#edsolstice-registration-headerwrap {
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+#registration-page-header {
+    
+    background: #f96e5b;
+    border-radius: 10px;
+    border: 1px solid #3eabeb;
+    margin: 5px;
+    height: 50px;
+}
+
+#wrapper {
+    width: 50%;
+    margin: 0 auto;
+    height : 100%;
+}
+
+#centercolumnwrap {
+    height:100%;
+    width: 100%;
+}
+
+#centerpanel {
+    background: #f96e5b;
+    border-radius: 10px;
+    height : 600px;
+    border: 1px solid #3eabeb;
+    margin: 5px;
+}
+
+#reg-inputs{
+	align : center;
+}
+
+#reg-inputs p#usernameP{color:#252525;font-weight:bold;font-size:14px;padding-top:0;padding-bottom:18px;}
+
+
+#reg-inputs input {
+	border: 1px solid #bababa;
+	margin-bottom: 15px;
+	font-size: 107% !important;
+	padding: 5px;
+	height: 23px;
+	width: 70%;
+	border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -o-border-radius: 3px;
+
+}
+
+#reg-inputs input:focus {
+	border: 1px solid #783ba8;
+}
+
+#reg-inputs input[type=radio].css-checkbox{
+	width:20%;
+}
+#reg-inputs input[type=radio].css-checkbox + label.css-label {
+	font-size:16px;
+	vertical-align:middle;
+	cursor:pointer;
+}
+
+#reg-inputs .namefield{
+	border: 1px solid #bababa;
+	margin-bottom: 15px;
+	font-size: 107% !important;
+	padding: 5px;
+	height: 23px;
+	width: 34%;
+	border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -o-border-radius: 3px;
+
+}
+
