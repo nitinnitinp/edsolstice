@@ -42,7 +42,7 @@ public class LoginSessionRest {
 			 throw new Exception("Bad request"); 
 		}
 		
-		EDSUser user=EDSDbMgr.getInstance().getEDSUser(loginUser.getEmail());
+		EDSUser user=EDSDbMgr.getInstance().getEDSUserByEmail(loginUser.getEmail());
 		
 		if(user == null) {
 			throw new Exception("User not found"); 

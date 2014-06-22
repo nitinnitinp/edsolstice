@@ -4,6 +4,8 @@
 <title>EDSOLSTICE</title>
 <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="./css/indexscreen.css" />
+<!-- Declare our jQuery UI Theme CSS, this came from the download builder -->
+<link href="libs/css/ui-lightness/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <div id="wrapper">
@@ -33,11 +35,11 @@
             <p>Login</p>
             <form>
                 <div id='inputs'>
-                	<input name='username' id='username' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="User Name" autocorrect="off" value="">
-                	<input name='passwd' id='passwd' type='password' maxlength='64' tabindex='2' aria-required="true" placeholder="Password" autocorrect="off" value="">
+                	<input name='email' id='email' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Email Id autocorrect="off" value="">
+                	<input name='password' id='password' type='password' maxlength='64' tabindex='2' aria-required="true" placeholder="Password" autocorrect="off" value="">
                 </div>
                 <div id='submit'>
-					<button type='submit' onSubmit="(href='students.html')" id='.save' name='.save' class='edsoltice-login-button purple-bg' tabindex='4'>
+					<button type='submit' onSubmit="(href='students.html')" id='save' name='save' class='edsoltice-login-button purple-bg' tabindex='4'>
 		  				Sign in
 					</button>
 				</div>
@@ -60,5 +62,9 @@
         </div>
       </div>
     </div>
+     <!-- include jQuery, jQuery UI, and our script file -->
+<script src="libs/js/jquery-1.10.2.js"></script>
+<script src="libs/js/jquery-ui-1.10.4.min.js"></script>
+<script src="jsfiles/login.js"></script>
 </body>
 </html>

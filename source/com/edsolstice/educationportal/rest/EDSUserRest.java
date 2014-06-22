@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
@@ -17,8 +18,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.app.RegisterService;
+import com.edsolstice.educationportal.auth.SessionService;
+import com.edsolstice.educationportal.dbmodel.EDSDbMgr;
+import com.edsolstice.educationportal.dbmodel.EDSUser;
 import com.edsolstice.educationportal.logic.Constants;
 import com.edsolstice.educationportal.restmodel.EDSUserCreate;
+
 
 
 
@@ -34,7 +39,7 @@ public class EDSUserRest {
 	public EDSUserRest()  {
 	}
 
-	@Path ("/users")
+	@Path ("/users/{uid}")
 	@POST
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
@@ -45,16 +50,19 @@ public class EDSUserRest {
 	}
 
 	
-	@Path ("/users")
+	@Path ("/users/{UID}")
 	@GET
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
-	public EDSUserCreate getUser (@Context HttpHeaders requestHeaders,	
-			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,	
+	public EDSUser getUser (@Context HttpHeaders requestHeaders,	
+			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,
+			@PathParam ("UID") String UID,
 			@Context UriInfo uriInfo) throws Exception  {
-		EDSUserCreate user = new EDSUserCreate();
-		user.setUserName("nitin");
-		user.setPassword("password");
+	
+		SessionService.isUserValid(sessionToken);
+		EDSUser user=EDSDbMgr.getInstance().getEDSUserByUID(UID);
+		SessionService.isUserValid(user.getEmail(), sessionToken, user.getPassword());
+		
 		return user;
 
 

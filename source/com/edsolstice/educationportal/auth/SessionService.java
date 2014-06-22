@@ -16,8 +16,13 @@ public class SessionService {
         return authorizedUserManager.addUser(userName, password);
     }
 
-    public static boolean isUserValid(String userName, String authToken, String password) {
-        return authorizedUserManager.isUserValid(userName, authToken, password);
+    public static void isUserValid(String userName, String authToken, String password) throws Exception {
+         authorizedUserManager.isUserValid(userName, authToken, password);
+    }
+    
+    
+    public static void isUserValid(String authToken) throws Exception {
+         authorizedUserManager.isUserValid(authToken);
     }
     
     

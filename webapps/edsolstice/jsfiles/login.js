@@ -32,8 +32,23 @@ $("#save").button().bind ("click", function(){
         			$("#rightcolumn").effect("shake", {times: 3}, 80);
         		},
 
-        		success : function(xhr){
+        		success : function(loginData){
+        			
         			document.location = 'students.htm';	
+        			var result = jQuery.parseJSON(JSON.stringify(loginData));
+        			jQuery.ajax({ 
+        				  headers : {
+        				     "sessionToken" : result.sessionToken,
+              				  },
+              				type: 'GET',
+                    		url: '/edsolstice/rest/userservice/users/'+result.uid,
+                    		contentType:'application/json',
+                    		async: false,
+                    		dataType: 'json',
+        				  success: function(userData) {
+        				   alert(JSON.stringify(userData));
+        				  }
+        				});
         		}
         	}
         	);

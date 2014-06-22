@@ -60,9 +60,20 @@ public class AuthorizedUserManager {
     }
 
 
-    public boolean isUserValid(String email, String authToken, String password) {
+    public void isUserValid(String email, String authToken, String password) throws Exception {
         AuthorizedUser user = getUser(email, password);
-        return (user != null) && user.getAuthToken().equals(authToken);
+        if( (user != null) && user.getAuthToken().equals(authToken)) return;
+        throw new Exception("Not a valid user");
+    }
+    
+    public void isUserValid(String authToken) throws Exception {
+    	AuthorizedUser result = null;
+        for (AuthorizedUser user : authorizedUsers) {
+            if (user.getAuthToken().equals(authToken)){
+                result = user;
+            }
+        }
+      if(result==null)  throw new Exception("session token is not valid");
     }
 
 
