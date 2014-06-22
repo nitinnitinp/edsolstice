@@ -34,10 +34,13 @@ $("#save").button().bind ("click", function() {
 		},
 
 		success : function(xhr){
-			alert("success");	
+			document.location = 'index.html';
+			
 		}
 	}
 	);
+	
+	 return false;
 });
 
 

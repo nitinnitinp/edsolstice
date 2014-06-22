@@ -6,6 +6,7 @@ package com.edsolstice.educationportal.rest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,7 +17,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.app.RegisterService;
+import com.edsolstice.educationportal.logic.Constants;
 import com.edsolstice.educationportal.restmodel.EDSUserCreate;
+
 
 
 
@@ -39,8 +42,6 @@ public class EDSUserRest {
 			@Context UriInfo uriInfo) throws Exception  {
 		return Response.status(200).entity(user).build();
 
-
-
 	}
 
 	
@@ -48,7 +49,8 @@ public class EDSUserRest {
 	@GET
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
-	public EDSUserCreate getUser (@Context HttpHeaders requestHeaders,		
+	public EDSUserCreate getUser (@Context HttpHeaders requestHeaders,	
+			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,	
 			@Context UriInfo uriInfo) throws Exception  {
 		EDSUserCreate user = new EDSUserCreate();
 		user.setUserName("nitin");

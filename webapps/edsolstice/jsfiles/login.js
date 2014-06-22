@@ -1,33 +1,47 @@
-// Make sure that the error state element is hidden.
-$(".ui-state-error").hide();
+
 
 // Call the button widget method on the login button to format it. 
-$("#btnLogin").button().bind ("click", function(){
+$("#save").button().bind ("click", function(){
     // Test our form for a valid login.  
     // Our form only works with:
     //     username: script
     //     password: junkie
-    if ( $("#username").val() != "admin" 
-        && $("#password").val() != "admin") {
-        
-            // If the login credentials are not correct,
-            // show our error state element.
-            $(".ui-state-error").show();
-            // Add an jQuery UI effect that shakes the whole login form
-            // like as if it's shaking its head no.
-            $("#login section").effect("shake", 150 );
-    } else {
+   
             // If the login credentials are correct, go to the todo page.
-            document.location = 'todo.html';
-    }
+            
+            $.ajax( {
+
+        		type: 'POST',
+        		url: '/edsolstice/rest/loginsessionservice/login',
+        		contentType:'application/json',
+        		async: false,
+
+
+        		data: JSON.stringify ({ 
+        			
+        			"password": $("#password").val(), 
+        			"email": $("#email").val()
+//        			"role": $("#type").val()
+
+
+        		}),
+
+        		dataType: 'json',
+
+        		error: function(jqXHR, textStatus, ex) {
+        			$("#rightcolumn").effect("shake", {times: 3}, 80);
+        		},
+
+        		success : function(xhr){
+        			document.location = 'students.htm';	
+        		}
+        	}
+        	);
+            
+            return false;
             
     // return false to cancel normal form submit event methods.
-    return false;
+   
 });
 
-$("#btnsignUp").button().bind ("click", function(){
-            document.location = 'registration.html';
-            
 
-    return false;
-});

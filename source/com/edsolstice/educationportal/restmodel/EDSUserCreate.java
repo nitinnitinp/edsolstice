@@ -1,6 +1,8 @@
 package com.edsolstice.educationportal.restmodel;
 
 import com.edsolstice.educationportal.dbmodel.EDSUser;
+import com.edsolstice.educationportal.logic.StringUtils;
+import com.edsolstice.educationportal.logic.UidUtils;
 
 
 
@@ -108,9 +110,10 @@ public class EDSUserCreate {
 	}
 
 	
-public EDSUser covert() {
+public EDSUser covert() throws Exception {
 		EDSUser user = new EDSUser();
 		user.setCollege(college);
+		if(StringUtils.nullOrEmpty(email)) throw new Exception (" email id is null or not valid");
 		user.setEmail(email);
 		user.setFieldOfInterest(fieldOfInterest);
 		user.setFirstName(userName);
@@ -118,7 +121,9 @@ public EDSUser covert() {
 		user.setName(userName);
 		user.setMobile(mobile);
 		user.setLastName(surName);
+		if(StringUtils.nullOrEmpty(password)) throw new Exception ("password is null");
 		user.setPassword(password);
+		UidUtils.setUID(user);
 		return user;
 	}
 }

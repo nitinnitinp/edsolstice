@@ -13,15 +13,6 @@ import org.codehaus.jackson.map.SerializationConfig;
 import org.codehaus.jackson.map.introspect.JacksonAnnotationIntrospector;
 
 
-/**
- * %Z%%M% %I% %E%
- */
-
-/**
- * Utility methods for web.
- * 
- * @author Michael Migal
- */
 public abstract class WebUtil {
 	public static final String SERIALIZE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 	private static final String REST_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";

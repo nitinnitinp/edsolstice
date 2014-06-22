@@ -46,23 +46,24 @@ public class EDSDbMgr {
 	
 	/**
 	 * <---------------------------------------------------------EDSUser Table Operations------------------------------------------------------------------->
+	 * @throws Exception 
 	 */
 
 
-	public long addEDSUser(EDSUser user)  {
+	public String addEDSUser(EDSUser user) throws Exception  {
 //		//_logger.trace("Entering method");
 
 		Session session = getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		long id = -1;
+		String id = null;
 		try {
-			id = (Long) session.save(user);
+			id = (String) session.save(user);
 			//_logger.debug("Session returned: "+id);
 			session.flush();
 			tx.commit();
 
 		} catch (Exception e) {
-			//_logger.error("Problem saving EDSUserObject: "+e, e);
+			throw e;
 			
 		} finally {
 			session.close();
@@ -102,7 +103,7 @@ public class EDSDbMgr {
 	}
 
 
-	public EDSUser getEDSUserForLogicalName(String email)  {
+	public EDSUser getEDSUser(String email)  {
 
 		//_logger.trace("Entering method");
 
@@ -111,7 +112,7 @@ public class EDSDbMgr {
 
 		EDSUser userObject = null;
 		try {
-			userObject = (EDSUser) session.createSQLQuery("select * from edsuser_table  where emaid=:email").addEntity(EDSUser.class).setString("email", email).uniqueResult();
+			userObject = (EDSUser) session.createSQLQuery("select * from edsuser_table  where email=:email").addEntity(EDSUser.class).setString("email", email).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {

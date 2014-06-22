@@ -4,12 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.edsolstice.educationportal.restmodel.EDSSession;
+
 @Entity
 @Table(name = "edsuser_table")
 public class EDSUser extends EDSBaseObject {
-	
 private static final long serialVersionUID = 1L;
-	@Id
+
     String email;
 	int mobile;
 	String firstName;
@@ -19,6 +20,7 @@ private static final long serialVersionUID = 1L;
 	String fieldOfInterest;
 	String gender;
 	String password;
+	String role;
 	
 	public String getEmail() {
 		return email;
@@ -74,8 +76,20 @@ private static final long serialVersionUID = 1L;
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-
+	 public String getRole() {
+			return role;
+		}
+		public void setRole(String role) {
+			this.role = role;
+		}
+		
+ public EDSSession mapSessionUser(String sessionToken) {
+	 EDSSession session =new EDSSession();
+	 session.setSessionToken(sessionToken);
+	 session.setEmail(email);
+	 session.setUid(uid);
+	 return session;
+ }
 	
 }
 

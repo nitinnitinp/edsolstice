@@ -23,7 +23,7 @@ import javax.ws.rs.core.UriInfo;
 @RegisterService("userservice")
 public class RegistrationRest {
 	
-	public RegistrationRest()  {
+	public RegistrationRest()  {		
 	}
 
 	@Path ("/users")
@@ -33,12 +33,10 @@ public class RegistrationRest {
 	public Response createUser(@Context HttpHeaders requestHeaders,
 		EDSUserCreate user,
 			@Context UriInfo uriInfo) throws Exception  {
-		//EDSUserCreate createUser=user.convert(EDSUserCreate.class);
-		//String response = "user : " +createUser.getUserName()+ " has created " ;
-		System.out.println(user);
+		
 		EDSUser edsUser =user.covert();
 		EDSDbMgr.getInstance().addEDSUser(edsUser);
-		return Response.status(200).entity(user).build();
+		return Response.status(200).entity(edsUser).build();
 
 
 

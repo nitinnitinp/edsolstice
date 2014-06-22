@@ -1,11 +1,14 @@
 package com.edsolstice.educationportal.dbmodel;
 
 import java.io.Serializable;
-
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+@MappedSuperclass
 public class EDSBaseObject implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	String name;
+	@Id
 	String uid;
 	long id;
 	String parentId;
