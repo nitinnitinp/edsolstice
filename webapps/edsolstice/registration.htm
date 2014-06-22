@@ -4,6 +4,8 @@
 <title>EDSOLSTICE</title>
 <!--[if IE>=<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 <link rel="stylesheet" type="text/css" href="./css/registration.css" />
+<!-- Declare our jQuery UI Theme CSS, this came from the download builder -->
+<link href="libs/css/ui-lightness/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body align="center">
     <div id="wrapper" >
@@ -19,31 +21,32 @@
             <form>
                 <div id='reg-inputs'>
                 	<input name='username' id='fname' class='namefield' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="First Name" autocorrect="off" value="">
-                	<input name='passwd' id='lname' class='namefield' type='text' maxlength='64' tabindex='2' aria-required="true" placeholder="Last Name" autocorrect="off" value="">
+                	<input name='lastname' id='lname' class='namefield' type='text' maxlength='64' tabindex='2' aria-required="true" placeholder="Last Name" autocorrect="off" value="">
                 	<input name='mobilenumber' id='mobilenumber' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Mobile Number" autocorrect="off" value="">
-                	<input type='email' name='email' id='username' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Email ID" autocorrect="off" value="">
-                	<input type="text" onemptied="(this.type='text')" onfocus="(this.type='date')" name="bday" placeholder="Date of Birth" value="">
+                	<input type='email' name='email' id='email' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Email ID" autocorrect="off" value="">
+                	<input type='password' name='password' id='password' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Password " autocorrect="off" value="">
+                	<input type='password' name='cpassword' id='cpassword' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Confirm Password" autocorrect="off" value="">
                 	<table width="70%">
   						<tr >
   							<td align="right" style = "padding-right :10px">
-								<input type='radio' id='male' name='gender' value='m' class='css-checkbox'/>
+								<input type='radio' id='gender' name='gender' value='m' class='css-checkbox'/>
                     			<label for='male' class='css-label'>Male</label>
                     		</td>
                     		<td align="left" valign="middle" style = "padding-left :10px" >
-                    			<input type='radio' id='female' name='gender' value='f' class='css-checkbox'/>
+                    			<input type='radio' id='gender' name='gender' value='f' class='css-checkbox'/>
                     			<label for='female' class='css-label'>Female</label>
                     		</td>
                     	
                     	</tr>
 	              	</table>
 	              	
-	              	<input name='username' id='username' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="College Name" autocorrect="off" value="">
-                	<input name='username' id='username' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Stream Name <Department Name>" autocorrect="off" value="">
-                	<input name='username' id='username' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Field of Interest" autocorrect="off" value="">
+	              	<input name='college' id='college' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="College Name" autocorrect="off" value="">
+                	<input name='stream' id='stream' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Stream Name <Department Name>" autocorrect="off" value="">
+                	<input name='fieldOfInterest' id='fieldOfInterest' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Field of Interest" autocorrect="off" value="">
                 	
                 </div>
                 <div id='submit'>
-					<button type='submit' id='.save' name='.save' class='edsoltice-button purple-bg' tabindex='4'>
+					<button type='submit' id='save' name='save' class='edsoltice-button purple-bg' tabindex='4'>
 		  				Register
 					</button>
 				</div>
@@ -52,5 +55,9 @@
 	   </div>
       </div>
     </div>
+ <!-- include jQuery, jQuery UI, and our script file -->
+<script src="libs/js/jquery-1.10.2.js"></script>
+<script src="libs/js/jquery-ui-1.10.4.min.js"></script>
+<script src="jsfiles/registration.js"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.app.RegisterService;
-import com.edsolstice.educationportal.model.EDSUserCreate;
+import com.edsolstice.educationportal.restmodel.EDSUserCreate;
 
 
 

@@ -1,4 +1,6 @@
-package com.edsolstice.educationportal.model;
+package com.edsolstice.educationportal.restmodel;
+
+import com.edsolstice.educationportal.dbmodel.EDSBaseObject;
 
 public class Student extends EDSBaseObject	 {
 String name;

@@ -1,4 +1,6 @@
-package com.edsolstice.educationportal.model;
+package com.edsolstice.educationportal.restmodel;
+
+import com.edsolstice.educationportal.dbmodel.EDSUser;
 
 
 
@@ -9,11 +11,21 @@ public class EDSUserCreate {
 	private String password;
 	private String cPassword;
 	private String role;
-	private String emailId;
+	private String email;
 	private int mobile;
 	private String department;
 	private String college;
+	private String fieldOfInterest;
+	private String gender;
 	
+
+	public String getFieldOfInterest() {
+		return fieldOfInterest;
+	}
+	
+	public void setFieldOfInterest(String fieldOfInterest) {
+		this.fieldOfInterest = fieldOfInterest;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -39,12 +51,12 @@ public class EDSUserCreate {
 		this.role = role;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
     public int getMobile() {
@@ -87,6 +99,26 @@ public class EDSUserCreate {
         this.college = college;
     }
 
-	
+	public String getGender() {
+		return gender;
+	}
 
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	
+public EDSUser covert() {
+		EDSUser user = new EDSUser();
+		user.setCollege(college);
+		user.setEmail(email);
+		user.setFieldOfInterest(fieldOfInterest);
+		user.setFirstName(userName);
+		user.setGender(gender);
+		user.setName(userName);
+		user.setMobile(mobile);
+		user.setLastName(surName);
+		user.setPassword(password);
+		return user;
+	}
 }

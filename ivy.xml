@@ -7,6 +7,8 @@
 
 	</configurations>
 
+
+
 	<dependencies>
 
 		<dependency org="org.reflections" name="reflections" rev="0.9.9-RC1"
@@ -27,6 +29,8 @@
 		<dependency org="javassist" name="javassist" rev="3.12.1.GA"
 			conf="compile->master" />
 
+
+
 		<dependency org="org.jboss.resteasy" name="jaxrs-api" rev="3.0.8.Final"
 			conf="compile->master" />
 		<dependency org="org.jboss.spec.javax.annotation" name="jboss-annotations-api_1.1_spec"
@@ -41,8 +45,11 @@
 			rev="3.0.4.Final" conf="compile->master" />
 		<dependency org="org.jboss.resteasy" name="resteasy-jaxrs"
 			rev="2.3.0.GA" conf="compile->master" />
+		<dependency org="dom4j" name="dom4j" rev="1.6.1" conf="compile->master" />
 
 
+		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.7"
+			conf="compile->master" />
 
 		<dependency org="org.apache.commons" name="commons-lang3"
 			rev="3.1" conf="compile->master" />
@@ -53,8 +60,18 @@
 			rev="1.8.3" conf="compile->master" />
 		<dependency org="com.google.guava" name="guava" rev="16.0"
 			conf="compile->master" />
-
-
+		<dependency org="org.hibernate" name="hibernate-core" rev="3.6.10.Final"
+			conf="compile->master" />
+		<dependency org="org.hibernate.common" name="hibernate-commons-annotations"
+			rev="4.0.1.Final" conf="compile->master" />
+		<dependency org="org.jboss.logging" name="jboss-logging"
+			rev="3.1.0.CR1" conf="compile->master" />
+		<dependency org="org.apache.derby" name="derby" rev="10.10.2.0"
+			conf="compile->master" />
+		<dependency org="org.hibernate.javax.persistence" name="hibernate-jpa-2.0-api"
+			rev="1.0.0.Final" conf="compile->master" />
+		<dependency org="javax.transaction" name="jta" rev="1.1"
+			conf="compile->master" />
 
 		<dependency org="org.eclipse.jetty" name="jetty-ajp" rev="8.1.5.v20120716"
 			conf="jetty->master" />

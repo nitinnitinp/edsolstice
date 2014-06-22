@@ -165,7 +165,8 @@
              <war destfile="${mfg_dir}/edsolstice.war">
              	            <classes dir="${classes_dir}" />
              	            <fileset dir="${edsolstice_webapp_dir}" />
-             	            <lib dir="${lib_dir}"> <include name="*.jar"/></lib>     
+             	             <lib dir="${lib_dir}"> <include name="*.jar"/></lib>  
+             	             <classes file="hibernate.cfg.xml"/>
              	            
                      </war>   
 

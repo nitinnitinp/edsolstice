@@ -1,5 +1,4 @@
-$("#btnRegister").button().bind ("click", function() {
-
+$("#save").button().bind ("click", function() {
  //  var registration = new Registration();
   //  registration.init();
     //registration.validate();
@@ -16,12 +15,14 @@ $("#btnRegister").button().bind ("click", function() {
 			"userName": $("#fname").val(), 
 			"surName": $("#lname").val(),
 			"password": $("#password").val(), 
-			"cPpassword": $("#cPpassword").val(),
-			"department": $("#department").val(),
+			"cPassword": $("#cpassword").val(),
+			"department": $("#stream").val(),
 			"college": $("#college").val(),
-			"mobile": $("#mobile").val(),
-			"emailId": $("#emailId").val(),
-			"role": $("#type").val()
+			"mobile": $("#mobilenumber").val(),
+			"email": $("#email").val(),
+			"gender": $("#gender").val(),
+			"fieldOfInterest": $("#fieldOfInterest").val(),
+//			"role": $("#type").val()
 
 
 		}),

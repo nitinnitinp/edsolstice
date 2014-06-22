@@ -1,7 +1,9 @@
 package com.edsolstice.educationportal.rest;
 
 import com.edsolstice.educationportal.app.RegisterService;
-import com.edsolstice.educationportal.model.EDSUserCreate;
+import com.edsolstice.educationportal.dbmodel.EDSDbMgr;
+import com.edsolstice.educationportal.dbmodel.EDSUser;
+import com.edsolstice.educationportal.restmodel.EDSUserCreate;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -34,6 +36,8 @@ public class RegistrationRest {
 		//EDSUserCreate createUser=user.convert(EDSUserCreate.class);
 		//String response = "user : " +createUser.getUserName()+ " has created " ;
 		System.out.println(user);
+		EDSUser edsUser =user.covert();
+		EDSDbMgr.getInstance().addEDSUser(edsUser);
 		return Response.status(200).entity(user).build();
 
 
