@@ -12,7 +12,7 @@ public class EDSUser extends EDSBaseObject {
 private static final long serialVersionUID = 1L;
 
     String email;
-	int mobile;
+	long mobile;
 	String firstName;
 	String lastName;
 	String college;
@@ -28,10 +28,10 @@ private static final long serialVersionUID = 1L;
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getMobile() {
+	public long getMobile() {
 		return mobile;
 	}
-	public void setMobile(int mobile) {
+	public void setMobile(long mobile) {
 		this.mobile = mobile;
 	}
 	public String getFirstName() {

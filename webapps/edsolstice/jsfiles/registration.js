@@ -1,16 +1,10 @@
-$("#save").button().bind ("click", function() {
- //  var registration = new Registration();
-  //  registration.init();
-    //registration.validate();
+$("#save").bind ("click", function() {
 
 	$.ajax( {
 
 		type: 'POST',
 		url: '/edsolstice/rest/registrationservice/users',
 		contentType:'application/json',
-		async: false,
-
-
 		data: JSON.stringify ({ 
 			"userName": $("#fname").val(), 
 			"surName": $("#lname").val(),
@@ -23,98 +17,66 @@ $("#save").button().bind ("click", function() {
 			"gender": $("#gender").val(),
 			"fieldOfInterest": $("#fieldOfInterest").val(),
 //			"role": $("#type").val()
-
-
 		}),
 
 		dataType: 'json',
-
 		error: function(jqXHR, textStatus, ex) {
 			alert(textStatus + "," + ex + "," + jqXHR.status);	
 		},
-
 		success : function(xhr){
-			document.location = 'index.html';
-			
+			document.location = 'index.html';		
 		}
 	}
 	);
-	
-	 return false;
+	return false;
 });
 
 
-//$(document).ready(function() {
-//$("#registration").validate({
-//	
-//rules: {
-//	
-//// no quoting necessary
-//mobile: "required"
-//},
-//messages: {
-//	mobile: "Please enter your first name"
-//}
-//});
-//});
+function validateTextFields(fieldId, errormessage , msgid ,targetId , type){
+	var pattern = /^[A-Za-z]+$/;
+	if(type == 'number'){
+		pattern =  /^[0-9]+$/;
+	}else if(type == 'email'){
+		pattern =  /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	}
+	else{
+		pattern = /^[A-Za-z]+$/;
+	}
+	var inputvalue = $("#"+fieldId).val();
+	if(inputvalue == '' || !(pattern.test(inputvalue))){
+		if($('#'+msgid).length == 0){
+			$('#'+targetId).after('<div id="'+msgid+'" style="padding-bottom:10px;color:#522675">' +errormessage+'</div>');
+		}		
+	}else{
+		$('#'+msgid).remove();
+	}
+}
 
-$(document).ready(function(){
-	  $("p").click(function(){
-	    $(this).hide();
-	  });
-	});x
 
-//function Registration () {
-//	
-//	this.userName = $("#fname").val();
-//	this.surName = $("#lname").val();
-//	this.password = $("#password").val(); 
-//	this.cPpassword = $("#cPpassword").val();
-//	this.department = $("#department").val();
-//	this.college = $("#college").val();
-//	this.mobile = $("#mobile").val();
-//	this.emailId = $("#emailId").val()
-//	this.role = $("#type").val();
-//
-//	} 
-//
-//
-//Registration.prototype.validate = function () {
-//    	
-//	var nameReg = /^[A-Za-z]+$/;
-//	var numberReg =  /^[0-9]+$/;
-//	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-//
-//	//$('.error').hide();
-//
-//	if(this.userName == ""){
-//		$('#fname').after('<span class="error"> Please enter your first name</span>');
-//	} 
-//	else if(!nameReg.test(this.userName)){
-//		$('#fname').after('<span class="error"> Letters only</span>');
-//	}
-//
-//	if(this.surName == ""){
-//		$('#lname').after('<span class="error"> Please enter your last name</span>');
-//	} 
-//	else if(!nameReg.test(this.surName)){
-//		$('#lname').after('<span class="error"> Letters only</span>');
-//	}
-//
-//	if(this.emailId == ""){
-//		$('#emailId').after('<span class="error"> Please enter your email </span>');
-//	} 
-//	else if(!emailReg.test(this.emailId)){
-//		$('#emailId').after('<span class="error"> Please enter a valid email address</span>');
-//	}
-//
-//	if(this.mobile == ""){
-//		$('#mobile').after('<span class="error"> Please enter your mobile</span>');
-//	} 
-//	else if(!numberReg.test(this.mobile)){
-//		$('#mobile').after('<span class="error"> Numbers only</span>');
-//	}
-//return false ;
-//
-//}   
 
+$("#fname").bind("blur",function(){
+	validateTextFields('fname' , 'Please enter valid Firstname' , 'fnameerror' , 'lname');
+	
+});
+
+$("#lname").bind("blur",function(){
+	validateTextFields('lname' , 'Please enter valid Lastname' , 'fnameerror' , 'lname');
+});
+
+$("#mobilenumber").bind("blur",function(){
+	validateTextFields('mobilenumber' , 'Please enter valid Mobile Number' , 'mnumerr' , 'mobilenumber' , 'number');
+});
+
+$("#email").bind("blur",function(){
+	validateTextFields('email' , 'Please enter valid Email Id' , 'emailerr' , 'email' , 'email');
+});
+
+$("#cpassword").bind("blur",function(){
+	if($("#cpassword").val() != $("#password").val()){
+		if($('#pwderr').length == 0){
+			$('#cpassword').after('<div id="pwderr" style="padding-bottom:10px;color:#522675"> Password and Confirm Password should be same</div>');
+		}
+	}else{
+		$('#pwderr').remove();
+	}
+});

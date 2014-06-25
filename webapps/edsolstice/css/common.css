@@ -8,6 +8,11 @@ p {
     padding: 10px;
 }
 
+.errormessage {
+    padding-bottom: 10px;
+    color : #522675;
+}
+
 #inputs input {
 	border: 1px solid #bababa;
 	margin-bottom: 15px;

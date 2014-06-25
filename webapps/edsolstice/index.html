@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="./css/indexscreen.css" />
 <!-- Declare our jQuery UI Theme CSS, this came from the download builder -->
 <link href="libs/css/ui-lightness/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <div id="wrapper">
@@ -17,7 +18,7 @@
         <div id="navigationwrap">
         <div id='edsolstice-menu'>
 			<ul>
-   				<li class='active'><a href='index.html'><span>Menu1</span></a></li>
+   				<li class='active'><a href='index.html'><span>Home</span></a></li>
    				<li><a href='#'><span>Menu 2</span></a></li>
    				<li><a href='#'><span>Menu 3</span></a></li>
    				<li class='last'><a href='#'><span>Menu 4</span></a></li>
@@ -33,15 +34,22 @@
         <div id="rightcolumn" align="center">
         <fieldset id='loginform' class='clear'>
             <p>Login</p>
-            <form>
+            <div id="serverErr" class="errormessage" hidden>
+					UserName and Password doesn't match!!!
+			</div>
+            <form autocomplete="on">
                 <div id='inputs'>
-                	<input name='email' id='email' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Email Id autocorrect="off" value="">
-                	<input name='password' id='password' type='password' maxlength='64' tabindex='2' aria-required="true" placeholder="Password" autocorrect="off" value="">
+                	<input name='email' id='email' type="text" maxlength='96' tabindex='1'  placeholder="Email Id" value="" required>
+                	<div id="emailerrormessage" class="errormessage" hidden>
+						UserName shouldn't be empty!!!
+					</div>
+                	<input name='password' id='password' type='password' maxlength='64' tabindex='2' aria-required="true" placeholder="Password" autocorrect="off" value="" autocomplete="off">
+                	<div id="passworderrormessage" class="errormessage" hidden>
+						Password shouldn't be empty!!!
+					</div>
                 </div>
                 <div id='submit'>
-					<button type='submit' onSubmit="(href='students.html')" id='save' name='save' class='edsoltice-login-button purple-bg' tabindex='4'>
-		  				Sign in
-					</button>
+					<input type='submit' id='save' name='save' class='edsoltice-login-button purple-bg save' tabindex='4' value = 'Sign in'/>
 				</div>
 			</form>
 		</fieldset>
@@ -63,8 +71,9 @@
       </div>
     </div>
      <!-- include jQuery, jQuery UI, and our script file -->
-<script src="libs/js/jquery-1.10.2.js"></script>
+     <script src="libs/js/jquery-1.10.2.js"></script>
 <script src="libs/js/jquery-ui-1.10.4.min.js"></script>
 <script src="jsfiles/login.js"></script>
+
 </body>
 </html>

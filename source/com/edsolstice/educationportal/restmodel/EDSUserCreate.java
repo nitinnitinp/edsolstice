@@ -14,7 +14,7 @@ public class EDSUserCreate {
 	private String cPassword;
 	private String role;
 	private String email;
-	private int mobile;
+	private long mobile;
 	private String department;
 	private String college;
 	private String fieldOfInterest;
@@ -61,11 +61,11 @@ public class EDSUserCreate {
 		this.email = email;
 	}
 
-    public int getMobile() {
+    public long getMobile() {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(long mobile) {
         this.mobile = mobile;
     }
 
