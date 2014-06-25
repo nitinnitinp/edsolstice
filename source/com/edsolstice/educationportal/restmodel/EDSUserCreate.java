@@ -121,6 +121,7 @@ public EDSUser covert() throws Exception {
 		user.setName(userName);
 		user.setMobile(mobile);
 		user.setLastName(surName);
+		user.setActive(false);
 		if(StringUtils.nullOrEmpty(password)) throw new Exception ("password is null");
 		user.setPassword(password);
 		UidUtils.setUID(user);

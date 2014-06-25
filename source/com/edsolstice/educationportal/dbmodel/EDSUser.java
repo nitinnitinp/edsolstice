@@ -21,6 +21,7 @@ private static final long serialVersionUID = 1L;
 	String gender;
 	String password;
 	String role;
+	boolean isActive;
 	
 	public String getEmail() {
 		return email;
@@ -90,6 +91,12 @@ private static final long serialVersionUID = 1L;
 	 session.setUid(uid);
 	 return session;
  }
+public boolean isActive() {
+	return isActive;
+}
+public void setActive(boolean isActive) {
+	this.isActive = isActive;
+}
 	
 }
 

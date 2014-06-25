@@ -52,6 +52,10 @@ public class LoginSessionRest {
 			throw new Exception("password does not match"); 
 		}
 		
+		if(!user.isActive()) {
+			throw new Exception("Please activate your account using login to your email"); 
+		}
+		
 		return user.mapSessionUser(SessionService.addUser(user.getEmail(), user.getPassword()));
  
 }
