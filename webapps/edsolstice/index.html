@@ -6,7 +6,24 @@
 <link rel="stylesheet" type="text/css" href="./css/indexscreen.css" />
 <!-- Declare our jQuery UI Theme CSS, this came from the download builder -->
 <link href="libs/css/ui-lightness/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css" />
-
+  <script src="libs/js/jquery-1.10.2.js"></script>
+<script src="libs/js/jquery-ui-1.10.4.min.js"></script>
+<script src="./jsfiles/imageslider.js"></script>
+<script>
+$(function() {
+        $("#imageslider").bjqs({
+          width: 760,
+          height: 380,
+          animtype: "slide",
+          responsive: false,
+          automatic: false,
+          keyboardnav: false,
+          markertype: "1",
+          prevtext: "Prev",
+          nexttext: "Next"
+        });
+      });
+</script>
 </head>
 <body>
     <div id="wrapper">
@@ -27,7 +44,25 @@
         </div>
         <div id="contentliquid"><div id="contentwrap">
         <div id="content">
-           <p>Need to add something here... </p>
+            <div id='imageslider'>
+  <ul class='bjqs'>
+    <li class='slide-1'>
+      <div class='caption'>Slide 1 Caption</div>
+    </li>
+    <li class='slide-2'>
+      <div class='caption'>Slide 2 Caption</div>
+    </li>
+    <li class='slide-3'>
+      <div class='caption'>Slide 3 Caption</div>
+    </li>
+    <li class='slide-4'>
+      <div class='caption'>Slide 4 Caption</div>
+    </li>
+    <li class='slide-5'>
+      <div class='caption'>Slide 5 Caption</div>
+    </li>
+  </ul>
+</div>
         </div>        
         </div></div>
         <div id="rightcolumnwrap">
@@ -71,9 +106,7 @@
       </div>
     </div>
      <!-- include jQuery, jQuery UI, and our script file -->
-     <script src="libs/js/jquery-1.10.2.js"></script>
-<script src="libs/js/jquery-ui-1.10.4.min.js"></script>
+   
 <script src="jsfiles/login.js"></script>
-
 </body>
 </html>
