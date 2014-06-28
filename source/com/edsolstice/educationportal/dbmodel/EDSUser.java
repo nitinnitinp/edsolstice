@@ -1,7 +1,6 @@
 package com.edsolstice.educationportal.dbmodel;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.edsolstice.educationportal.restmodel.EDSSession;
@@ -9,9 +8,9 @@ import com.edsolstice.educationportal.restmodel.EDSSession;
 @Entity
 @Table(name = "edsuser_table")
 public class EDSUser extends EDSBaseObject {
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    String email;
+	String email;
 	long mobile;
 	String firstName;
 	String lastName;
@@ -21,8 +20,10 @@ private static final long serialVersionUID = 1L;
 	String gender;
 	String password;
 	String role;
+	String activationCode;
+
 	boolean isActive;
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -77,34 +78,36 @@ private static final long serialVersionUID = 1L;
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	 public String getRole() {
-			return role;
-		}
-		public void setRole(String role) {
-			this.role = role;
-		}
-		
- public EDSSession mapSessionUser(String sessionToken) {
-	 EDSSession session =new EDSSession();
-	 session.setSessionToken(sessionToken);
-	 session.setEmail(email);
-	 session.setUid(uid);
-	 return session;
- }
-public boolean isActive() {
-	return isActive;
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public EDSSession mapSessionUser(String sessionToken) {
+		EDSSession session =new EDSSession();
+		session.setSessionToken(sessionToken);
+		session.setEmail(email);
+		session.setUid(uid);
+		return session;
+	}
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public String getActivationCode() {
+		return activationCode;
+	}
+	public void setActivationCode(String activationCode) {
+		this.activationCode = activationCode;
+	}
+
+
 }
-public void setActive(boolean isActive) {
-	this.isActive = isActive;
-}
-	
-}
-
-
-
-
-
-
 
 
 

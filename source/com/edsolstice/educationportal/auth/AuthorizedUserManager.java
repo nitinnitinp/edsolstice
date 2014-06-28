@@ -115,6 +115,10 @@ public class AuthorizedUserManager {
     public static String getSessionToken() {
     	return new BigInteger(130, AuthorizedUserManager.getRandom()).toString(32);
 	}
+    
+    public static String getActivationToken() {
+    	return new BigInteger(120, AuthorizedUserManager.getRandom()).toString();
+	}
 
 
 	private static SecureRandom getRandom() {

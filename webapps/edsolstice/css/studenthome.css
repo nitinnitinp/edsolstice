@@ -22,3 +22,45 @@ img {
     border: 1px solid #3eabeb;
     margin: 5px;
 }
+
+#theList li{
+padding-left: 14px;
+list-style-type: none;
+border-style: solid;
+border-width: 2px;
+width : 100%;
+margin-bottom: 14px;
+border-radius: 20px;
+}
+
+
+#theList li div.college{
+color : blue;
+}
+
+#theList li div.name{
+color : red;
+}
+
+#theList li div.Field{
+color : blue;
+}
+
+#theList li input{
+margin-bottom: 20px;
+
+}
+
+
+#contentwrap {
+    margin-right: 20%;
+    height:400px;
+    float: left;
+}
+
+#content {
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #ebebeb;
+    margin: 5px;
+}

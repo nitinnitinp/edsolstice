@@ -148,6 +148,29 @@ public class EDSDbMgr {
 		return userObject;
 
 	}
+	
+	public EDSUser getEDSUserByActivationCode(String activationCode)  {
+
+		//_logger.trace("Entering method");
+
+		Session session = getSessionFactory().openSession();
+		Transaction tx = session.beginTransaction();
+
+		EDSUser userObject = null;
+		try {
+			userObject = (EDSUser) session.createSQLQuery("select * from edsuser_table  where activationCode=:activationCode").addEntity(EDSUser.class).setString("activationCode", activationCode).uniqueResult();
+			session.flush();
+			tx.commit();
+		} catch (HibernateException e) {
+			//_logger.error("Problem fetching EDSUserObject: "+e, e);
+		} finally {
+			session.close();
+		}
+
+		//_logger.trace("Exiting method");
+		return userObject;
+
+	}
 
 	public void removeEDSUser(EDSUser user) {
 

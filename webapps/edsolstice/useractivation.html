@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EDSOLSTICE</title>
+<!--[if IE>=<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="./css/registration.css" />
+<!-- Declare our jQuery UI Theme CSS, this came from the download builder -->
+<link href="libs/css/ui-lightness/jquery-ui-1.10.4.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body align="center">
+    <div id="wrapper" >
+        <div id="edsolstice-registration-headerwrap">
+        <div id="registration-page-header">
+            <p>EDSOLSTICE</p>
+        </div>
+        </div>
+        <div id="centercolumnwrap">
+        <div id="centerpanel" align="center">
+        <fieldset id='loginform' class='clear'>
+            <p>We have sent the account activation code to your registered email Id </p>
+            <p> Please login to your email account and pick up the activation code</p>
+            <p>Enter Account activation code</p>
+            <form>
+                <div id='reg-inputs'>
+                	
+                	<input name='activationCode' id='activationCode' type="text" maxlength='96' tabindex='1' aria-required="true" placeholder="Activation code" autocorrect="off" value="">
+                	
+                </div>
+                <div id='submit'>
+					<button type='submit' id='save' name='save' class='edsoltice-button purple-bg' tabindex='4'>
+		  				Activate
+					</button>
+				</div>
+			</form>
+		</fieldset>                      
+	   </div>
+      </div>
+    </div>
+ <!-- include jQuery, jQuery UI, and our script file -->
+<script src="libs/js/jquery-1.10.2.js"></script>
+<script src="libs/js/jquery-ui-1.10.4.min.js"></script>
+<script src="jsfiles/useractivation.js"></script>
+</body>
+</html>

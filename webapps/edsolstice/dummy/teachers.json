@@ -1,0 +1,29 @@
+{
+"teachers" : [
+	{
+		"name" : "Nitin Paridar",
+		"college" : "government college of engineering",
+		"field" : "Java"
+	},
+	{
+		"name" : "Premnath",
+		"college" : "government college of technology",
+		"field" : "CPP"
+	},
+	{
+		"name" : "Premkumar",
+		"college" : "government college of engineering",
+		"field" : "Java Script"
+	},
+	{
+		"name" : "Premananth",
+		"college" : "government college of engineering",
+		"field" : "Java Script"
+	},
+	{
+		"name" : "Dummy",
+		"college" : "government college of engineering",
+		"field" : "Java Script"
+	}
+]
+}

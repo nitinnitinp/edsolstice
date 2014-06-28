@@ -13,6 +13,7 @@ import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.dbmodel.EDSDbMgr;
 import com.edsolstice.educationportal.dbmodel.EDSUser;
+import com.edsolstice.educationportal.restmodel.EDSUserActivate;
 
 @Path ("/accountactivatedservice")
 public class AccountActivatedRest {
@@ -21,17 +22,18 @@ public class AccountActivatedRest {
 		public AccountActivatedRest()  {
 		}
 
-		@Path ("/users/{UID}")
+		@Path ("/activate")
 		@POST
 		@Consumes (MediaType.APPLICATION_JSON )
 		@Produces (MediaType.APPLICATION_JSON )
-		public Response activate(@Context HttpHeaders requestHeaders, @PathParam ("UID") String UID, 
-				@Context UriInfo uriInfo) throws Exception  {
-			
-			EDSUser user= EDSDbMgr.getInstance().getEDSUserByUID(UID);
+		public Response activate(@Context HttpHeaders requestHeaders,  
+				EDSUserActivate activate, @Context UriInfo uriInfo) throws Exception  {
+		
+			if(activate.getActivationCode() == null) throw new Exception("Please provide the activation code");
+			EDSUser user= EDSDbMgr.getInstance().getEDSUserByActivationCode(activate.getActivationCode());
+			if(user==null)throw new Exception("Please enter valid activation code");
 			user.setActive(true);
 			EDSDbMgr.getInstance().updateEDSUser(user);
-			
 			return Response.status(200).entity(user).build();
 
 		}

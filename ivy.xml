@@ -28,6 +28,12 @@
 			rev="1.9.13" conf="compile->master" />
 		<dependency org="javassist" name="javassist" rev="3.12.1.GA"
 			conf="compile->master" />
+			<dependency org="javax.mail" name="javax.mail-api" rev="1.5.1"
+			conf="compile->master" />
+			<dependency org="com.sun.mail" name="javax.mail" rev="1.4.4"
+			conf="compile->master" />
+			
+			
 
 
 

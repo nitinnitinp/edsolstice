@@ -24,7 +24,7 @@ $("#save").bind ("click", function() {
 			alert(textStatus + "," + ex + "," + jqXHR.status);	
 		},
 		success : function(xhr){
-			document.location = 'index.html';		
+			document.location = 'useractivation.html';		
 		}
 	}
 	);
