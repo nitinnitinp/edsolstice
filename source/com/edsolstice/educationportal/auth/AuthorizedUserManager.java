@@ -4,10 +4,11 @@ import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class AuthorizedUserManager {
 
-    private static class AuthorizedUser {
+    public static class AuthorizedUser {
     	 private String email;
          private String authToken;
          private String password;
@@ -74,6 +75,21 @@ public class AuthorizedUserManager {
             }
         }
       if(result==null)  throw new Exception("session token is not valid");
+    }
+
+    
+    public void removeUser(String authToken) throws Exception {
+    	AuthorizedUser result = null;
+    	Iterator<AuthorizedUser> iterator =authorizedUsers.iterator();
+        while (iterator.hasNext()) {
+        	AuthorizedUser user=iterator.next();
+            if (user.getAuthToken().equals(authToken)){
+                result = user;
+                iterator.remove();
+            }
+        }
+      if(result==null)  throw new Exception("session token is not valid");
+      
     }
 
 

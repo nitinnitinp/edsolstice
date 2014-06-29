@@ -14,6 +14,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.StatusType;
 import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.app.RegisterService;
@@ -25,16 +26,15 @@ import com.edsolstice.educationportal.restmodel.EDSLoginUser;
 import com.edsolstice.educationportal.restmodel.EDSSession;
 import com.edsolstice.educationportal.restmodel.EDSUserCreate;
  
-@Path("/loginsessionservice")
-@RegisterService("loginsessionservice")
-public class LoginSessionRest {
+@Path("/sessionservice")
+@RegisterService("sessionservice")
+public class SessionRest {
 	
 	@Path ("/login")
 	@POST
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
-	public EDSSession getUser (@Context HttpHeaders requestHeaders,	
-			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,	
+	public EDSSession login (@Context HttpHeaders requestHeaders,		
 			@Context UriInfo uriInfo,EDSLoginUser loginUser) throws Exception  {
 		
 		if(loginUser == null || loginUser.getEmail() ==null || loginUser.getPassword()==null) {
@@ -57,6 +57,26 @@ public class LoginSessionRest {
 		}
 		
 		return user.mapSessionUser(SessionService.addUser(user.getEmail(), user.getPassword()));
+ 
+}
+	
+	
+	@Path ("/logout")
+	@POST
+	@Consumes (MediaType.APPLICATION_JSON )
+	public Response logout (@Context HttpHeaders requestHeaders,	
+			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,	
+			@Context UriInfo uriInfo) throws Exception  {
+		
+		if(sessionToken==null) {
+			 Response.status(400);
+			 throw new Exception("invalid session"); 
+		}
+		
+		SessionService.isUserValid(sessionToken);
+		SessionService.removeUser(sessionToken);
+		
+		return null;
  
 }
 	

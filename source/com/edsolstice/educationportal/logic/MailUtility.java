@@ -1,5 +1,6 @@
 package com.edsolstice.educationportal.logic;
 
+import java.security.GeneralSecurityException;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -10,6 +11,8 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import com.sun.mail.util.MailSSLSocketFactory;
 
 
 
@@ -24,16 +27,20 @@ public class MailUtility {
 			throw new Exception("invalid email address");
 		}
 	}
-	public static void sendEmail(String email , String activationCode) {
+	public static void sendEmail(String email , String activationCode) throws GeneralSecurityException {
 
 		final String username = "patidar.raj@gmail.com";
 		final String password = "vishal";
-
+		MailSSLSocketFactory socketFactory= new MailSSLSocketFactory();
+		socketFactory.setTrustAllHosts(true);
+		
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.port", "587");
+		props.put("mail.smtp.ssl.socketFactory", socketFactory);
+		props.put("mail.smtp.ssl.trust","*");
 
 		Session session = Session.getInstance(props,
 				new javax.mail.Authenticator() {

@@ -1,7 +1,7 @@
 $("#save").bind ("click", function(){
             $.ajax( {
         		type: 'POST',
-        		url: '/edsolstice/rest/loginsessionservice/login',
+        		url: '/edsolstice/rest/sessionservice/login',
         		contentType:'application/json',
         		data: JSON.stringify ({ 
         			"password": $("#password").val(), 
@@ -14,7 +14,7 @@ $("#save").bind ("click", function(){
         		success : function(loginData){
         			//alert(JSON.stringify(loginData));
         			sessionStorage.setItem('sessionToken' , loginData.sessionToken);
-        			sessionStorage.setItem('username' , loginData.email);
+        			sessionStorage.setItem('email' , loginData.email);
         			document.location = 'students.htm';	
          		}
         	}

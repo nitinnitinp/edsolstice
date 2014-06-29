@@ -26,4 +26,9 @@ public class SessionService {
     }
     
     
+    public static void removeUser(String authToken) throws Exception {
+        authorizedUserManager.removeUser(authToken);
+   }
+   
+    
 }
