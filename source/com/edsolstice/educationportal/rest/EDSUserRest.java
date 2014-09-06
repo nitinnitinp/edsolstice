@@ -1,6 +1,3 @@
-/*
- * (C) Copyright 2002-2014 Hewlett-Packard Development Company, L.P.
- */
 
 package com.edsolstice.educationportal.rest;
 
