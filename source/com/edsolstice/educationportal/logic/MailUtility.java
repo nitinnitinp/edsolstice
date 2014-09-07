@@ -29,18 +29,18 @@ public class MailUtility {
 	}
 	public static void sendEmail(String email , String activationCode) throws GeneralSecurityException {
 
-		final String username = "patidar.raj@gmail.com";
-		final String password = "vishal";
+		final String username = "edsolstice.admin@edsolstice.com";
+		final String password = "edsolstice@admin";
 		MailSSLSocketFactory socketFactory= new MailSSLSocketFactory();
 		socketFactory.setTrustAllHosts(true);
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
-		props.put("mail.smtp.ssl.socketFactory", socketFactory);
-		props.put("mail.smtp.ssl.trust","*");
+		props.put("mail.smtp.host", "smtp.edsolstice.com");
+		props.put("mail.smtp.port", "25");
+		//props.put("mail.smtp.ssl.socketFactory", socketFactory);
+		//props.put("mail.smtp.ssl.trust","*");
 
 		Session session = Session.getInstance(props,
 				new javax.mail.Authenticator() {
