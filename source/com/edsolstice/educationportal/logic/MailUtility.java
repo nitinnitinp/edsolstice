@@ -37,7 +37,7 @@ public class MailUtility {
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.edsolstice.com");
+		props.put("mail.smtp.host", "mail.edsolstice.com");
 		props.put("mail.smtp.port", "25");
 		//props.put("mail.smtp.ssl.socketFactory", socketFactory);
 		//props.put("mail.smtp.ssl.trust","*");
