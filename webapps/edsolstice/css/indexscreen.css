@@ -2,7 +2,6 @@
 @import url("reset.css");
 @import url("login.css");
 @import url("common.css");
-@import url("imageslider.css");
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -20,29 +19,9 @@ p {
     height : 80%;
 }
 
-#edsolstice-index-headerwrap {
-    width: 100%;
-    float: left;
-    margin: 0 auto;
-}
-
-#header {
-    height: 100px;
-    background: #FFFFFF;
-}
-
 #headerseperator{
 	  height: 10px;
     background: #2E2E2E;
-}
-
-#header p{
-font-family: 'Colonna MT', serif;
-line-height: 1em;
-color: #0489B1;
-font-weight:bold;
-font-size: 74px;
-text-align : center;
 }
 
 #navigationwrap {
@@ -86,27 +65,5 @@ text-align : center;
     background: #F0F0F0;
     height : 395px;    
     margin: 5px;
-}
-
-#footerwrap {
-    width: 60%;
-    align : center;
-    margin: 0 auto;
-    position:fixed;
-    background: #424242;
-    left:20%;
-    bottom:0;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -o-border-radius: 10px;
-}
-
-#footer {
-	  padding-left : 20%;
-    height: 50px;
-    align : center;    
-	  margin: 5px;
 }
 
