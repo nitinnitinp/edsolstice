@@ -13,7 +13,7 @@
 
             // transition valuess
             animtype        : 'fade',
-            animduration    : 450,      // length of transition
+            animduration    : 1000,      // length of transition
             animspeed       : 4000,     // delay between transitions
             automatic       : true,     // enable/disable automatic slide rotation
 
