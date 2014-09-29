@@ -2,21 +2,18 @@
 @import url("reset.css");
 @import url("login.css");
 @import url("common.css");
+@import url("roundbutton.css");
+@import url("flipper.css");
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
     color:#0489B1;
-    background: #FFFFFF;    
+    align: center;
+    background: #E8E8E8;
 }
 
 p {
     padding: 10px;
-}
-
-#wrapper {
-    width: 100%;
-    margin: 0 auto;
-    height : 80%;
 }
 
 #headerseperator{
@@ -24,46 +21,102 @@ p {
     background: #2E2E2E;
 }
 
-#navigationwrap {
-    width: 100%;
-    float: left;
+.content {
+	  position : relative;
+    background: #30C5A0;
+    width :90%;
+    height :500px;
     margin: 0 auto;
+
 }
 
-#navigation {
-    height: 30px;
-    background: #f96e5b;
-    border: 1px solid #3eabeb;
+#loginheader {
+    height: 20px;
+    background: #181818;
     margin: 5px;
+    border-color: #ff0000;
+}
+#loginPanel {
+	 position : absolute;
+	 bottom : 0px;
+	 right : 50px;
+    width: 30%;
+    height : 80%;
+    background : #E8E8E8;    
+    float : right;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-color: #ffffff;
+    box-shadow:3px 3px 3px #000000;
+}
+#textPanel {
+   position : absolute;
+   bottom : 0px;
+   width : 60%;
+    left : 50px;
+    height : 80%;
 }
 
-#contentliquid {
-    float: left;
-    width: 100%;
+.indextitle1 {
+  font-family: 'Algerian', serif;
+  line-height: 1em;
+  color: #ffffff; /* #0489B1 */
+  font-weight:bold;
+  font-size: 50px;
+  text-align : left;
+  text-shadow:5px 5px 5px #000000;
 }
 
-#contentwrap {
-    height:80%;
-    float: left;
-    width: 65%;
+.indextitle2 {
+  font-family: 'Baskerville Old Face', serif;
+  text-shadow:5px 5px 5px #000000;
+  padding-top : 40px;
+  line-height: 1em;
+  color: #ffffff; /* #0489B1 */
+  font-weight:bold;
+  font-size: 30px;
+  text-align : left;
 }
 
-#content {
-    background: #FFFFFF;
-    margin: 5px;
+.indextitle3 {
+  font-family: 'Baskerville Old Face', serif;
+  padding-top : 40px;
+  
+  line-height: 1em;
+  color: #ffffff; /* #0489B1 */
+  font-weight:bold;
+  font-size: 15px;
+  text-align : left;
 }
-
-#rightcolumnwrap {
-    width: 25%;
-    margin-left: -27%;
-    height:90px;
-    float: left;    
-}
-
-
 #rightcolumn {
-    background: #F0F0F0;
-    height : 395px;    
+    background: #FFCC00;
+    height : 250px;
+    margin-top: auto; margin-bottom: auto;     
     margin: 5px;
+    
 }
+
+@keyframes slidein {
+  from {
+    left : -30%; 
+  }
+
+  to {
+    left : 130%;
+  }
+}
+
+@-webkit-keyframes slidein {
+  from {
+    left : -30%; 
+  }
+
+  to {
+    left : 130%;
+  }
+}
+
 

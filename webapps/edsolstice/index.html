@@ -10,23 +10,23 @@
 <script src="libs/js/jquery-ui-1.10.4.min.js"></script>
 </head>
 <body>
-    <div id="wrapper">
         <div id="edsolstice-index-headerwrap">
         <div id="header">
             <p> Edsolstice</p>            
             <input style="position: absolute; right: 100px; top: 2em;height: 23px;width: 208px;border-radius: 3px;" name='email' id='email' type="text" maxlength='96' tabindex='1'  placeholder="Search" value="" required/>
         </div>
         </div>
-        
-        <div id="contentliquid"><div id="contentwrap">
-        <div id="content">
-        <img src="./images/index.jpg" height="420" width="840">    
-        </div>        
-        </div></div>
-        <div id="rightcolumnwrap">
-        
-        <div id="rightcolumn" align="center">
-        <svg height="100">
+        <div id="content1" class="content">
+        <div id="textPanel">
+        <div id="head1" class= "indextitle1" >Heading - 1</div>
+        <div id="subtitle1" class= "indextitle2" >This should be a subtitle which can be of two lines</div>
+        <div id="subpara1" class= "indextitle3" >This should be a subtitle which can be of two to three lines.This should be a subtitle which can be of two to three lines.This should be a subtitle which can be of two to three lines</div>
+        </div>
+        <div id="loginPanel">
+        <div id="loginheader">
+        </div>
+          <div id="rightcolumn" align="center">
+          <svg height="100">
           <line x1="20" y1="60" x2="150" y2="20" style="stroke:#330066;stroke-width:2" />
           <line x1="20" y1="60" x2="40" y2="60" style="stroke:#330066;stroke-width:2" />
           <line x1="150" y1="20" x2="300" y2="60" style="stroke:#330066;stroke-width:2" />
@@ -35,40 +35,52 @@
         </svg>
         <fieldset id='loginform' class='clear'>
             <div id="serverErr" class="errormessage" hidden>
-					UserName and Password doesn't match!!!
-			</div>
+          UserName and Password doesn't match!!!
+      </div>
             <form autocomplete="on">
                 <div id='inputs'>
-                	<input name='email' id='email' type="text" maxlength='96' tabindex='1'  placeholder="Email Id" value="" required>
-                	<div id="emailerrormessage" class="errormessage" hidden>
-						UserName shouldn't be empty!!!
-					</div>
-                	<input name='password' id='password' type='password' maxlength='64' tabindex='2' aria-required="true" placeholder="Password" autocorrect="off" value="" autocomplete="off">
-                	<div id="passworderrormessage" class="errormessage" hidden>
-						Password shouldn't be empty!!!
-					</div>
+                  <input name='email' id='email' type="text" maxlength='96' tabindex='1'  placeholder="Email Id" value="" required>
+                  <div id="emailerrormessage" class="errormessage" hidden>
+            UserName shouldn't be empty!!!
+          </div>
+                  <input name='password' id='password' type='password' maxlength='64' tabindex='2' aria-required="true" placeholder="Password" autocorrect="off" value="" autocomplete="off">
+                  <div id="passworderrormessage" class="errormessage" hidden>
+            Password shouldn't be empty!!!
+          </div>
                 </div>
-                <div id='submit'>
-					<input type='submit' id='save' name='save' class='edsoltice-login-button purple-bg save' tabindex='4' value = 'Sign in'/>
-				</div>
-			</form>
-		</fieldset>
+   
+      </form>
+    </fieldset>
         <div class='hreflinks'>
-			<a id="forgotLnk" href="#" tabindex="5">I cannot access my account.</a>
-		</div>
-		          
-	   </div>
-      </div>
-      <div id="footerwrap">
-      	<div id="footer">
-            <a href=""><img class="borderedImage" src="./images/icons/Home.jpg" title="Home" height="40" width="40" style="margin-left:25px" alt="Home"/></a>                  
-            <a href=""><img class="borderedImage" src="./images/icons/Links.jpg" title="Important Links" height="40" width="40" style="margin-left:25px" /></a>
-            <a href="registration.htm"><img class="borderedImage" src="./images/icons/SingUp.jpg" title="SignUp" height="40" width="40" style="margin-left:25px" /></a>
-            <a href="aboutus.htm"><img class="borderedImage" src="./images/icons/Feedback.jpg" title="About Us" height="40" width="40" style="margin-left:25px" /></a>
-            <a href=""><img class="borderedImage" src="./images/icons/Contactus.jpg" title="Contact Us" height="40" width="40" style="margin-left:25px" /></a>
-        </div>
-      </div>
+      <a id="forgotLnk" href="#" tabindex="5">I cannot access my account.</a>
     </div>
+              
+     </div>
+     <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <!--  <div class="flipper">
+    <div class="front">
+      <div class="round-button"><div class="round-button-circle"><a href="http://example.com" class="round-button">Login</a></div></div>
+    </div>
+    <div class="back">
+      <div class="round-button"><div class="round-button-circle"><a href="http://example.com" class="round-button">Login</a></div></div>
+    </div>
+  </div>-->
+  <div class="round-button"><div class="round-button-circle"><a href="http://example.com" class="round-button">Login</a></div></div>
+</div>
+     </div>
+     </div>
+     <div id="content2" class="content" style="left : 100%; float:right">
+     </div>
+      
+      <div id="footerwrap">
+      <div id="footer">
+            <a href=""><img id="img1" class="borderedImage" src="./images/icons/Home.jpg" title="Home" height="50" width="50" style="margin-left:25px" alt="Home"/></a>                  
+            <a href=""><img class="borderedImage" src="./images/icons/Links.jpg" title="Important Links" height="50" width="50" style="margin-left:25px" /></a>
+            <a href="registration.htm"><img class="borderedImage" src="./images/icons/SingUp.jpg" title="SignUp" height="50" width="50" style="margin-left:25px" /></a>
+            <a href="aboutus.htm"><img class="borderedImage" src="./images/icons/Feedback.jpg" title="About Us" height="50" width="50" style="margin-left:25px" /></a>
+            <a href=""><img class="borderedImage" src="./images/icons/Contactus.jpg" title="Contact Us" height="50" width="50" style="margin-left:25px" /></a>
+        </div>    
+      </div>
      <!-- include jQuery, jQuery UI, and our script file -->
    
 <script src="jsfiles/login.js"></script>

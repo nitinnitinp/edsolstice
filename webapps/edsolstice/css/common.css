@@ -14,23 +14,22 @@ p {
 }
 
 #edsolstice-index-headerwrap {
-    width: 100%;
-    float: left;
+    width: 90%;
     margin: 0 auto;
 }
 
 #header {
     height: 100px;
-    background: #FFFFFF;
+    background: #181818;
 }
 
 #header p{
 font-family: 'Colonna MT', serif;
 line-height: 1em;
-color: #0489B1;
+color: #E8E8E8; /* #0489B1 */
 font-weight:bold;
 font-size: 74px;
-text-align : center;
+text-align : left;
 }
 
 #inputs input {
@@ -88,30 +87,26 @@ text-align : center;
 	border: 1px solid #522675;
 }
 
-#footerwrap {
-    width: 60%;
-    align : center;
-    margin: 0 auto;
-    position:fixed;
-    background: #ffffff;  /* 424242 */ 
-    left:20%;
-    bottom:0;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -o-border-radius: 10px;
-}
 
+#footerwrap {
+	  position  : absolute;
+    background: #ffffff;
+    width :90%;
+    left : 5%;
+    height :100px;
+    margin: 0 auto;
+    align : center;
+}
 .borderedImage:hover {
-  width : 50px;
-  height : 50px;
+  width : 70px;
+  height : 70px;  
   border: solid 2px red;
   
 }
 
 #footer {
-    padding-left : 20%;
-    height: 50px;
-    margin: 5px;
+	  position  : absolute;
+	  bottom : 10px;
+	  width : 50%;
+	  left : 30%;
 }
