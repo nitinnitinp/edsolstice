@@ -1,14 +1,26 @@
 
 $( document ).ready(function() {
-	$("#head2").hide();
-	$("#subtitle2").hide();
-	$("#subpara2").hide();
-//	$("#head1").fadeOut("2000");
-//	$("#subtitle1").fadeOut("2000");
-//	$("#subpara1").fadeOut("2000");
-//	$("#head2").fadeIn("3000");
-//	$("#subtitle2").fadeIn("3000");
-//	$("#subpara2").fadeIn("3000");
+	$("#registrationpanel").hide();
+	$("#linkspanel").hide();
+	$("#contactuspanel").hide();
+	$("#feedbackpanel").hide();
+	$("#aboutuspanel").hide();
+	
+	
+});
+
+$("#signupicon").bind ("click", function(){
+	$("#textPanel").hide();
+	$("#loginPanel").hide();
+	$("#registrationpanel").show();
+	
+});
+
+$("#aboutusicon").bind ("click", function(){
+	$("#textPanel").hide();
+	$("#loginPanel").hide();
+	$("#aboutuspanel").show();
+	
 });
 
 

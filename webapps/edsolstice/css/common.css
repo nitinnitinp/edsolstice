@@ -37,8 +37,8 @@ text-align : left;
 	margin-bottom: 15px;
 	font-size: 107% !important;
 	padding: 5px;
-	height: 23px;
-	width: 208px;
+	height: 20px;
+	width: 158px;
 	border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -96,17 +96,21 @@ text-align : left;
     height :100px;
     margin: 0 auto;
     align : center;
+    
+}
+.borderedImage{
+	
 }
 .borderedImage:hover {
   width : 70px;
   height : 70px;  
-  border: solid 2px red;
+  /*border: solid 2px black;*/
   
 }
 
 #footer {
 	  position  : absolute;
-	  bottom : 10px;
+	  bottom : 20px;
 	  width : 50%;
 	  left : 30%;
 }

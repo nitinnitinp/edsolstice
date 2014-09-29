@@ -4,6 +4,10 @@
 @import url("common.css");
 @import url("roundbutton.css");
 @import url("flipper.css");
+@import url("registration.css");
+@import url("aboutus.css");
+
+
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -36,6 +40,29 @@ p {
     margin: 5px;
     border-color: #ff0000;
 }
+.seperator{
+	position : relative;
+    height: 5px;
+    width:90%;
+    background: #04B4AE;
+    margin: 0 auto;
+}
+.commoncenterPanel {
+   position : absolute;
+   bottom : 0px;
+   right : 20%;
+    width: 60%;
+    height : 90%;
+    background : #E8E8E8;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-color: #ffffff;
+    box-shadow:3px 3px 3px #000000;
+}
+
 #loginPanel {
 	 position : absolute;
 	 bottom : 0px;
@@ -96,7 +123,12 @@ p {
     height : 250px;
     margin-top: auto; margin-bottom: auto;     
     margin: 5px;
-    
+}
+
+.commoncolumn {
+    background: #FFCC00;
+    margin-top: auto; margin-bottom: auto;     
+    margin: 5px;
 }
 
 @keyframes slidein {
