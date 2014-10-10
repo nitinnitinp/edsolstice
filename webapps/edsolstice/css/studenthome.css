@@ -1,66 +1,144 @@
 @import url("menu.css");
-@import url("common.css");
+@import url("tabs.css");
 
-#student-rightcolumnwrap {
-    width: 25%;
-    margin-left: -25%;
-    height:500px;
-    float: right;
+body { 
+	background: #1C1C1C;
+	
+}
+#student-header {
+    width: 100%;
+    height : 150px;
+    display:block;
+    position: relative;
 }
 
-img {
-	height: 100px;
-	width: 100px;
-	padding-top : 10px;
-	padding-bottom : 10px;
+.header-tile{
+  	position: relative;
+  	display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    height : 150px;
+    top : 10px;
 }
 
-#student-rightcolumn {
-    background: #f96e5b;
-    border-radius: 10px;
-    height : 495px;
-    border: 1px solid #3eabeb;
-    margin: 5px;
+.student-header-img{
+    width: 150px;
+    
+}
+.student-header-rightside{
+    width: 250px;
+    float : right;
 }
 
-#theList li{
-padding-left: 14px;
-list-style-type: none;
-border-style: solid;
-border-width: 2px;
-width : 100%;
-margin-bottom: 14px;
-border-radius: 20px;
+.student-header-img img
+{
+  max-width:90%; 
+  max-height:90%;
+  -moz-box-shadow: 5px 5px 5px #888;
+-webkit-box-shadow: 5px 5px 5px #888;
+box-shadow: 5px 5px 5px #888;
+}
+
+.student-main-content{
+	display: inline-block;
+	width : 79%;
+	margin-right: 1%;
+}
+
+.personal-details{
+	width : 350px;
+	padding-left : 10px;
+	vertical-align : top;
+}
+.personal-details h{
+  color : #088A4B;
+  font-size: 28px;
+  font-family: 'Courgette', serif;
+  line-height: 1em;
+  text-shadow:1px 1px 1px #ffffff;
+  font-weight: bold;
+}
+
+.personal-details h1{
+  color : #FFFFFF;
+  font-size: 18px;
+  font-family: 'Courgette', serif;
+  line-height: 0.3em;
+}
+
+.personal-details h2{
+  color : #FFFFFF;
+  font-size: 16px;
+  font-family: 'Courgette', serif;
+  line-height: 0.3em;
+}
+
+#student-right-panel{
+  
+    width: 20%;
+    height : 500px;
+    float : right;
+    background: #D8D8D8;
 }
 
 
-#theList li div.college{
-color : blue;
-}
-
-#theList li div.name{
-color : red;
-}
-
-#theList li div.Field{
-color : blue;
-}
-
-#theList li input{
-margin-bottom: 20px;
-
-}
 
 
-#contentwrap {
-    margin-right: 20%;
-    height:400px;
-    float: left;
-}
 
-#content {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#student-left-panel{
+    width: 20%;
+    display:block;
+    height : 540px;
+    float : left;
+    margin-top : 1px;
     background: #FFFFFF;
-    border-radius: 10px;
-    border: 1px solid #ebebeb;
-    margin: 5px;
+}
+
+
+
+/* vertical Menu */
+#cssmenu {
+  background: #333;
+  list-style: none;
+  margin-left: 5%;
+  padding: 0;
+  width: 90%;
+}
+#cssmenu li {
+  font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#cssmenu a {
+  background: #333;
+  border-bottom: 1px solid #393939;
+  color: #ccc;
+  display: block;
+  margin: 0;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-weight: normal;
+}
+#cssmenu a:hover {
+  background: #2580a2 url("../images/verticalmenu/hover.gif") left center no-repeat;
+  color: #fff;
+  padding-bottom: 8px;
 }
