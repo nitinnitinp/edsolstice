@@ -1,5 +1,6 @@
 
 $( document ).ready(function() {
+	$(".spinner-2").hide();
 	$("#registrationpanel").hide();
 	$("#linkspanel").hide();
 	$("#contactuspanel").hide();
@@ -20,6 +21,11 @@ $("#aboutusicon").bind ("click", function(){
 	$("#textPanel").hide();
 	$("#loginPanel").hide();
 	$("#aboutuspanel").show();
+	
+});
+
+$(".round-button").bind ("click", function(){
+	$(".spinner-2").show();
 	
 });
 

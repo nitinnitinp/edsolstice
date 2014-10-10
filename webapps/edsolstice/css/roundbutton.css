@@ -10,8 +10,7 @@
   padding-bottom: 100%;
   border-radius: 50%;
   border:15px solid #ffffff;
-   overflow:hidden;
-    
+   overflow:hidden;    
     background: #FF8585; 
     box-shadow: 0 0 3px white;
 }
@@ -19,15 +18,14 @@
   background:#30588e;
 }
 .round-button a {
-    display:block;
-  float:left;
-  width:100%;
-  padding-top:50%;
-    padding-bottom:50%;
-  line-height:1em;
-    
-  text-align:center;
+  display:block;
+
+  padding-top:100%;
+  padding-bottom:0%;
+  padding-left:20%;
+  line-height:1em;    
   color:#3333CC;
   font-family:Verdana;
-    text-decoration:none;
+  font-size:10px;
+  text-decoration:none;
 }
