@@ -2,19 +2,6 @@
 	display:inline
 }
 
-#edsolstice-registration-headerwrap {
-    width: 100%;
-    margin: 0 auto;
-    
-}
-
-#registration-page-header {
-    background: #f96e5b;
-    border-radius: 10px;
-    border: 1px solid #3eabeb;
-    margin: 5px;
-    height: 50px;
-}
 
 #wrapper {
     width: 50%;
@@ -27,14 +14,6 @@
     width: 100%;
 }
 
-#centerpanel {
-    background: #F0F0F0;
-    border-radius: 10px;
-    height : 75%;
-    border: 1px solid #3eabeb;
-    margin: 5px;
-}
-
 #reg-inputs{
 	align : center;
 }
@@ -43,22 +22,20 @@
 
 
 #reg-inputs input {
-	border: 1px solid #bababa;
 	margin-bottom: 15px;
 	font-size: 107% !important;
 	padding: 3px;
 	height: 15px;
 	width: 70%;
-	border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    -o-border-radius: 3px;
-
+	border-style: solid;  
+    border-width: 0px 0px 2px 0px;  
+    background-color: transparent;
+    color:black;
 }
 
 #reg-inputs input:focus {
-	border: 1px solid #783ba8;
+	border-width: 0px 0px 2px 0px;
+	border-style: solid;
 }
 
 #reg-inputs input[type=radio].css-checkbox{
@@ -71,16 +48,14 @@
 }
 
 #reg-inputs .namefield{
-	border: 1px solid #bababa;
 	margin-bottom: 15px;
 	font-size: 107% !important;
 	padding: 5px;
 	height: 23px;
 	width: 34%;
-	border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    -o-border-radius: 3px;
+	border-style: solid;  
+    border-width: 0px 0px 2px 0px;  
+    background-color: transparent;
+    color:black;
 }
 

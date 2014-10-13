@@ -29,7 +29,7 @@ p {
 }
 
 #edsolstice-index-headerwrap {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -50,16 +50,13 @@ text-align : left;
 #inputs input {
 	border: 1px solid #bababa;
 	margin-bottom: 15px;
+	background-color: transparent;
 	font-size: 107% !important;
 	padding: 5px;
 	height: 20px;
 	width: 158px;
-	border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -khtml-border-radius: 3px;
-    -o-border-radius: 3px;
-
+	border-style: solid;  
+    border-width: 0px 0px 2px 0px;  
 }
 
 #inputs input:focus {
@@ -103,16 +100,7 @@ text-align : left;
 }
 
 
-#footerwrap {
-	  position  : absolute;
-    background: #ffffff;
-    width :90%;
-    left : 5%;
-    height :100px;
-    margin: 0 auto;
-    align : center;
-    
-}
+
 .borderedImage{
 	
 }
@@ -123,9 +111,3 @@ text-align : left;
   
 }
 
-#footer {
-	  position  : absolute;
-	  bottom : 20px;
-	  width : 50%;
-	  left : 30%;
-}

@@ -8,9 +8,6 @@
 @import url("aboutus.css");
 @import url("spinner.css");
 
-
-
-
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -30,8 +27,8 @@ p {
 
 .content {
 	  position : relative;
-    background: #30C5A0;
-    width :90%;
+    background: #FFFFFF;
+    width :95%;
     height :500px;
     margin: 0 auto;
 
@@ -43,36 +40,31 @@ p {
     margin: 5px;
     border-color: #ff0000;
 }
+
 .seperator{
 	position : relative;
     height: 5px;
-    width:90%;
+    width:95%;
     background: #04B4AE;
     margin: 0 auto;
 }
 .commoncenterPanel {
    position : absolute;
    bottom : 0px;
-   right : 20%;
-    width: 60%;
-    height : 90%;
-    background : #E8E8E8;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -o-border-radius: 10px;
+    right : 10%;
+    width: 80%;
+    height : 95%;
+    background : #FAFAFA;
     border-color: #ffffff;
-    box-shadow:3px 3px 3px #000000;
+    text-align : center;
 }
 
 #loginPanel {
 	 position : absolute;
-	 bottom : 0px;
+	 bottom : 10%;
 	 right : 50px;
     width: 30%;
-    height : 80%;
-    background : #E8E8E8;    
+    height : 80%;    
     float : right;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -80,78 +72,102 @@ p {
     -khtml-border-radius: 10px;
     -o-border-radius: 10px;
     border-color: #ffffff;
-    box-shadow:3px 3px 3px #000000;
-}
-#textPanel {
-   position : absolute;
-   bottom : 0px;
-   width : 60%;
-    left : 50px;
-    height : 80%;
+    /*box-shadow:3px 3px 3px #000000;*/
 }
 
-.indextitle1 {
-  font-family: 'Algerian', serif;
-  line-height: 1em;
-  color: #ffffff; /* #0489B1 */
-  font-weight:bold;
-  font-size: 50px;
-  text-align : left;
-  text-shadow:5px 5px 5px #000000;
+#loginPanel input {
+	  height: 35px; 
+    width: 80%; 
+    background-color: transparent;  
+    border-style: solid;  
+    border-width: 0px 0px 2px 0px;  
+    border-color: #181818; 
+    color:#FFFFFF;
+    outline:0;
 }
 
-.indextitle2 {
-  font-family: 'Baskerville Old Face', serif;
-  text-shadow:5px 5px 5px #000000;
-  padding-top : 40px;
-  line-height: 1em;
-  color: #ffffff; /* #0489B1 */
-  font-weight:bold;
-  font-size: 30px;
-  text-align : left;
-}
-
-.indextitle3 {
-  font-family: 'Baskerville Old Face', serif;
-  padding-top : 40px;
-  
-  line-height: 1em;
-  color: #ffffff; /* #0489B1 */
-  font-weight:bold;
-  font-size: 15px;
-  text-align : left;
-}
 #rightcolumn {
-    background: #FFCC00;
     height : 250px;
     margin-top: auto; margin-bottom: auto;     
     margin: 5px;
 }
 
 .commoncolumn {
-    background: #FFCC00;
     margin-top: auto; margin-bottom: auto;     
     margin: 5px;
 }
 
-@keyframes slidein {
-  from {
-    left : -30%; 
-  }
-
-  to {
-    left : 130%;
-  }
+#slidePanel {
+    position : relative;
+    width : 60%;
+    left : 50px;
+    top : 10%;
+    height : 80%;
 }
 
-@-webkit-keyframes slidein {
-  from {
-    left : -30%; 
-  }
-
-  to {
-    left : 130%;
-  }
+#slides{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
+#slides #description{
+  top:250px;
+  font-size: 20px;
+  font-family: Lato;
+  display: inline-block;
+  height: 30px;
+  width: 800px;
+  text-align: left;
+  position: relative;
+  color : #0000FF;
+  opacity: 1;
+
+}
+#slides p{
+  position: relative;
+  top:100px;
+  color: #ff0000;
+  font-size: 35px;
+  font-family: Lato;
+  width: 300px;
+  height: 50px;
+  text-align: left;
+  opacity: 1;
+  text-shadow: 1px 1px #000000;
+}
+#slides img{
+  position: absolute;
+  display: none;
+  width: 100%;
+  opacity: 0.7 ;
+}
+
+#footer {
+    position  : absolute;
+    bottom : 0px;
+    background: #181818;
+    height : 60%;
+    width : 50%;
+    left : 25%;
+    align:center;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -o-border-radius: 10px;
+    text-align: center;
+}
+
+#footerwrap {
+    position  : absolute;
+    background: #ffffff;
+    width :95%;
+    left : 2.5%;
+    height :100px;
+    margin: 0 auto;
+    align : center;
+    
+}
 
