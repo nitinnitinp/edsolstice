@@ -167,7 +167,64 @@ p {
     left : 2.5%;
     height :100px;
     margin: 0 auto;
-    align : center;
-    
+    align : center;    
 }
+#feedbackpanel1 {
+	position : relative;
+	float:left;
+	width : 40%;
+	height : 80%;
+	top : 10%;
+}
+
+#feedbackpanel1 input{
+	border: 1px solid #bababa;
+  margin-bottom: 15px;
+  background-color: white;
+  font-size: 107% !important;
+  padding: 5px;
+  height: 40px;
+  width: 90%;
+  margin-left : 10%;
+  border-style: solid;  
+    border-width: 2px 2px 2px 2px;
+    margin-top : 30px;
+}
+
+#feedbackpanel2{
+	position : relative;
+	float:right;
+  width : 40%;
+  height : 80%;
+  top : 10%;
+}
+
+#feedbackpanel2 .follow{
+	margin-top : 30px;
+	position : relative;
+	height : 50px;
+	width : 100%;
+	text-align:left;
+} 
+
+#feedbackpanel2 .follow img {
+	position : relative;
+	float:left;
+	width : 50px;
+	height : 50px;
+}
+
+@font-face { font-family: Josefin; src: url('http://www.google.com/fonts#UsePlace:use/Collection:Josefin+Slab:700italic'); }
+
+#feedbackpanel2 .follow p {
+  position : relative;
+  font-family: Josefin;
+  height : 50px;
+  font-size: 20px;
+    color:#00CC99;
+    align: left;
+    left : 20px;
+}
+
+
 
