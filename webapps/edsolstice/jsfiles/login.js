@@ -83,32 +83,58 @@ $("#contactusicon").bind ("click", function(){
 $(".round-button").bind ("click", function(){
 	$(".spinner-2").show();
 	
+	$.ajax( {
+		type: 'POST',
+		url: '/edsolstice/rest/sessionservice/login',
+		contentType:'application/json',
+		data: JSON.stringify ({ 
+			"password": $("#inputs input#password").val(), 
+			"email": $("#inputs input#email").val()
+		}),
+		dataType: 'json',
+		error: function(jqXHR, textStatus, ex) {
+			$("#serverErr").show();
+		},
+		success : function(loginData){
+			//alert(JSON.stringify(loginData));
+			sessionStorage.setItem('sessionToken' , loginData.sessionToken);
+			sessionStorage.setItem('email' , loginData.email);
+			document.location = 'students.htm';
+			
+ 		}
+	}
+	);
+	$(".spinner-2").hide();
+    return false; 
+	
+	
+	
 });
 
 
-//$("#save").bind ("click", function(){
-//            $.ajax( {
-//        		type: 'POST',
-//        		url: '/edsolstice/rest/sessionservice/login',
-//        		contentType:'application/json',
-//        		data: JSON.stringify ({ 
-//        			"password": $("#password").val(), 
-//        			"email": $("#email").val()
-//        		}),
-//        		dataType: 'json',
-//        		error: function(jqXHR, textStatus, ex) {
-//        			$("#serverErr").show();
-//        		},
-//        		success : function(loginData){
-//        			//alert(JSON.stringify(loginData));
-//        			sessionStorage.setItem('sessionToken' , loginData.sessionToken);
-//        			sessionStorage.setItem('email' , loginData.email);
-//        			document.location = 'students.htm';	
-//         		}
-//        	}
-//        	);
-//            return false;   
-//});
+$("#save").bind ("click", function(){
+            $.ajax( {
+        		type: 'POST',
+        		url: '/edsolstice/rest/sessionservice/login',
+        		contentType:'application/json',
+        		data: JSON.stringify ({ 
+        			"password": $("#inputs input#password").val(), 
+        			"email": $("#inputs input#email").val()
+        		}),
+        		dataType: 'json',
+        		error: function(jqXHR, textStatus, ex) {
+        			$("#serverErr").show();
+        		},
+        		success : function(loginData){
+        			//alert(JSON.stringify(loginData));
+        			sessionStorage.setItem('sessionToken' , loginData.sessionToken);
+        			sessionStorage.setItem('email' , loginData.email);
+        			document.location = 'students.htm';	
+         		}
+        	}
+        	);
+            return false;   
+});
 
 //$("#email").bind ("blur	", function(){
 //	if($("#email").val() == ''){
