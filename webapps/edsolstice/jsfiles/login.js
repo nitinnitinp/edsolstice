@@ -59,8 +59,15 @@ $("#homeicon").bind ("click", function(){
 	
 });
 
+$(".hreflinks").bind ("click", function(){
+	resetAll();
+	$("#resetpasswordpanel").show();	
+});
+
+
 $("#notificationicon").bind ("click", function(){
-	resetAll();	
+	resetAll();
+	$("#notificationpanel").show();
 });
 
 $("#feedbackicon").bind ("click", function(){
@@ -69,6 +76,7 @@ $("#feedbackicon").bind ("click", function(){
 });
 $("#contactusicon").bind ("click", function(){
 	resetAll();	
+	$("#contactuspanel").show();
 });
 
 
