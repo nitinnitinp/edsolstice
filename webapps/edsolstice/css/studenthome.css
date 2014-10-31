@@ -142,3 +142,45 @@ box-shadow: 5px 5px 5px #888;
   color: #fff;
   padding-bottom: 8px;
 }
+
+#StudentList{
+	
+}
+#StudentList li{
+padding-left: 14px;
+list-style-type: none;
+border-style: solid;
+border-width: 2px;
+width : 30%;
+margin-bottom: 5px;
+border-radius: 20px;
+background: #D8D8D8;
+}
+
+
+#StudentList li div.college{
+color : blue;
+}
+
+#StudentList li img{
+width:75px;
+height :75px;
+float :right;
+}
+
+#StudentList li div.name{
+color : red;
+}
+
+#StudentList li div.Field{
+color : blue;
+}
+
+#StudentList li input{
+	margin-bottom: 5px;
+}
+
+.tabs {
+	overflow:scroll;
+	height : 100%;
+}

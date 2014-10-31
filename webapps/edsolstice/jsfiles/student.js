@@ -1,6 +1,6 @@
 function singleEntry(Name , CollegeName , fieldName){
 
-var listentry = "<li> <div class='name'>" +Name  +"</div> <div class='college'> "+CollegeName + "</div> <div class='Field'>"+fieldName+"</div> <input type='button' value = '+' /> </li>";
+var listentry = "<li> <img src='./images/profile.jpg' align='middle'> <div class='name'>" +Name  +"</div> <div class='college'> "+CollegeName + "</div> <div class='Field'>"+fieldName+"</div> <input type='button' value = '+' /> </li>";
 
 return listentry ;
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
 		},
 		success : function(result){
 			//alert(JSON.stringify(sessionStorage));
-			var finalList = "<ul id='theList'>" ;
+			var finalList = "<ul id='StudentList'>" ;
 			var loadteachers = result.teachers;
 			$.each(loadteachers,function(){
 				finalList  = finalList  + singleEntry(this.name , this.college , this.field);
@@ -54,7 +54,7 @@ $(document).ready(function(){
 $('#searchBox').bind('keyup' ,function() {
     var value = $(this).val();
 
-    $("#theList > li").each(function() {
+    $("#StudentList > li").each(function() {
         if ($(this).children('.name').text().search(value) > -1 || $(this).children('.college').text().search(value) > -1 || $(this).children('.Field').text().search(value) > -1)  {
             $(this).show()
         }
