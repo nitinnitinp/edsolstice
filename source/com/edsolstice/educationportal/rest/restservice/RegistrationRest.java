@@ -11,9 +11,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.app.RegisterService;
-import com.edsolstice.educationportal.dbmodel.DbMgr;
-import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.logic.MailUtility;
 import com.edsolstice.educationportal.rest.logic.RegistrationLogic;
 import com.edsolstice.educationportal.rest.restoperation.StudentCreateOperation;
 

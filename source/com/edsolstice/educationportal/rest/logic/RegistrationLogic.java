@@ -1,7 +1,7 @@
 package com.edsolstice.educationportal.rest.logic;
 
 import com.edsolstice.educationportal.auth.AuthorizedUserManager;
-import com.edsolstice.educationportal.dbmodel.DbMgr;
+import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
@@ -20,7 +20,7 @@ public class RegistrationLogic {
 		   // Validate email ID
 		   MailUtility.isValidEmailAddress(createStudent.getEmail());
 		   
-		   Student student=DbMgr.getInstance().getEDSUserByEmail(createStudent.getEmail());
+		    Student student=DBFactory.getStudentDB().get("email", createStudent.getEmail());
 			
 		   if(student != null) {
 			   throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTALREADYEXIST);	
@@ -42,7 +42,8 @@ public class RegistrationLogic {
 			student.setActivationCode(AuthorizedUserManager.getActivationToken());
 			UidUtils.setUID(student);
 			
-			DbMgr.getInstance().addEDSUser(student);
+			//add student in database
+			DBFactory.getStudentDB().save(student);
 			
 			
 			return student;

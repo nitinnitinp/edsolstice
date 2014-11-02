@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import com.edsolstice.educationportal.dbmodel.DbMgr;
+import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.rest.restoperation.UserActivationOperation;
 
@@ -29,10 +29,10 @@ public class AccountActivatedRest {
 				UserActivationOperation activate, @Context UriInfo uriInfo) throws Exception  {
 		
 			if(activate.getActivationCode() == null) throw new Exception("Please provide the activation code");
-			Student user= DbMgr.getInstance().getStudentByActivationCode(activate.getActivationCode());
+			Student user= DBFactory.getStudentDB().get("activateCode" , activate.getActivationCode());
 			if(user==null)throw new Exception("Please enter valid activation code");
 			user.setActive(true);
-			DbMgr.getInstance().updateEDSUser(user);
+			DBFactory.getStudentDB().update(user);
 			return Response.status(200).entity(user).build();
 
 		}

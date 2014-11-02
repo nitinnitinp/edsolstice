@@ -13,7 +13,7 @@ import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.app.RegisterService;
 import com.edsolstice.educationportal.auth.SessionService;
-import com.edsolstice.educationportal.dbmodel.DbMgr;
+import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.logic.Constants;
 import com.edsolstice.educationportal.rest.restoperation.LoginSessionOperation;
@@ -35,7 +35,7 @@ public class SessionRest {
 			 throw new Exception("Bad request"); 
 		}
 		
-		Student user=DbMgr.getInstance().getEDSUserByEmail(loginUser.getEmail());
+		Student user=DBFactory.getStudentDB().get("email" , loginUser.getEmail());
 		
 		if(user == null) {
 			throw new Exception("User not found"); 

@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import com.edsolstice.educationportal.rest.restoperation.LoginSessionOperation;
 
 @Entity
-@Table(name = "student_table")
+@Table(name = "student")
 public class Student extends BaseObject {
 	private static final long serialVersionUID = 1L;
 
