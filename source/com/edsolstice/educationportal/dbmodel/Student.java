@@ -1,5 +1,8 @@
 package com.edsolstice.educationportal.dbmodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -8,6 +11,7 @@ import com.edsolstice.educationportal.rest.restoperation.LoginSessionOperation;
 @Entity
 @Table(name = "student")
 public class Student extends BaseObject {
+	
 	private static final long serialVersionUID = 1L;
 
 	String email;
@@ -21,6 +25,9 @@ public class Student extends BaseObject {
 	String password;
 	String role;
 	String activationCode;
+	List<String> studentRequestPending = new ArrayList<String> ();
+	List<String> studentRequestSent = new ArrayList<String> ();
+	List<String> registeredStudents=new ArrayList<String> ();
 
 	boolean isActive;
 
@@ -105,7 +112,25 @@ public class Student extends BaseObject {
 	public void setActivationCode(String activationCode) {
 		this.activationCode = activationCode;
 	}
-
+	
+	public List<String> getStudentRequestPending() {
+		return studentRequestPending;
+	}
+	public void setStudentRequestPending(List<String> studentRequestPending) {
+		this.studentRequestPending = studentRequestPending;
+	}
+	public List<String> getStudentRequestSent() {
+		return studentRequestSent;
+	}
+	public void setStudentRequestSent(List<String> studentRequestSent) {
+		this.studentRequestSent = studentRequestSent;
+	}
+	public List<String> getRegisteredStudents() {
+		return registeredStudents;
+	}
+	public void setRegisteredStudents(List<String> registeredStudents) {
+		this.registeredStudents = registeredStudents;
+	}
 
 }
 

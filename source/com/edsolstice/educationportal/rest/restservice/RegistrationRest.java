@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import com.edsolstice.educationportal.app.RegisterService;
-import com.edsolstice.educationportal.rest.logic.RegistrationLogic;
+import com.edsolstice.educationportal.rest.logic.RegistrationRestLogic;
 import com.edsolstice.educationportal.rest.restoperation.StudentCreateOperation;
 
 /**
@@ -33,7 +33,7 @@ public class RegistrationRest {
 			StudentCreateOperation createStudent,
 			@Context UriInfo uriInfo) throws Exception  {
 		
-		RegistrationLogic registration = new RegistrationLogic();
+		RegistrationRestLogic registration = new RegistrationRestLogic();
 		registration.registerStudent(createStudent);
 		
 		return Response.status(200).build();

@@ -11,7 +11,7 @@ import com.edsolstice.educationportal.utility.MailUtility;
 import com.edsolstice.educationportal.utility.StringUtils;
 import com.edsolstice.educationportal.utility.UidUtils;
 
-public class RegistrationLogic {
+public class RegistrationRestLogic {
 	
 	
 	public Student registerStudent(StudentCreateOperation createStudent) throws Exception {
