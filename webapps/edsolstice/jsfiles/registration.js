@@ -3,7 +3,7 @@ $("#save").bind ("click", function() {
 	$.ajax( {
 
 		type: 'POST',
-		url: '/edsolstice/rest/registrationservice/users',
+		url: '/edsolstice/rest/registrationservice/register',
 		contentType:'application/json',
 		data: JSON.stringify ({ 
 			"userName": $("#reg-inputs input#fname").val(), 

@@ -112,7 +112,7 @@ public class StudentCreateOperation {
 	}
 
 	
-public Student covert() throws Exception {
+public Student map() throws Exception {
 		Student user = new Student();
 		user.setCollege(college);
 		if(StringUtils.nullOrEmpty(email)) throw new Exception (" email id is null or not valid");

@@ -14,6 +14,7 @@ import com.edsolstice.educationportal.app.RegisterService;
 import com.edsolstice.educationportal.dbmodel.DbMgr;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.logic.MailUtility;
+import com.edsolstice.educationportal.rest.logic.RegistrationLogic;
 import com.edsolstice.educationportal.rest.restoperation.StudentCreateOperation;
 
 /**
@@ -27,17 +28,18 @@ public class RegistrationRest {
 	public RegistrationRest()  {		
 	}
 
-	@Path ("/users")
+	@Path ("/register")
 	@POST
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
 	public Response createUser(@Context HttpHeaders requestHeaders,
-			StudentCreateOperation user,
+			StudentCreateOperation createStudent,
 			@Context UriInfo uriInfo) throws Exception  {
-		Student edsUser =user.covert();
-		MailUtility.sendActivationEmail(edsUser.getEmail(),edsUser.getActivationCode());
-		DbMgr.getInstance().addEDSUser(edsUser);
-		return Response.status(200).entity(edsUser).build();
+		
+		RegistrationLogic registration = new RegistrationLogic();
+		registration.registerStudent(createStudent);
+		
+		return Response.status(200).build();
 	}
 	
 }

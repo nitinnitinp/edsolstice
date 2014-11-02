@@ -4,19 +4,59 @@
     <!-- This file is generated with the ant target 'buildClassPath' from the template tools/eclipse/classpath.txt.  Please make changes to the template file rather than this file.  -->
 	
 	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="src" path="src"/>
 	
-		<classpathentry kind="lib" path="build/lib/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="lib" path="build/lib/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="build/lib/commons-lang3-3.1.jar"/>
-	<classpathentry kind="lib" path="build/lib/commons-vfs2-2.0.jar"/>
-	<classpathentry kind="lib" path="build/lib/jackson-mrbean-1.9.12.jar"/>
-	<classpathentry kind="lib" path="build/lib/jaxen-1.1-beta-6.jar"/>
-	<classpathentry kind="lib" path="build/lib/jaxrs-api-3.0.2.Final.jar"/>
-	<classpathentry kind="lib" path="build/lib/json-20080701.jar"/>
-	<classpathentry kind="lib" path="build/lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="build/lib/resteasy-jackson-provider-3.0.2.Final.jar"/>
-	<classpathentry kind="lib" path="build/lib/slf4j-log4j12-1.6.6.jar"/>
-	<classpathentry kind="lib" path="build/lib/xml-apis-1.4.01.jar"/>
+		<classpathentry kind="lib" path="build/compile/activation-1.0.2.jar"/>
+	<classpathentry kind="lib" path="build/compile/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="build/compile/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="build/compile/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="build/compile/derby-10.10.2.0.jar"/>
+	<classpathentry kind="lib" path="build/compile/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="build/compile/guava-16.0.jar"/>
+	<classpathentry kind="lib" path="build/compile/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="build/compile/hibernate-core-3.6.10.Final.jar"/>
+	<classpathentry kind="lib" path="build/compile/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-core-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-jaxrs-1.9.13.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-mapper-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-xc-1.9.13.jar"/>
+	<classpathentry kind="lib" path="build/compile/javassist-3.12.1.GA.jar"/>
+	<classpathentry kind="lib" path="build/compile/javax.mail-1.4.4.jar"/>
+	<classpathentry kind="lib" path="build/compile/javax.mail-api-1.5.1.jar"/>
+	<classpathentry kind="lib" path="build/compile/jaxrs-api-3.0.8.Final.jar"/>
+	<classpathentry kind="lib" path="build/compile/jboss-annotations-api_1.1_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="build/compile/jboss-logging-3.1.0.CR1.jar"/>
+	<classpathentry kind="lib" path="build/compile/jcip-annotations-1.0.jar"/>
+	<classpathentry kind="lib" path="build/compile/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="build/compile/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="build/compile/reflections-0.9.9-RC1.jar"/>
+	<classpathentry kind="lib" path="build/compile/resteasy-client-3.0.4.Final.jar"/>
+	<classpathentry kind="lib" path="build/compile/resteasy-jackson-provider-3.0.4.Final.jar"/>
+	<classpathentry kind="lib" path="build/compile/resteasy-jaxrs-2.3.0.GA.jar"/>
+	<classpathentry kind="lib" path="build/compile/scannotation-1.0.3.jar"/>
+	<classpathentry kind="lib" path="build/compile/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="build/jetty/javax.servlet-api-3.0.1.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-ajp-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-annotations-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-client-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-continuation-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-deploy-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-http-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-io-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-jmx-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-jndi-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-overlay-deployer-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-plus-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-policy-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-rewrite-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-security-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-server-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-servlet-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-servlets-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-util-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-webapp-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-websocket-8.1.5.v20120716.jar"/>
+	<classpathentry kind="lib" path="build/jetty/jetty-xml-8.1.5.v20120716.jar"/>
 	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="build/classes"/>
