@@ -133,12 +133,13 @@ public class AuthorizedUserManager {
 	}
     
     public static String getActivationToken() {
-    	return new BigInteger(120, AuthorizedUserManager.getRandom()).toString();
+    	return new BigInteger(100, AuthorizedUserManager.getRandom()).toString(32);
 	}
 
 
 	private static SecureRandom getRandom() {
 		return new SecureRandom();
 	}
+	
 
 }

@@ -1,11 +1,11 @@
 package com.edsolstice.educationportal.logic;
 
-import com.edsolstice.educationportal.dbmodel.EDSBaseObject;
-import com.edsolstice.educationportal.dbmodel.EDSUser;
+import com.edsolstice.educationportal.dbmodel.BaseObject;
+import com.edsolstice.educationportal.dbmodel.Student;
 
 public class UidUtils {
 
-	public static void setUID(EDSUser user) {
+	public static void setUID(Student user) {
 		String email=user.getEmail();
 		String[] tokens=email.split("@");
 		String domain = tokens[1];
@@ -15,7 +15,7 @@ public class UidUtils {
 		setUID( user , tokens[0] , domain);
 	}
 
-	private static void setUID(EDSBaseObject baseObject , String... names) {
+	private static void setUID(BaseObject baseObject , String... names) {
 		String uid="";
 		for(String name :names) uid=uid+name+"-";		
 		uid=uid+baseObject.getId();

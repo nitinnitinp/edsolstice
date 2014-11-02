@@ -18,6 +18,9 @@ import com.sun.mail.util.MailSSLSocketFactory;
 
 public class MailUtility {
 
+	final static String username = "edsolstice.admin@edsolstice.com";
+	final static String password = "edsolstice@admin";
+
 	public static void isValidEmailAddress(String email) throws Exception {
 
 		try {
@@ -27,32 +30,17 @@ public class MailUtility {
 			throw new Exception("invalid email address");
 		}
 	}
-	public static void sendEmail(String email , String activationCode) throws GeneralSecurityException {
+	
+	
+	/**
+	 * @param email
+	 * @param activationCode
+	 * @throws GeneralSecurityException
+	 */
+	public static void sendActivationEmail(String email , String activationCode) throws GeneralSecurityException {
 
-		final String username = "edsolstice.admin@edsolstice.com";
-		final String password = "edsolstice@admin";
-		MailSSLSocketFactory socketFactory= new MailSSLSocketFactory();
-		socketFactory.setTrustAllHosts(true);
-		
-		Properties props = new Properties();
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.transport.protocol", "stmp");
-		props.put("mail.smtp.starttls.enable", "false");
-		props.put("mail.smtp.host", "mail.edsolstice.com");
-		props.put("mail.smtp.port", "25");
-		//props.put("mail.smtp.ssl.trust", "mail.edsolstice.com");
-		//props.put("mail.smtp.ssl.socketFactory", socketFactory);
-		//props.put("mail.smtp.ssl.trust","*");
-
-		Session session = Session.getInstance(props,
-				new javax.mail.Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
-			}
-		});
-
+		Session session = getSession();
 		try {
-
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO,
@@ -60,7 +48,6 @@ public class MailUtility {
 			message.setSubject("EDSolstice user activation code");
 			message.setText("Dear User,"
 					+ "\n\n Please use this activation code to activate your account : "+activationCode
-					+ "\n\n Click to link for activate your account  : " 
 					+ "\n\n Thanks " );
 
 			Transport.send(message);
@@ -70,6 +57,30 @@ public class MailUtility {
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+
+	private static Session getSession() throws GeneralSecurityException {
+
+		MailSSLSocketFactory socketFactory= new MailSSLSocketFactory();
+		socketFactory.setTrustAllHosts(true);
+
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.transport.protocol", "stmp");
+		props.put("mail.smtp.starttls.enable", "false");
+		props.put("mail.smtp.host", "mail.edsolstice.com");
+		props.put("mail.smtp.port", "25");
+
+		Session session = Session.getInstance(props,
+				new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+
+		return session;
+
 	}
 
 }

@@ -10,12 +10,12 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 
-public class EDSDbMgr {
+public class DbMgr {
 
 	private SessionFactory sessionFactory;
-	private static EDSDbMgr _instance ; 
+	private static DbMgr _instance ; 
 
-	private EDSDbMgr() {
+	private DbMgr() {
 		
         sessionFactory =  new Configuration().
         		configure("hibernate.cfg.xml").buildSessionFactory();
@@ -28,10 +28,10 @@ public class EDSDbMgr {
 	 * 
 	 * @return
 	 */
-	public static synchronized EDSDbMgr getInstance() {
+	public static synchronized DbMgr getInstance() {
 		//_logger.trace("Entering function");
 		if (_instance == null) {
-			_instance = new EDSDbMgr();
+			_instance = new DbMgr();
 		}
 		return _instance; 
 	}
@@ -50,7 +50,7 @@ public class EDSDbMgr {
 	 */
 
 
-	public String addEDSUser(EDSUser user) throws Exception  {
+	public String addEDSUser(Student user) throws Exception  {
 //		//_logger.trace("Entering method");
 
 		Session session = getSessionFactory().openSession();
@@ -73,15 +73,15 @@ public class EDSDbMgr {
 	}
 
 	@SuppressWarnings("unchecked")
-	public Vector<EDSUser> getAllEDSUsers()  {
+	public Vector<Student> getAllEDSUsers()  {
 		//_logger.trace("Entering method");
 
 		Session session = getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-		Vector<EDSUser> users=new Vector<EDSUser>();	
-		List<EDSUser> userList = null;
+		Vector<Student> users=new Vector<Student>();	
+		List<Student> userList = null;
 		try {
-			userList = session.createSQLQuery("select * from edsuser_table").addEntity(EDSUser.class).list();
+			userList = session.createSQLQuery("select * from edsuser_table").addEntity(Student.class).list();
 			//_logger.debug("Number of EDSUserObject found:"+ userList);
 			session.flush();
 			tx.commit();
@@ -103,16 +103,16 @@ public class EDSDbMgr {
 	}
 
 
-	public EDSUser getEDSUserByEmail(String email)  {
+	public Student getEDSUserByEmail(String email)  {
 
 		//_logger.trace("Entering method");
 
 		Session session = getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 
-		EDSUser userObject = null;
+		Student userObject = null;
 		try {
-			userObject = (EDSUser) session.createSQLQuery("select * from edsuser_table  where email=:email").addEntity(EDSUser.class).setString("email", email).uniqueResult();
+			userObject = (Student) session.createSQLQuery("select * from edsuser_table  where email=:email").addEntity(Student.class).setString("email", email).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
@@ -126,16 +126,16 @@ public class EDSDbMgr {
 
 	}
 
-	public EDSUser getEDSUserByUID(String uid)  {
+	public Student getStudentByUID(String uid)  {
 
 		//_logger.trace("Entering method");
 
 		Session session = getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 
-		EDSUser userObject = null;
+		Student userObject = null;
 		try {
-			userObject = (EDSUser) session.createSQLQuery("select * from edsuser_table  where uid=:uid").addEntity(EDSUser.class).setString("uid", uid).uniqueResult();
+			userObject = (Student) session.createSQLQuery("select * from edsuser_table  where uid=:uid").addEntity(Student.class).setString("uid", uid).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
@@ -149,16 +149,16 @@ public class EDSDbMgr {
 
 	}
 	
-	public EDSUser getEDSUserByActivationCode(String activationCode)  {
+	public Student getStudentByActivationCode(String activationCode)  {
 
 		//_logger.trace("Entering method");
 
 		Session session = getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
 
-		EDSUser userObject = null;
+		Student userObject = null;
 		try {
-			userObject = (EDSUser) session.createSQLQuery("select * from edsuser_table  where activationCode=:activationCode").addEntity(EDSUser.class).setString("activationCode", activationCode).uniqueResult();
+			userObject = (Student) session.createSQLQuery("select * from edsuser_table  where activationCode=:activationCode").addEntity(Student.class).setString("activationCode", activationCode).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
@@ -172,7 +172,7 @@ public class EDSDbMgr {
 
 	}
 
-	public void removeEDSUser(EDSUser user) {
+	public void removeEDSUser(Student user) {
 
 		//_logger.trace("Entering method");
 		Session session = getSessionFactory().openSession();
@@ -193,7 +193,7 @@ public class EDSDbMgr {
 	}
 
 
-	public void updateEDSUser(EDSUser user)  {
+	public void updateEDSUser(Student user)  {
 		//_logger.trace("Entering method");
 		Session session = getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();

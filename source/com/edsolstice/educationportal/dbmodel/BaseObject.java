@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 @MappedSuperclass
-public class EDSBaseObject implements Serializable{
+public class BaseObject implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	String name;
