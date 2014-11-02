@@ -3,6 +3,8 @@ package com.edsolstice.educationportal.rest.restmodel;
 import com.edsolstice.educationportal.dbmodel.Student;
 
 public class StudentRESTV1 {
+	String uid;
+	String uri;
 	String email;
 	String firstName;
 	String lastName;
@@ -15,7 +17,17 @@ public class StudentRESTV1 {
 	
 	public StudentRESTV1(Student student) {
 		this.apiObject=student;
-	}   
+	} 
+	
+	
+	
+	public String getUid() {
+		return apiObject.getUid();
+	}
+	
+	public String getUri() {
+		return apiObject.getUid();
+	}
 	
 	public String getEmail() {
 		return apiObject.getEmail();

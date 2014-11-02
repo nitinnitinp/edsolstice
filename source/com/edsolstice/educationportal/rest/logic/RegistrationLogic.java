@@ -6,10 +6,10 @@ import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
-import com.edsolstice.educationportal.logic.MailUtility;
-import com.edsolstice.educationportal.logic.StringUtils;
-import com.edsolstice.educationportal.logic.UidUtils;
 import com.edsolstice.educationportal.rest.restoperation.StudentCreateOperation;
+import com.edsolstice.educationportal.utility.MailUtility;
+import com.edsolstice.educationportal.utility.StringUtils;
+import com.edsolstice.educationportal.utility.UidUtils;
 
 public class RegistrationLogic {
 	

@@ -16,7 +16,7 @@ import com.edsolstice.educationportal.app.RegisterService;
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.logic.Constants;
+import com.edsolstice.educationportal.utility.Constants;
 
 
 

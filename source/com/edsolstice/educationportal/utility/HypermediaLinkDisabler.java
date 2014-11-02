@@ -2,7 +2,7 @@
  * (C) Copyright 2002-2013 Hewlett-Packard Development Company, L.P.
  */
 
-package com.edsolstice.educationportal.logic;
+package com.edsolstice.educationportal.utility;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
