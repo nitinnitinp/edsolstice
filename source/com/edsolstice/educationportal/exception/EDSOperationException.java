@@ -1,10 +1,10 @@
 package com.edsolstice.educationportal.exception;
 
 public class EDSOperationException extends Exception {
-	
+
 	int errorCode;
 	String errorMessage;
-	
+
 	public int getErrorCode() {
 		return errorCode;
 	}
@@ -21,8 +21,9 @@ public class EDSOperationException extends Exception {
 		this.errorMessage = errorMessage;
 	}
 
-	public EDSOperationException(EDSExceptionErrorCode errorCode, EDSExceptionMessage message){
-		
+	public EDSOperationException(int errorCode, String message){
+		this.errorCode=errorCode;
+		this.errorMessage=message;
 	}
 
 }

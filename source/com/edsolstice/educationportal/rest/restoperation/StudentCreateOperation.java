@@ -112,23 +112,5 @@ public class StudentCreateOperation {
 	}
 
 	
-public Student map() throws Exception {
-		Student user = new Student();
-		user.setCollege(college);
-		if(StringUtils.nullOrEmpty(email)) throw new Exception (" email id is null or not valid");
-		MailUtility.isValidEmailAddress(email);
-		user.setEmail(email);
-		user.setFieldOfInterest(fieldOfInterest);
-		user.setFirstName(userName);
-		user.setGender(gender);
-		user.setName(userName);
-		user.setMobile(mobile);
-		user.setLastName(surName);
-		user.setActive(false);
-		user.setActivationCode(AuthorizedUserManager.getActivationToken());
-		if(StringUtils.nullOrEmpty(password)) throw new Exception ("password is null");
-		user.setPassword(password);
-		UidUtils.setUID(user);
-		return user;
-	}
+
 }

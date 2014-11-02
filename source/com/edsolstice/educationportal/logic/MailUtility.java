@@ -12,6 +12,9 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
+import com.edsolstice.educationportal.exception.EDSExceptionMessage;
+import com.edsolstice.educationportal.exception.EDSOperationException;
 import com.sun.mail.util.MailSSLSocketFactory;
 
 
@@ -27,7 +30,7 @@ public class MailUtility {
 			InternetAddress emailAddr = new InternetAddress(email);
 			emailAddr.validate();
 		} catch (AddressException ex) {
-			throw new Exception("invalid email address");
+			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.INVALIDEMAIL);
 		}
 	}
 	

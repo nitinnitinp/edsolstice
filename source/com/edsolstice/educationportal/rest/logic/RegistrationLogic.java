@@ -3,6 +3,9 @@ package com.edsolstice.educationportal.rest.logic;
 import com.edsolstice.educationportal.auth.AuthorizedUserManager;
 import com.edsolstice.educationportal.dbmodel.DbMgr;
 import com.edsolstice.educationportal.dbmodel.Student;
+import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
+import com.edsolstice.educationportal.exception.EDSExceptionMessage;
+import com.edsolstice.educationportal.exception.EDSOperationException;
 import com.edsolstice.educationportal.logic.MailUtility;
 import com.edsolstice.educationportal.logic.StringUtils;
 import com.edsolstice.educationportal.logic.UidUtils;
@@ -13,17 +16,17 @@ public class RegistrationLogic {
 	
 	public Student registerStudent(StudentCreateOperation createStudent) throws Exception {
 		
-		   if(StringUtils.nullOrEmpty(createStudent.getEmail())) throw new Exception (" email id is null or not valid");
+		   if(StringUtils.nullOrEmpty(createStudent.getEmail())) throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.INVALIDEMAIL);
 		   // Validate email ID
 		   MailUtility.isValidEmailAddress(createStudent.getEmail());
 		   
 		   Student student=DbMgr.getInstance().getEDSUserByEmail(createStudent.getEmail());
 			
 		   if(student != null) {
-				throw new Exception("User alredy exist") ;	
+			   throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTALREADYEXIST);	
 			}
 			
-			if(StringUtils.nullOrEmpty(createStudent.getPassword())) throw new Exception ("password is null");
+			if(StringUtils.nullOrEmpty(createStudent.getPassword())) throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.NULLPASSWORD);
 		
 		    student = new Student();
 			student.setCollege(createStudent.getCollege());
