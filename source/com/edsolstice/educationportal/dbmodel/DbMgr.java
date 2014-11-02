@@ -81,7 +81,7 @@ public class DbMgr {
 		Vector<Student> users=new Vector<Student>();	
 		List<Student> userList = null;
 		try {
-			userList = session.createSQLQuery("select * from edsuser_table").addEntity(Student.class).list();
+			userList = session.createSQLQuery("select * from student_table").addEntity(Student.class).list();
 			//_logger.debug("Number of EDSUserObject found:"+ userList);
 			session.flush();
 			tx.commit();
@@ -112,7 +112,7 @@ public class DbMgr {
 
 		Student userObject = null;
 		try {
-			userObject = (Student) session.createSQLQuery("select * from edsuser_table  where email=:email").addEntity(Student.class).setString("email", email).uniqueResult();
+			userObject = (Student) session.createSQLQuery("select * from student_table  where email=:email").addEntity(Student.class).setString("email", email).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
@@ -135,7 +135,7 @@ public class DbMgr {
 
 		Student userObject = null;
 		try {
-			userObject = (Student) session.createSQLQuery("select * from edsuser_table  where uid=:uid").addEntity(Student.class).setString("uid", uid).uniqueResult();
+			userObject = (Student) session.createSQLQuery("select * from student_table  where uid=:uid").addEntity(Student.class).setString("uid", uid).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
@@ -158,7 +158,7 @@ public class DbMgr {
 
 		Student userObject = null;
 		try {
-			userObject = (Student) session.createSQLQuery("select * from edsuser_table  where activationCode=:activationCode").addEntity(Student.class).setString("activationCode", activationCode).uniqueResult();
+			userObject = (Student) session.createSQLQuery("select * from student_table  where activationCode=:activationCode").addEntity(Student.class).setString("activationCode", activationCode).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
