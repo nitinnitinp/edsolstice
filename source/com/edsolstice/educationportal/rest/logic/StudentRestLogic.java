@@ -1,10 +1,12 @@
 package com.edsolstice.educationportal.rest.logic;
 
+import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
+import com.edsolstice.educationportal.rest.restmodel.StudentRESTV1;
 
 public class StudentRestLogic {
 
@@ -64,6 +66,16 @@ public class StudentRestLogic {
 
 
 		return student;
+	}
+
+
+	public StudentRESTV1 getUser(String uid) {
+		
+		Student student =DBFactory.getStudentDB().get("uid",uid);
+		
+		StudentRESTV1 response = new StudentRESTV1(student);
+		
+		return response;
 	}
 
 }
