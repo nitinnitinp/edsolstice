@@ -12,6 +12,7 @@ public ChatWebSocket(Set users ) {
 	this.users = users;
 }
 public void onMessage(String data) {
+    System.out.println(data);
 	for (ChatWebSocket user : users) {
 		try {
 			user.connection.sendMessage(data);
@@ -22,6 +23,7 @@ public void onMessage(String data) {
 }
 @Override
 public void onOpen(Connection connection) {
+    System.out.println("open");
 	this.connection = connection;
 	users.add(this);
 }

@@ -32,6 +32,8 @@
 			conf="compile->master" />
 			<dependency org="com.sun.mail" name="javax.mail" rev="1.4.4"
 			conf="compile->master" />
+			<dependency org="javax" name="javaee-api" rev="7.0"
+			conf="compile->master" />
 			
 			
 

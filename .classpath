@@ -20,6 +20,7 @@
 	<classpathentry kind="lib" path="build/compile/jackson-jaxrs-1.9.13.jar"/>
 	<classpathentry kind="lib" path="build/compile/jackson-mapper-asl-1.9.13.jar"/>
 	<classpathentry kind="lib" path="build/compile/jackson-xc-1.9.13.jar"/>
+	<classpathentry kind="lib" path="build/compile/javaee-api-7.0.jar"/>
 	<classpathentry kind="lib" path="build/compile/javassist-3.12.1.GA.jar"/>
 	<classpathentry kind="lib" path="build/compile/javax.mail-1.4.4.jar"/>
 	<classpathentry kind="lib" path="build/compile/javax.mail-api-1.5.1.jar"/>
