@@ -18,6 +18,7 @@ import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.rest.logic.StudentRestLogic;
+import com.edsolstice.educationportal.rest.restmodel.StudentRESTV1;
 import com.edsolstice.educationportal.utility.Constants;
 
 
@@ -40,17 +41,18 @@ public class StudentRest {
 	@GET
 	@Consumes (MediaType.APPLICATION_JSON )
 	@Produces (MediaType.APPLICATION_JSON )
-	public Student getUser (@Context HttpHeaders requestHeaders,	
+	public StudentRESTV1 getUser (@Context HttpHeaders requestHeaders,	
 			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,
 			@PathParam ("uid") String uid,
 			@Context UriInfo uriInfo) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
-		Student user=DBFactory.getStudentDB().get("uid",uid);
-		SessionService.isUserValid(user.getEmail(), sessionToken, user.getPassword());
 		
-		return user;
-
+		StudentRestLogic student = new StudentRestLogic();
+		
+		 return student.getUser(uid);
+		
+		
 
 
 	}
