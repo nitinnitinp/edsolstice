@@ -1,13 +1,5 @@
 package com.edsolstice.educationportal.rest.restoperation;
 
-import com.edsolstice.educationportal.auth.AuthorizedUserManager;
-import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.utility.MailUtility;
-import com.edsolstice.educationportal.utility.StringUtils;
-import com.edsolstice.educationportal.utility.UidUtils;
-
-
-
 public class StudentCreateOperation {
 
 	private String userName;

@@ -1,5 +1,7 @@
 package com.edsolstice.educationportal.rest.restservice;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -16,6 +18,7 @@ import com.edsolstice.educationportal.app.RegisterService;
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.rest.logic.ChatRestLogic;
 import com.edsolstice.educationportal.rest.logic.StudentRestLogic;
+import com.edsolstice.educationportal.rest.restmodel.ChatRESTV1;
 import com.edsolstice.educationportal.rest.restmodel.StudentRESTV1;
 import com.edsolstice.educationportal.rest.restoperation.ChatOperation;
 import com.edsolstice.educationportal.utility.Constants;
@@ -41,8 +44,22 @@ public class ChatRest {
 
 		ChatRestLogic chatLogic = new ChatRestLogic();
 		chatLogic.sendMessage(chatOperation);
+	}
 
-		
+	@Path ("/chat")
+	@GET
+	@Consumes (MediaType.APPLICATION_JSON )
+	@Produces (MediaType.APPLICATION_JSON )
+	public List<ChatRESTV1> getChatMessages (@Context HttpHeaders requestHeaders,	
+			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,
+			@Context UriInfo uriInfo, ChatOperation chatOperation) throws Exception  {
+
+		SessionService.isUserValid(sessionToken);
+
+		ChatRestLogic chatLogic = new ChatRestLogic();
+		return chatLogic.getChatMessages(chatOperation);
+
+
 
 
 

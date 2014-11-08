@@ -7,7 +7,7 @@ public class Message implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 	String message;
-    String status;
+    boolean status;
     String msgTime;
     String name;
     
@@ -23,10 +23,10 @@ public class Message implements Serializable  {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 	public String getMsgTime() {

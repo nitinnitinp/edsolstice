@@ -22,4 +22,12 @@ public class UidUtils {
 		baseObject.setUid(uid);
 	}
 
+	public static String getUid(String ... uids ) {
+		String id = "" ;
+		for(String uid : uids) {
+			id = id + "-" +uid;
+		}
+		return id;
+	}
+
 }
