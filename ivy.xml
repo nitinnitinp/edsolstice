@@ -36,24 +36,29 @@
 			conf="compile->master" />
 			
 			
+<dependency org="org.springframework" name="spring-websocket" rev="4.1.1.RELEASE" conf="compile->master"/>
+<dependency org="org.springframework" name="spring-webmvc" rev="4.1.1.RELEASE"  conf="compile->master"/>
+<dependency org="org.springframework" name="spring-web" rev="4.1.1.RELEASE"  conf="compile->master"/>
+<dependency org="org.springframework" name="spring-context" rev="4.1.1.RELEASE"  conf="compile->master"/>
+<dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.2.1"  conf="compile->master"/>
 
 
 
-		<dependency org="org.jboss.resteasy" name="jaxrs-api" rev="3.0.8.Final"
-			conf="compile->master" />
-		<dependency org="org.jboss.spec.javax.annotation" name="jboss-annotations-api_1.1_spec"
-			rev="1.0.1.Final" conf="compile->master" />
-		<dependency org="net.jcip" name="jcip-annotations" rev="1.0"
-			conf="compile->master" />
-		<dependency org="org.jboss.resteasy" name="resteasy-client"
-			rev="3.0.4.Final" conf="compile->master" />
-		<dependency org="org.jboss.resteasy" name="jaxrs-api" rev="3.0.4.Final"
-			conf="compile->master" />
-		<dependency org="org.jboss.resteasy" name="resteasy-jackson-provider"
-			rev="3.0.4.Final" conf="compile->master" />
-		<dependency org="org.jboss.resteasy" name="resteasy-jaxrs"
-			rev="2.3.0.GA" conf="compile->master" />
-		<dependency org="dom4j" name="dom4j" rev="1.6.1" conf="compile->master" />
+<!-- 		<dependency org="org.jboss.resteasy" name="jaxrs-api" rev="3.0.8.Final" -->
+<!-- 			conf="compile->master" /> -->
+<!-- 		<dependency org="org.jboss.spec.javax.annotation" name="jboss-annotations-api_1.1_spec" -->
+<!-- 			rev="1.0.1.Final" conf="compile->master" /> -->
+<!-- 		<dependency org="net.jcip" name="jcip-annotations" rev="1.0" -->
+<!-- 			conf="compile->master" /> -->
+<!-- 		<dependency org="org.jboss.resteasy" name="resteasy-client" -->
+<!-- 			rev="3.0.4.Final" conf="compile->master" /> -->
+<!-- 		<dependency org="org.jboss.resteasy" name="jaxrs-api" rev="3.0.4.Final" -->
+<!-- 			conf="compile->master" /> -->
+<!-- 		<dependency org="org.jboss.resteasy" name="resteasy-jackson-provider" -->
+<!-- 			rev="3.0.4.Final" conf="compile->master" /> -->
+<!-- 		<dependency org="org.jboss.resteasy" name="resteasy-jaxrs" -->
+<!-- 			rev="2.3.0.GA" conf="compile->master" /> -->
+<!-- 		<dependency org="dom4j" name="dom4j" rev="1.6.1" conf="compile->master" /> -->
 
 
 		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.7"
