@@ -11,11 +11,11 @@
 	       <img src="./images/profile.jpg">
 	    </div>
 	    <div class ="personal-details header-tile">
-         <h> Vignesh Sudalaiyandi</h>
-         <h1> Government College of Technology</h1>
-         <h1> Chennai</h1>
-         <h2 class="mail"> vignesh.s@edsolstice.com </h2>
-         <h2 class="mail"> vigneshblog.edsolstice.com </h2>
+         <h> Chandni Verma</h>
+         <h1> Mahakal Institute Of Technology</h1>
+         <h1> Ujjain</h1>
+         <h2 class="mail"> er.chandniverma@gmail.com </h2>
+         <h2 class="mail"> er.chandniverma@gmail.com </h2>
       </div>
       <div class="student-header-rightside">
       <img src="./images/icons/settings.png" title="Home" height="30" width="30"/>
@@ -33,14 +33,22 @@
     <li><a href="#" name="#tab4">Students</a></li>
     <li><a href="#" name="#tab4">Discussions</a></li>    
 </ul>
-
-<div id="content"> 
-    <div id="tab1">
-         Forums
-    </div>
-    <div id="tab2">Videos</div>
-    <div id="tab3">Teachers</div>
-    <div id="tab4" class="tabs">
+<div id="content">
+<div id="tab1">
+Forums
+<div class="student-main-content">
+   <h3>Add a Topic</h3>
+   <form method=post action="do_addtopic.php">
+  <p><strong>Your E-Mail Address:</strong><br>
+   <input type="text" name="topic_owner" size=40 maxlength=150>
+  <p><strong>Topic Title:</strong><br>
+  <input type="text" name="topic_title" size=40 maxlength=150>
+  <P><strong>Post Text:</strong><br>
+ <textarea name="post_text" rows=8 cols=40 wrap=virtual></textarea>
+  <P><input type="submit" name="submit" value="Add Topic"></p>
+  </form>
+   </div>
+   
     <input type="text" id='searchBox' />
     </div>
 </div>
@@ -70,7 +78,7 @@
 </div>
      <hr>
   </div>
-  <div class="student-main-content">
+  
   
   
   <ul class="tabs">
@@ -81,9 +89,7 @@
 </ul>
     </div>
   <div id="student-right-panel">
-     
-     
-  </div>
+   </div>
 			-->
 	<script src="libs/js/jquery-1.10.2.js"></script>
 	<script src="libs/js/jquery-ui-1.10.4.min.js"></script>
