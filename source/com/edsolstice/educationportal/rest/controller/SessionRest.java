@@ -1,37 +1,28 @@
-package com.edsolstice.educationportal.rest.restservice;
+package com.edsolstice.educationportal.rest.controller;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import com.edsolstice.educationportal.app.RegisterService;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.rest.restoperation.LoginSessionOperation;
 import com.edsolstice.educationportal.rest.restoperation.UserLoginOperation;
-import com.edsolstice.educationportal.utility.Constants;
+import com.sun.mail.iap.Response;
  
-@Path("/sessionservice")
-@RegisterService("sessionservice")
+@RequestMapping("/sessionservice")
 public class SessionRest {
 	
-	@Path ("/login")
-	@POST
-	@Consumes (MediaType.APPLICATION_JSON )
-	@Produces (MediaType.APPLICATION_JSON )
-	public LoginSessionOperation login (@Context HttpHeaders requestHeaders,		
-			@Context UriInfo uriInfo,UserLoginOperation loginUser) throws Exception  {
+	@RequestMapping (value = "/login" , method = RequestMethod.POST)
+	public LoginSessionOperation login (HttpServletRequest request,HttpServletResponse response,
+			UserLoginOperation loginUser) throws Exception  {
 		
 		if(loginUser == null || loginUser.getEmail() ==null || loginUser.getPassword()==null) {
-			 Response.status(400);
+			// Response.status(400);
 			 throw new Exception("Bad request"); 
 		}
 		
@@ -54,15 +45,12 @@ public class SessionRest {
 }
 	
 	
-	@Path ("/logout")
-	@POST
-	@Consumes (MediaType.APPLICATION_JSON )
-	public Response logout (@Context HttpHeaders requestHeaders,	
-			@HeaderParam(Constants.AUTH_HEADER) String sessionToken,	
-			@Context UriInfo uriInfo) throws Exception  {
+	@RequestMapping (value = "/logout" , method = RequestMethod.POST)
+	public Response logout (HttpServletRequest request,HttpServletResponse response,
+			@RequestHeader(value="sessionToken") String sessionToken) throws Exception  {
 		
 		if(sessionToken==null) {
-			 Response.status(400);
+			 //Response.status(400);
 			 throw new Exception("invalid session"); 
 		}
 		

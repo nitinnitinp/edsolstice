@@ -10,32 +10,34 @@
 	<classpathentry kind="lib" path="build/compile/commons-beanutils-1.8.3.jar"/>
 	<classpathentry kind="lib" path="build/compile/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="build/compile/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="build/compile/commons-logging-1.1.3.jar"/>
 	<classpathentry kind="lib" path="build/compile/derby-10.10.2.0.jar"/>
-	<classpathentry kind="lib" path="build/compile/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="build/compile/guava-16.0.jar"/>
 	<classpathentry kind="lib" path="build/compile/hibernate-commons-annotations-4.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="build/compile/hibernate-core-3.6.10.Final.jar"/>
 	<classpathentry kind="lib" path="build/compile/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="build/compile/jackson-core-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-databind-2.2.1.jar"/>
 	<classpathentry kind="lib" path="build/compile/jackson-jaxrs-1.9.13.jar"/>
 	<classpathentry kind="lib" path="build/compile/jackson-mapper-asl-1.9.13.jar"/>
 	<classpathentry kind="lib" path="build/compile/jackson-xc-1.9.13.jar"/>
-	<classpathentry kind="lib" path="build/compile/javaee-api-7.0.jar"/>
 	<classpathentry kind="lib" path="build/compile/javassist-3.12.1.GA.jar"/>
 	<classpathentry kind="lib" path="build/compile/javax.mail-1.4.4.jar"/>
 	<classpathentry kind="lib" path="build/compile/javax.mail-api-1.5.1.jar"/>
-	<classpathentry kind="lib" path="build/compile/jaxrs-api-3.0.8.Final.jar"/>
-	<classpathentry kind="lib" path="build/compile/jboss-annotations-api_1.1_spec-1.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="build/compile/jboss-logging-3.1.0.CR1.jar"/>
-	<classpathentry kind="lib" path="build/compile/jcip-annotations-1.0.jar"/>
 	<classpathentry kind="lib" path="build/compile/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="build/compile/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="build/compile/reflections-0.9.9-RC1.jar"/>
-	<classpathentry kind="lib" path="build/compile/resteasy-client-3.0.4.Final.jar"/>
-	<classpathentry kind="lib" path="build/compile/resteasy-jackson-provider-3.0.4.Final.jar"/>
-	<classpathentry kind="lib" path="build/compile/resteasy-jaxrs-2.3.0.GA.jar"/>
 	<classpathentry kind="lib" path="build/compile/scannotation-1.0.3.jar"/>
 	<classpathentry kind="lib" path="build/compile/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-aop-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-beans-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-context-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-core-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-expression-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-web-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-webmvc-4.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="build/compile/spring-websocket-4.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="build/jetty/javax.servlet-api-3.0.1.jar"/>
 	<classpathentry kind="lib" path="build/jetty/jetty-ajp-8.1.5.v20120716.jar"/>
 	<classpathentry kind="lib" path="build/jetty/jetty-annotations-8.1.5.v20120716.jar"/>

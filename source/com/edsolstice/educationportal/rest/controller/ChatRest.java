@@ -1,0 +1,67 @@
+package com.edsolstice.educationportal.rest.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.edsolstice.educationportal.auth.SessionService;
+import com.edsolstice.educationportal.rest.logic.ChatRestLogic;
+import com.edsolstice.educationportal.rest.restmodel.ChatRESTV1;
+import com.edsolstice.educationportal.rest.restoperation.ChatOperation;
+import com.edsolstice.educationportal.rest.restoperation.SendMessageOperation;
+import com.edsolstice.educationportal.utility.Constants;
+
+
+@Controller
+@RequestMapping("/chatservice")
+public class ChatRest {
+
+
+
+	
+	@RequestMapping (value = "/chat" , method = RequestMethod.POST)
+	public void sendMessage (HttpServletRequest request,HttpServletResponse response,	
+			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken, SendMessageOperation chatOperation) throws Exception  {
+
+		SessionService.isUserValid(sessionToken);
+
+		ChatRestLogic chatLogic = new ChatRestLogic();
+		chatLogic.sendMessage(chatOperation);
+	}
+
+	@RequestMapping (value = "/chat" , method = RequestMethod.GET)
+	public List<ChatRESTV1> getChatMessages (HttpServletRequest request,HttpServletResponse response,	
+			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken, ChatOperation chatOperation) throws Exception  {
+
+		SessionService.isUserValid(sessionToken);
+
+		ChatRestLogic chatLogic = new ChatRestLogic();
+		return chatLogic.getChatMessages(chatOperation);
+
+
+
+	}
+	
+	
+	
+	@RequestMapping (value = "/chats" , method = RequestMethod.GET)
+	public String getChatMessages (HttpServletRequest request,HttpServletResponse response) throws Exception  {
+
+		
+		return "hello";
+
+
+
+	}
+
+
+	
+
+
+}
