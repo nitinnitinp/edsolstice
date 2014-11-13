@@ -39,7 +39,7 @@ public class ChatRest {
 
 	@RequestMapping (value = "/chat" , method = RequestMethod.GET)
 	public @ResponseBody List<ChatRESTV1> getChatMessages (HttpServletRequest request,HttpServletResponse response,	
-			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken, @RequestBody ChatOperation chatOperation) throws Exception  {
+			@RequestHeader(Constants.AUTH_HEADER) String sessionToken, @RequestBody ChatOperation chatOperation) throws Exception  {
 
 		SessionService.isUserValid(sessionToken);
 

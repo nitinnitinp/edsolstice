@@ -14,6 +14,7 @@ import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.rest.restoperation.LoginSessionOperation;
 import com.edsolstice.educationportal.rest.restoperation.UserLoginOperation;
+import com.edsolstice.educationportal.utility.Constants;
 import com.sun.mail.iap.Response;
  
 @RequestMapping("/sessionservice")
@@ -49,7 +50,7 @@ public class SessionRest {
 	
 	@RequestMapping (value = "/logout" , method = RequestMethod.POST)
 	public @ResponseBody void logout (HttpServletRequest request,HttpServletResponse response,
-			@RequestHeader(value="sessionToken") String sessionToken) throws Exception  {
+			@RequestHeader(Constants.AUTH_HEADER) String sessionToken) throws Exception  {
 		
 		if(sessionToken==null) {
 			 //Response.status(400);

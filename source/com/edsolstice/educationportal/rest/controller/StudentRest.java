@@ -33,7 +33,7 @@ public class StudentRest {
 	
 	@RequestMapping (value = "/students/{uid}" , method = RequestMethod.GET)
 	public @ResponseBody StudentRESTV1 getUser (HttpServletRequest request,HttpServletResponse response,	
-			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken,
+			@RequestHeader(Constants.AUTH_HEADER) String sessionToken,
 			@PathVariable ("uid") String uid) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
@@ -51,7 +51,7 @@ public class StudentRest {
 	
 	@RequestMapping (value = "/students/{uid}/subscribe/{id}" , method = RequestMethod.POST)
 	public void subscribeStudent (HttpServletRequest request,HttpServletResponse response,	
-			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken,
+			@RequestHeader(Constants.AUTH_HEADER) String sessionToken,
 			@PathVariable ("uid") String uid,@PathVariable ("id") String id) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
@@ -67,7 +67,7 @@ public class StudentRest {
 	
 	@RequestMapping (value = "/students/{uid}/accept/{id}" , method = RequestMethod.POST)
 	public void acceptStudentRequest (HttpServletRequest request,HttpServletResponse response,	
-			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken,
+			@RequestHeader(Constants.AUTH_HEADER) String sessionToken,
 			@PathVariable ("uid") String uid,@PathVariable ("id") String id) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
