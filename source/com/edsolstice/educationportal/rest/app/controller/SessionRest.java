@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
+import com.edsolstice.educationportal.rest.model.SessionRESTV1;
 import com.edsolstice.educationportal.rest.operation.LoginSessionOperation;
 import com.edsolstice.educationportal.rest.operation.UserLoginOperation;
 import com.edsolstice.educationportal.utility.Constants;
@@ -25,7 +26,7 @@ import com.sun.mail.iap.Response;
 public class SessionRest {
 	
 	@RequestMapping (value = "/login" , method = RequestMethod.POST)
-	public @ResponseBody LoginSessionOperation login (HttpServletRequest request,HttpServletResponse response,
+	public @ResponseBody SessionRESTV1 login (HttpServletRequest request,HttpServletResponse response,
 			@RequestBody UserLoginOperation loginUser) throws Exception  {
 		
 		if(loginUser == null || loginUser.getEmail() ==null || loginUser.getPassword()==null) {
@@ -47,7 +48,16 @@ public class SessionRest {
 			throw new Exception("Please activate your account using login to your email"); 
 		}
 		
-		return user.mapSessionUser(SessionService.addUser(user.getEmail(), user.getPassword()));
+		
+		
+		SessionRESTV1 session =new SessionRESTV1();
+			session.setSessionToken(SessionService.addUser(user.getEmail(), user.getPassword()));
+			
+			session.setUid(user.getUid());
+			return session;
+		
+		
+		
  
 }
 	

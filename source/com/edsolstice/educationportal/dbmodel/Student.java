@@ -97,13 +97,7 @@ public class Student extends BaseObject {
 		this.role = role;
 	}
 
-	public LoginSessionOperation mapSessionUser(String sessionToken) {
-		LoginSessionOperation session =new LoginSessionOperation();
-		session.setSessionToken(sessionToken);
-		session.setEmail(email);
-		session.setUid(uid);
-		return session;
-	}
+	
 	public boolean isActive() {
 		return isActive;
 	}
