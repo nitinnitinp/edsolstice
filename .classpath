@@ -12,15 +12,14 @@
 	<classpathentry kind="lib" path="build/compile/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="build/compile/commons-logging-1.1.3.jar"/>
 	<classpathentry kind="lib" path="build/compile/derby-10.10.2.0.jar"/>
+	<classpathentry kind="lib" path="build/compile/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="build/compile/guava-16.0.jar"/>
 	<classpathentry kind="lib" path="build/compile/hibernate-commons-annotations-4.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="build/compile/hibernate-core-3.6.10.Final.jar"/>
 	<classpathentry kind="lib" path="build/compile/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="build/compile/jackson-core-asl-1.9.13.jar"/>
-	<classpathentry kind="lib" path="build/compile/jackson-databind-2.2.1.jar"/>
-	<classpathentry kind="lib" path="build/compile/jackson-jaxrs-1.9.13.jar"/>
-	<classpathentry kind="lib" path="build/compile/jackson-mapper-asl-1.9.13.jar"/>
-	<classpathentry kind="lib" path="build/compile/jackson-xc-1.9.13.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-annotations-2.2.2.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-core-2.2.2.jar"/>
+	<classpathentry kind="lib" path="build/compile/jackson-databind-2.2.2.jar"/>
 	<classpathentry kind="lib" path="build/compile/javassist-3.12.1.GA.jar"/>
 	<classpathentry kind="lib" path="build/compile/javax.mail-1.4.4.jar"/>
 	<classpathentry kind="lib" path="build/compile/javax.mail-api-1.5.1.jar"/>
