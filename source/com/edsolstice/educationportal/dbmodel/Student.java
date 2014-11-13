@@ -3,6 +3,8 @@ package com.edsolstice.educationportal.dbmodel;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -25,8 +27,11 @@ public class Student extends BaseObject {
 	String password;
 	String role;
 	String activationCode;
+	@Embedded
 	List<String> studentRequestPending = new ArrayList<String> ();
+	@Embedded
 	List<String> studentRequestSent = new ArrayList<String> ();
+	@Embedded
 	List<String> registeredStudents=new ArrayList<String> ();
 
 	boolean isActive;

@@ -75,7 +75,7 @@ public class DatabaseTransation <T>  extends DBSession {
 
 		T dto = null;
 		try {
-			dto = (T) session.createSQLQuery("select * from "+cls.getSimpleName().toLowerCase()+"  where "+queryName+"=:"+queryValue).addEntity(cls).setString(queryName, queryValue).uniqueResult();
+			dto = (T) session.createSQLQuery("select * from "+cls.getSimpleName().toLowerCase()+" where "+queryName+"=:"+queryName).addEntity(cls).setString(queryName, queryValue).uniqueResult();
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
