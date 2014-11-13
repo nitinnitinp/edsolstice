@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.rest.app.service.ChatService;
@@ -30,6 +32,7 @@ ChatService chatService ;
 
 	
 	@RequestMapping (value = "/chat" , method = RequestMethod.POST)
+	@ResponseStatus (HttpStatus.NO_CONTENT)
 	public void sendMessage (HttpServletRequest request,HttpServletResponse response,	
 			@RequestHeader(Constants.AUTH_HEADER) String sessionToken, SendMessageOperation chatOperation) throws Exception  {
 

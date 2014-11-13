@@ -3,12 +3,14 @@ package com.edsolstice.educationportal.rest.app.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
@@ -51,7 +53,8 @@ public class SessionRest {
 	
 	
 	@RequestMapping (value = "/logout" , method = RequestMethod.POST)
-	public @ResponseBody void logout (HttpServletRequest request,HttpServletResponse response,
+	@ResponseStatus (HttpStatus.NO_CONTENT)
+	public  void logout (HttpServletRequest request,HttpServletResponse response,
 			@RequestHeader(Constants.AUTH_HEADER) String sessionToken) throws Exception  {
 		
 		if(sessionToken==null) {
