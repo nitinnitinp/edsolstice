@@ -22,7 +22,7 @@ public class AccountActivatedRest {
 		public AccountActivatedRest()  {
 		}
 
-		@RequestMapping (value = "/activate" , method = RequestMethod.POST)
+		@RequestMapping (value = "/activate" , method = RequestMethod.POST , consumes = "application/json", produces ="application/json")
 		public @ResponseBody Student activate(HttpServletRequest request,HttpServletResponse response,  
 		                                      @RequestBody UserActivationOperation activate) throws Exception  {
 		
