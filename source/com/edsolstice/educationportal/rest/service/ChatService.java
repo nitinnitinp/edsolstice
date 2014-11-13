@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.logic;
+package com.edsolstice.educationportal.rest.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import com.edsolstice.educationportal.rest.restoperation.ChatOperation;
 import com.edsolstice.educationportal.rest.restoperation.SendMessageOperation;
 import com.edsolstice.educationportal.utility.UidUtils;
 
-public class ChatRestLogic {
+public class ChatService {
 
 	public void sendMessage(SendMessageOperation sendMessage) {
 

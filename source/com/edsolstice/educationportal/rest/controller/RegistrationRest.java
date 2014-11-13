@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.edsolstice.educationportal.rest.logic.RegistrationRestLogic;
 import com.edsolstice.educationportal.rest.restoperation.StudentCreateOperation;
+import com.edsolstice.educationportal.rest.service.RegistrationService;
 
 /**
  * RESTful operations implementation for users.
@@ -24,7 +24,7 @@ public class RegistrationRest {
 	public void createUser(HttpServletRequest request,HttpServletResponse response,
 	                       @RequestBody StudentCreateOperation createStudent) throws Exception  {
 		
-		RegistrationRestLogic registration = new RegistrationRestLogic();
+		RegistrationService registration = new RegistrationService();
 		registration.registerStudent(createStudent);
 		
 		 

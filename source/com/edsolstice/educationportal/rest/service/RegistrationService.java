@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.logic;
+package com.edsolstice.educationportal.rest.service;
 
 import com.edsolstice.educationportal.auth.AuthorizedUserManager;
 import com.edsolstice.educationportal.db.DBFactory;
@@ -11,7 +11,7 @@ import com.edsolstice.educationportal.utility.MailUtility;
 import com.edsolstice.educationportal.utility.StringUtils;
 import com.edsolstice.educationportal.utility.UidUtils;
 
-public class RegistrationRestLogic {
+public class RegistrationService {
 	
 	
 	public Student registerStudent(StudentCreateOperation createStudent) throws Exception {

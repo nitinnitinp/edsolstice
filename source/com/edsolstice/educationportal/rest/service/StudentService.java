@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.logic;
+package com.edsolstice.educationportal.rest.service;
 
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
@@ -8,7 +8,7 @@ import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
 import com.edsolstice.educationportal.rest.restmodel.StudentRESTV1;
 
-public class StudentRestLogic {
+public class StudentService {
 
 
 	public Student subscribeStudent(String uid,  String subscribedId) throws Exception {

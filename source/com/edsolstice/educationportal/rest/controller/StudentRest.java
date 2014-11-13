@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.edsolstice.educationportal.auth.SessionService;
-import com.edsolstice.educationportal.rest.logic.StudentRestLogic;
 import com.edsolstice.educationportal.rest.restmodel.StudentRESTV1;
+import com.edsolstice.educationportal.rest.service.StudentService;
 import com.edsolstice.educationportal.utility.Constants;
 
 
@@ -38,7 +38,7 @@ public class StudentRest {
 	
 		SessionService.isUserValid(sessionToken);
 		
-		StudentRestLogic student = new StudentRestLogic();
+		StudentService student = new StudentService();
 		
 		 return student.getUser(uid);
 		
@@ -56,7 +56,7 @@ public class StudentRest {
 	
 		SessionService.isUserValid(sessionToken);
 		
-		StudentRestLogic student = new StudentRestLogic();
+		StudentService student = new StudentService();
 		
 		student.subscribeStudent(uid, id);
 		
@@ -72,7 +72,7 @@ public class StudentRest {
 	
 		SessionService.isUserValid(sessionToken);
 		
-		StudentRestLogic student = new StudentRestLogic();
+		StudentService student = new StudentService();
 		
 		student.acceptStudentRequest(uid, id);
 		
