@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.service;
+package com.edsolstice.educationportal.rest.app.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,9 @@ import com.edsolstice.educationportal.db.DatabaseTransation;
 import com.edsolstice.educationportal.dbmodel.Chat;
 import com.edsolstice.educationportal.dbmodel.Message;
 import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.rest.restmodel.ChatRESTV1;
-import com.edsolstice.educationportal.rest.restoperation.ChatOperation;
-import com.edsolstice.educationportal.rest.restoperation.SendMessageOperation;
+import com.edsolstice.educationportal.rest.model.ChatRESTV1;
+import com.edsolstice.educationportal.rest.operation.ChatOperation;
+import com.edsolstice.educationportal.rest.operation.SendMessageOperation;
 import com.edsolstice.educationportal.utility.UidUtils;
 
 public class ChatService {

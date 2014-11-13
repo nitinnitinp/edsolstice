@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.restoperation;
+package com.edsolstice.educationportal.rest.operation;
 
 
 public class LoginSessionOperation {

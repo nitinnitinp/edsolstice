@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.restmodel;
+package com.edsolstice.educationportal.rest.model;
 
 import java.util.ArrayList;
 import java.util.List;

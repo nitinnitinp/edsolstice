@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.controller;
+package com.edsolstice.educationportal.rest.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.rest.restoperation.LoginSessionOperation;
-import com.edsolstice.educationportal.rest.restoperation.UserLoginOperation;
+import com.edsolstice.educationportal.rest.operation.LoginSessionOperation;
+import com.edsolstice.educationportal.rest.operation.UserLoginOperation;
 import com.edsolstice.educationportal.utility.Constants;
 import com.sun.mail.iap.Response;
  

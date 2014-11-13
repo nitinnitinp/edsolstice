@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.controller;
+package com.edsolstice.educationportal.rest.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.rest.restoperation.UserActivationOperation;
+import com.edsolstice.educationportal.rest.operation.UserActivationOperation;
 
 
 @Controller

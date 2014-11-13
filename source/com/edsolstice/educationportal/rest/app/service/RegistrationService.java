@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.service;
+package com.edsolstice.educationportal.rest.app.service;
 
 import com.edsolstice.educationportal.auth.AuthorizedUserManager;
 import com.edsolstice.educationportal.db.DBFactory;
@@ -6,7 +6,7 @@ import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
-import com.edsolstice.educationportal.rest.restoperation.StudentCreateOperation;
+import com.edsolstice.educationportal.rest.operation.StudentCreateOperation;
 import com.edsolstice.educationportal.utility.MailUtility;
 import com.edsolstice.educationportal.utility.StringUtils;
 import com.edsolstice.educationportal.utility.UidUtils;

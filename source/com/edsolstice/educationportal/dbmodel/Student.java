@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.edsolstice.educationportal.rest.restoperation.LoginSessionOperation;
+import com.edsolstice.educationportal.rest.operation.LoginSessionOperation;
 
 @Entity
 @Table(name = "student")

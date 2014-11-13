@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.controller;
+package com.edsolstice.educationportal.rest.app.controller;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.edsolstice.educationportal.auth.SessionService;
-import com.edsolstice.educationportal.rest.restmodel.ChatRESTV1;
-import com.edsolstice.educationportal.rest.restoperation.ChatOperation;
-import com.edsolstice.educationportal.rest.restoperation.SendMessageOperation;
-import com.edsolstice.educationportal.rest.service.ChatService;
+import com.edsolstice.educationportal.rest.app.service.ChatService;
+import com.edsolstice.educationportal.rest.model.ChatRESTV1;
+import com.edsolstice.educationportal.rest.operation.ChatOperation;
+import com.edsolstice.educationportal.rest.operation.SendMessageOperation;
 import com.edsolstice.educationportal.utility.Constants;
 
 

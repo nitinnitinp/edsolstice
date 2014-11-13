@@ -1,4 +1,4 @@
-package com.edsolstice.educationportal.rest.controller;
+package com.edsolstice.educationportal.rest.app.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.edsolstice.educationportal.rest.restoperation.StudentCreateOperation;
-import com.edsolstice.educationportal.rest.service.RegistrationService;
+import com.edsolstice.educationportal.rest.app.service.RegistrationService;
+import com.edsolstice.educationportal.rest.operation.StudentCreateOperation;
 
 /**
  * RESTful operations implementation for users.
