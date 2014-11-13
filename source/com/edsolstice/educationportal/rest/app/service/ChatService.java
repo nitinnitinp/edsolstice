@@ -3,6 +3,8 @@ package com.edsolstice.educationportal.rest.app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.db.DatabaseTransation;
 import com.edsolstice.educationportal.dbmodel.Chat;
@@ -13,6 +15,7 @@ import com.edsolstice.educationportal.rest.operation.ChatOperation;
 import com.edsolstice.educationportal.rest.operation.SendMessageOperation;
 import com.edsolstice.educationportal.utility.UidUtils;
 
+@Service
 public class ChatService {
 
 	public void sendMessage(SendMessageOperation sendMessage) {
@@ -79,5 +82,10 @@ public class ChatService {
 		return msgs ;
 
 	}
+
+    public String getMes() {
+        return "hello";
+        
+    }
 
 }

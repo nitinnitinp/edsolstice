@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -24,17 +25,18 @@ import com.edsolstice.educationportal.utility.Constants;
 @RequestMapping("/chatservice")
 public class ChatRest {
 
-
+@Autowired    
+ChatService chatService ;
 
 	
 	@RequestMapping (value = "/chat" , method = RequestMethod.POST)
 	public void sendMessage (HttpServletRequest request,HttpServletResponse response,	
-			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken, SendMessageOperation chatOperation) throws Exception  {
+			@RequestHeader(Constants.AUTH_HEADER) String sessionToken, SendMessageOperation chatOperation) throws Exception  {
 
 		SessionService.isUserValid(sessionToken);
 
-		ChatService chatLogic = new ChatService();
-		chatLogic.sendMessage(chatOperation);
+	
+		chatService.sendMessage(chatOperation);
 	}
 
 	@RequestMapping (value = "/chat" , method = RequestMethod.GET)
@@ -43,8 +45,8 @@ public class ChatRest {
 
 		SessionService.isUserValid(sessionToken);
 
-		ChatService chatLogic = new ChatService();
-		return chatLogic.getChatMessages(chatOperation);
+	
+		return chatService.getChatMessages(chatOperation);
 
 
 
@@ -55,8 +57,9 @@ public class ChatRest {
 	@RequestMapping (value = "/chats" , method = RequestMethod.GET)
 	public  @ResponseBody String getChatMessages (HttpServletRequest request,HttpServletResponse response) throws Exception  {
 
+	    return chatService .getMes();
 		
-		return "hello";
+		
 
 
 

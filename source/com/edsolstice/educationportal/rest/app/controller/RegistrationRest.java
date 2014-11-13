@@ -3,6 +3,7 @@ package com.edsolstice.educationportal.rest.app.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +19,17 @@ import com.edsolstice.educationportal.rest.operation.StudentCreateOperation;
 @Controller
 @RequestMapping ("/registrationservice")
 public class RegistrationRest {
+    
+    @Autowired
+    RegistrationService registrationService;
 	
 	
 	@RequestMapping (value = "/register" , method = RequestMethod.POST)
 	public void createUser(HttpServletRequest request,HttpServletResponse response,
 	                       @RequestBody StudentCreateOperation createStudent) throws Exception  {
 		
-		RegistrationService registration = new RegistrationService();
-		registration.registerStudent(createStudent);
+		
+	    registrationService.registerStudent(createStudent);
 		
 		 
 	}

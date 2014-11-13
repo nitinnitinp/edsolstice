@@ -1,6 +1,7 @@
 package com.edsolstice.educationportal.rest.app.service;
 
-import com.edsolstice.educationportal.auth.SessionService;
+import org.springframework.stereotype.Service;
+
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
@@ -8,6 +9,7 @@ import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
 import com.edsolstice.educationportal.rest.model.StudentRESTV1;
 
+@Service
 public class StudentService {
 
 
