@@ -4,8 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
@@ -21,8 +23,8 @@ public class AccountActivatedRest {
 		}
 
 		@RequestMapping (value = "/activate" , method = RequestMethod.POST)
-		public Student activate(HttpServletRequest request,HttpServletResponse response,  
-				UserActivationOperation activate) throws Exception  {
+		public @ResponseBody Student activate(HttpServletRequest request,HttpServletResponse response,  
+		                                      @RequestBody UserActivationOperation activate) throws Exception  {
 		
 			if(activate.getActivationCode() == null) throw new Exception("Please provide the activation code");
 			Student user= DBFactory.getStudentDB().get("activateCode" , activate.getActivationCode());

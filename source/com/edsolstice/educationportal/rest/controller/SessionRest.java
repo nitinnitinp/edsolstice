@@ -3,9 +3,11 @@ package com.edsolstice.educationportal.rest.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.db.DBFactory;
@@ -18,8 +20,8 @@ import com.sun.mail.iap.Response;
 public class SessionRest {
 	
 	@RequestMapping (value = "/login" , method = RequestMethod.POST)
-	public LoginSessionOperation login (HttpServletRequest request,HttpServletResponse response,
-			UserLoginOperation loginUser) throws Exception  {
+	public @ResponseBody LoginSessionOperation login (HttpServletRequest request,HttpServletResponse response,
+			@RequestBody UserLoginOperation loginUser) throws Exception  {
 		
 		if(loginUser == null || loginUser.getEmail() ==null || loginUser.getPassword()==null) {
 			// Response.status(400);
@@ -46,7 +48,7 @@ public class SessionRest {
 	
 	
 	@RequestMapping (value = "/logout" , method = RequestMethod.POST)
-	public Response logout (HttpServletRequest request,HttpServletResponse response,
+	public @ResponseBody void logout (HttpServletRequest request,HttpServletResponse response,
 			@RequestHeader(value="sessionToken") String sessionToken) throws Exception  {
 		
 		if(sessionToken==null) {
@@ -57,7 +59,7 @@ public class SessionRest {
 		SessionService.isUserValid(sessionToken);
 		SessionService.removeUser(sessionToken);
 		
-		return null;
+		
  
 }
 	

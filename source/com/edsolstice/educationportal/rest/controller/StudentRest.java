@@ -6,9 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.edsolstice.educationportal.auth.SessionService;
 import com.edsolstice.educationportal.rest.logic.StudentRestLogic;
@@ -30,7 +32,7 @@ public class StudentRest {
 	
 	
 	@RequestMapping (value = "/students/{uid}" , method = RequestMethod.GET)
-	public StudentRESTV1 getUser (HttpServletRequest request,HttpServletResponse response,	
+	public @ResponseBody StudentRESTV1 getUser (HttpServletRequest request,HttpServletResponse response,	
 			@RequestHeader(value=Constants.AUTH_HEADER) String sessionToken,
 			@PathVariable ("uid") String uid) throws Exception  {
 	
