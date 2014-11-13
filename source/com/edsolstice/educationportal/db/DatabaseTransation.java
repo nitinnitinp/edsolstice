@@ -79,7 +79,7 @@ public class DatabaseTransation <T>  extends DBSession {
 			session.flush();
 			tx.commit();
 		} catch (HibernateException e) {
-			throw e;
+			
 		} finally {
 			session.close();
 		}
