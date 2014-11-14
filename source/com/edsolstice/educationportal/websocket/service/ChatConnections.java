@@ -12,7 +12,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
 @Service
-public class ChatService {
+public class ChatConnections {
   
   private Set<WebSocketSession> conns = java.util.Collections.synchronizedSet(new HashSet<WebSocketSession>());
   private Map<WebSocketSession, String> nickNames = new ConcurrentHashMap<WebSocketSession, String>();
