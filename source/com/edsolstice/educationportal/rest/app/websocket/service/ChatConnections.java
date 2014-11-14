@@ -1,5 +1,5 @@
 
-package com.edsolstice.educationportal.websocket.service;
+package com.edsolstice.educationportal.rest.app.websocket.service;
 
 import java.io.IOException;
 import java.util.HashSet;

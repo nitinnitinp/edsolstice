@@ -1,5 +1,5 @@
 
-package com.edsolstice.educationportal.websocket.config;
+package com.edsolstice.educationportal.rest.app.websocket.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,12 +13,12 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import org.springframework.web.socket.handler.PerConnectionWebSocketHandler;
 
-import com.edsolstice.educationportal.websocket.handler.ChatWebSocketHandler;
+import com.edsolstice.educationportal.rest.app.websocket.handler.ChatWebSocketHandler;
 
 @Configuration
 @EnableWebMvc
 @EnableWebSocket
-@ComponentScan(basePackages={"com.edsolstice.educationportal.websocket.service"})
+@ComponentScan(basePackages={"com.edsolstice.educationportal.rest.app"})
 public class WebConfig extends WebMvcConfigurerAdapter implements WebSocketConfigurer {
 
   public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {

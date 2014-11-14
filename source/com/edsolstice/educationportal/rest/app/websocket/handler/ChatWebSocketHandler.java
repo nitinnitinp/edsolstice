@@ -1,5 +1,5 @@
 
-package com.edsolstice.educationportal.websocket.handler;
+package com.edsolstice.educationportal.rest.app.websocket.handler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.CloseStatus;
@@ -7,7 +7,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.edsolstice.educationportal.websocket.service.ChatConnections;
+import com.edsolstice.educationportal.rest.app.websocket.service.ChatConnections;
 
 
 public class ChatWebSocketHandler extends TextWebSocketHandler {
