@@ -7,36 +7,36 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import com.edsolstice.educationportal.websocket.service.ChatService;
+import com.edsolstice.educationportal.websocket.service.ChatConnections;
 
 
 public class ChatWebSocketHandler extends TextWebSocketHandler {
   
   @Autowired
-  private ChatService chatService;
+  private ChatConnections chatConnections;
   
   @Override
   public void afterConnectionEstablished(WebSocketSession session) throws Exception {
     System.out.println("New connection");
-    chatService.registerOpenConnection(session);
+    chatConnections.registerOpenConnection(session);
   }
   
   @Override
   public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-    chatService.registerCloseConnection(session);
+      chatConnections.registerCloseConnection(session);
     
   }
   
   @Override
   public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
-    chatService.registerCloseConnection(session);
+      chatConnections.registerCloseConnection(session);
     
   }
   
   @Override
   protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
     System.out.println("New message: " + message.getPayload());
-    chatService.processMessage(session, message.getPayload());
+    chatConnections.processMessage(session, message.getPayload());
   }
 
 }
