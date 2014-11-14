@@ -33,7 +33,7 @@ public class DatabaseTransation <T>  extends DBSession {
 			tx.commit();
 
 		} catch (Exception e) {
-			throw e;
+			e.printStackTrace();
 
 		} finally {
 			session.close();
