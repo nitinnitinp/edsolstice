@@ -42,16 +42,18 @@ public class SessionRest {
 			throw new Exception("password does not match"); 
 		}
 
-		if(!user.isActive()) {
-			throw new Exception("Please activate your account using login to your email"); 
-		}
+//		if(!user.isActive()) {
+//			throw new Exception("Please activate your account using login to your email"); 
+//		}
 
 
 
 		SessionRESTV1 session =new SessionRESTV1();
 		session.setSessionToken(SessionService.addUser(user.getEmail(), user.getPassword()));
-
 		session.setUid(user.getUid());
+		session.setEmail(user.getEmail());
+		session.setName(user.getFirstName()+ " "+user.getLastName());
+		
 		return session;
 
 

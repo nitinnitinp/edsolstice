@@ -96,9 +96,16 @@ $(".round-button").bind ("click", function(){
 			$("#serverErr").show();
 		},
 		success : function(loginData){
+			alert("hell0");
 			//alert(JSON.stringify(loginData));
 			sessionStorage.setItem('sessionToken' , loginData.sessionToken);
 			sessionStorage.setItem('email' , loginData.email);
+			sessionStorage.setItem('uid' , loginData.uid);
+			sessionStorage.setItem('name' , loginData.name);
+			// connect to socket  and set it to session
+			
+			
+			
 			document.location = 'students.htm';
 			
  		}
