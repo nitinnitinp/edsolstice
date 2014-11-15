@@ -7,6 +7,7 @@
 	<classpathentry kind="src" path="src"/>
 	
 		<classpathentry kind="lib" path="build/compile/activation-1.0.2.jar"/>
+	<classpathentry kind="lib" path="build/compile/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="build/compile/commons-beanutils-1.8.3.jar"/>
 	<classpathentry kind="lib" path="build/compile/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="build/compile/commons-lang3-3.1.jar"/>
