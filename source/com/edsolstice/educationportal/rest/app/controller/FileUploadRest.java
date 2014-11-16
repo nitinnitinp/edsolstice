@@ -17,21 +17,23 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadRest {
 	
 	 @RequestMapping(value="/upload", method=RequestMethod.POST, consumes = "multipart/form-data")
-	    public @ResponseBody String handleFileUpload(@RequestParam("name") String name,
+	    public @ResponseBody String handleFileUpload(
 	            @RequestParam("file") MultipartFile file){
 	        if (!file.isEmpty()) {
 	            try {
 	                byte[] bytes = file.getBytes();
+	                String name=  file.getOriginalFilename();
+	                System.out.println("file name : " +name);
 	                BufferedOutputStream stream =
-	                        new BufferedOutputStream(new FileOutputStream(new File(name + "-uploaded")));
+	                        new BufferedOutputStream(new FileOutputStream(new File(name)));
 	                stream.write(bytes);
 	                stream.close();
 	                return "You successfully uploaded " + name + " into " + name + "-uploaded !";
 	            } catch (Exception e) {
-	                return "You failed to upload " + name + " => " + e.getMessage();
+	                return "You failed to upload " + e.getMessage();
 	            }
 	        } else {
-	            return "You failed to upload " + name + " because the file was empty.";
+	            return "You failed to upload  because the file was empty.";
 	        }
 	    }
 

@@ -43,7 +43,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebSocketConfi
   @Bean
   public CommonsMultipartResolver multipartResolver() {       
       CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-      multipartResolver.setMaxUploadSize(7000000);
+      multipartResolver.setMaxUploadSize(700000000);
       return multipartResolver;
   }
 
