@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/uploadservice")
 public class FileUploadRest {
 	
-	 @RequestMapping(value="/upload", method=RequestMethod.POST)
+	 @RequestMapping(value="/upload", method=RequestMethod.POST, consumes = "multipart/form-data")
 	    public @ResponseBody String handleFileUpload(@RequestParam("name") String name,
 	            @RequestParam("file") MultipartFile file){
 	        if (!file.isEmpty()) {
