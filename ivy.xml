@@ -37,11 +37,13 @@
 <dependency org="org.springframework" name="spring-aop" rev="4.1.1.RELEASE" conf="compile->master"/>
 <dependency org="org.springframework" name="spring-expression" rev="4.1.1.RELEASE" conf="compile->master"/>
 
+
 <dependency org="commons-logging" name="commons-logging" rev="1.1.3" conf="compile->master"/>
 <dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.2.2"  conf="compile->master"/>
 <dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.2.2"  conf="compile->master"/>
 <dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.2.2"  conf="compile->master"/>
-
+ 
+ <dependency org="commons-fileupload" name="commons-fileupload" rev="1.2.1"  conf="compile->master"/>
  <dependency org="dom4j" name="dom4j" rev="1.6.1"  conf="compile->master"/>
  <dependency org="aopalliance" name="aopalliance" rev="1.0" conf="compile->master"/>
  
