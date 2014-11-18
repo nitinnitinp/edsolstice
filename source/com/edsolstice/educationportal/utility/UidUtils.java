@@ -1,9 +1,25 @@
 package com.edsolstice.educationportal.utility;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+
+import com.edsolstice.educationportal.auth.AuthorizedUserManager;
 import com.edsolstice.educationportal.dbmodel.BaseObject;
 import com.edsolstice.educationportal.dbmodel.Student;
+import com.edsolstice.educationportal.dbmodel.Subscription;
+import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
+import com.edsolstice.educationportal.exception.EDSExceptionMessage;
+import com.edsolstice.educationportal.exception.EDSOperationException;
 
 public class UidUtils {
+    
+    private static String getUid() {
+        return new BigInteger(50, getRandom()).toString(32);
+    }
+    
+    private static SecureRandom getRandom() {
+        return new SecureRandom();
+    }
 
 	public static void setUID(Student user) {
 		String email=user.getEmail();
@@ -29,5 +45,14 @@ public class UidUtils {
 		}
 		return id;
 	}
+
+    public static void setUID(String parentId, Subscription subscription) throws EDSOperationException {
+      
+        if(parentId == null) throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, "Student uid is not valid");  
+        
+        subscription.setParentId(parentId);
+        setUID(subscription, parentId , getUid());
+        
+    }
 
 }

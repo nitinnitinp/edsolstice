@@ -27,10 +27,10 @@ public class StudentService {
 		if(subscribedStudent == null) {
 			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST+ " "+subscribedId);	
 		}
-
-		subscribedStudent.getStudentRequestPending().add(uid);
-
-		student.getStudentRequestSent().add(subscribedId);
+//
+//		subscribedStudent.getStudentRequestPending().add(uid);
+//
+//		student.getStudentRequestSent().add(subscribedId);
 		//add student in database
 		DBFactory.getStudentDB().update(student);
 
@@ -54,13 +54,13 @@ public class StudentService {
 			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST+ " "+acceptedId);	
 		}
 
-		student.getStudentRequestPending().remove(acceptedId);
-
-		student.getRegisteredStudents().add(acceptedId);
-
-		addedStudent.getStudentRequestSent().remove(uid);
-
-		addedStudent.getRegisteredStudents().add(uid);
+//		student.getStudentRequestPending().remove(acceptedId);
+//
+//		student.getRegisteredStudents().add(acceptedId);
+//
+//		addedStudent.getStudentRequestSent().remove(uid);
+//
+//		addedStudent.getRegisteredStudents().add(uid);
 		//add student in database
 		DBFactory.getStudentDB().update(student);
 

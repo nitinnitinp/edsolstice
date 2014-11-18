@@ -12,28 +12,42 @@ import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
+import com.edsolstice.educationportal.utility.Constants;
 
 @Service
 public class FileUploadService {
 
-	public void upload(String name, byte[] bytes) throws IOException {
-		 BufferedOutputStream stream =
-                 new BufferedOutputStream(new FileOutputStream(new File(name)));
-         stream.write(bytes);
-         stream.close();
-		
-	}
+    public void upload(String name, byte[] bytes) throws IOException {
+        BufferedOutputStream stream =
+            new BufferedOutputStream(new FileOutputStream(new File(name)));
+        stream.write(bytes);
+        stream.close();
+    }
+    
+    
+    /**
+     * @param uid
+     * @param name
+     * @param bytes
+     * @throws IOException
+     */
+    public void uploadProfilePic(String uid, String name, byte[] bytes) throws IOException {
 
-	public void uploadProfilePic(String uid, String name, byte[] bytes) throws IOException {
-		
 //		Student student=DBFactory.getStudentDB().get("uid" , uid);
-//	
 //		if(student == null) {
 //			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST + " "+uid);	
 //		}
-	
-		upload("./images/profile.jpg", bytes);
-		
-	}
+        createDir (uid);
+        upload(name, bytes);
+    }
+
+    /**
+     * @param uid
+     */
+    public void  createDir(String uid ) {
+        String path = Constants.ROOT_FILE_UPLOAD_DIR + "/" + uid + Constants.PROFILE_PIC_DIR ;
+        File file = new File(path) ;
+        file.mkdirs();
+    }
 
 }
