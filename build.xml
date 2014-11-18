@@ -184,6 +184,7 @@
 		        <delete file="${mfg_dir}/jetty_server_pid"/>
 		    </target>
 	   
+		 <target depends="clean ,init, download , mfg , buildClassPath , startJetty" name="all" />
 
 
 </project>

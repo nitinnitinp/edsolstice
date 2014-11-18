@@ -1,9 +1,13 @@
 package com.edsolstice.educationportal.rest.app.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
+import com.edsolstice.educationportal.dbmodel.Subscription;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
@@ -15,24 +19,24 @@ public class StudentService {
 
 	public Student subscribeStudent(String uid,  String subscribedId) throws Exception {
 
+      
+        // get student 
+		Student student = getRegisteredStudent(uid) ;
+		
+		// get subscribed student 
+        Student subscribedStudent = getRegisteredStudent(subscribedId) ;
+        
+        // update request sent in the suscription
+		Subscription subscription = student.getSubscription();
+		subscription.getStudentSubscriptionSent().put(subscribedStudent.getUid(), subscribedStudent);
+		
+		
+        Subscription subscribed = subscribedStudent.getSubscription();
+        subscribed.getStudentSubscriptionPending().put(student.getUid(), student);
+       
 
-
-		Student student=DBFactory.getStudentDB().get("uid" , uid);
-		Student subscribedStudent=DBFactory.getStudentDB().get("uid" , subscribedId);
-
-		if(student == null) {
-			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST + " "+uid);	
-		}
-
-		if(subscribedStudent == null) {
-			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST+ " "+subscribedId);	
-		}
-//
-//		subscribedStudent.getStudentRequestPending().add(uid);
-//
-//		student.getStudentRequestSent().add(subscribedId);
-		//add student in database
-		DBFactory.getStudentDB().update(student);
+		//update student in database
+		DBFactory.getStudentDB().update(student ,subscribedStudent);
 
 
 		return student;
@@ -42,42 +46,50 @@ public class StudentService {
 	public Student acceptStudentRequest(String uid,  String acceptedId) throws Exception {
 
 
-
-		Student student=DBFactory.getStudentDB().get("uid" , uid);
-		Student addedStudent=DBFactory.getStudentDB().get("uid" , acceptedId);
-
-		if(student == null) {
-			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST + " "+uid);	
-		}
-
-		if(addedStudent == null) {
-			throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST+ " "+acceptedId);	
-		}
-
-//		student.getStudentRequestPending().remove(acceptedId);
-//
-//		student.getRegisteredStudents().add(acceptedId);
-//
-//		addedStudent.getStudentRequestSent().remove(uid);
-//
-//		addedStudent.getRegisteredStudents().add(uid);
-		//add student in database
-		DBFactory.getStudentDB().update(student);
-
-		DBFactory.getStudentDB().update(addedStudent);
+	    // get student 
+        Student studentSubscribing= getRegisteredStudent(uid) ;
+        
+        // get subscribed student 
+        Student studentsubscribed = getRegisteredStudent(acceptedId) ;
+        
+        // update request sent in the suscription
+        Subscription subscription = studentSubscribing.getSubscription();
+        subscription.getStudentSubscriptionSent().remove(studentsubscribed.getUid()); 
+        subscription.getSubscribedStudent().put(studentsubscribed.getUid(), studentsubscribed);
+        
+        Subscription subscribed = studentsubscribed.getSubscription();
+        subscribed.getStudentSubscriptionPending().remove(studentSubscribing.getUid());
+        subscribed.getSubscribedStudent().put(studentSubscribing.getUid(), studentSubscribing);
+       
+		//update student in database
+        DBFactory.getStudentDB().update(studentSubscribing ,studentsubscribed);
 
 
-		return student;
+		return studentSubscribing;
 	}
 
 
-	public StudentRESTV1 getUser(String uid) {
+	public StudentRESTV1 getStudent(String uid) throws EDSOperationException {
 		
-		Student student =DBFactory.getStudentDB().get("uid",uid);
+		Student student =getRegisteredStudent(uid);
 		
 		StudentRESTV1 response = new StudentRESTV1(student);
 		
 		return response;
+	}
+	
+	
+	
+	private Student  getRegisteredStudent(String uid) throws EDSOperationException {
+	    // get student 
+        Student student = DBFactory.getStudentDB().get(uid);
+        
+        
+        if(student == null) {
+            throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, EDSExceptionMessage.STUDENTDOESNOTEXIST + " "+uid);    
+        }
+        
+        return student;
 	}
 
 }

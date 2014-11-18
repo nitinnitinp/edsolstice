@@ -35,13 +35,14 @@ public class StudentRest {
 	
 	
 	@RequestMapping (value = "/students/{uid}" , method = RequestMethod.GET)
-	public @ResponseBody StudentRESTV1 getUser (HttpServletRequest request,HttpServletResponse response,	
+	public @ResponseBody StudentRESTV1 getStudent (HttpServletRequest request,HttpServletResponse response,	
 			@RequestHeader(Constants.AUTH_HEADER) String sessionToken,
 			@PathVariable ("uid") String uid) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
+		System.out.println( "uid " +uid);
 			
-		 return studentService.getUser(uid);
+		 return studentService.getStudent(uid);
 		
 		
 

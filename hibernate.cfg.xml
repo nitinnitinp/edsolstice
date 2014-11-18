@@ -56,6 +56,7 @@
 
         <!-- Names the annotated entity class -->
         <mapping class="com.edsolstice.educationportal.dbmodel.Student"/>
+        <mapping class="com.edsolstice.educationportal.dbmodel.Subscription"/>
        
 
       

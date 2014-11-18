@@ -1,6 +1,8 @@
 package com.edsolstice.educationportal.utility;
 
-public class StringUtils {
+import org.apache.commons.lang3.StringUtils;
+
+public class StringUtil extends StringUtils {
 	
 	public static boolean nullOrEmpty(String a) {
 		return (a ==null || a.isEmpty()) ;	

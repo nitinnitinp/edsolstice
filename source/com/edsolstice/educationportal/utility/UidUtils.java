@@ -3,12 +3,10 @@ package com.edsolstice.educationportal.utility;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
-import com.edsolstice.educationportal.auth.AuthorizedUserManager;
 import com.edsolstice.educationportal.dbmodel.BaseObject;
 import com.edsolstice.educationportal.dbmodel.Student;
 import com.edsolstice.educationportal.dbmodel.Subscription;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
-import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
 
 public class UidUtils {
@@ -23,12 +21,9 @@ public class UidUtils {
 
 	public static void setUID(Student user) {
 		String email=user.getEmail();
-		String[] tokens=email.split("@");
-		String domain = tokens[1];
-		if(domain.contains("\\.")) {
-			domain= domain.split("\\.")[0];
-		}
-		setUID( user , tokens[0] , domain);
+		email = StringUtil.replace(email, ".", "-");
+		email = StringUtil.replace(email, "@", "-");
+		setUID( user , email);
 	}
 
 	private static void setUID(BaseObject baseObject , String... names) {

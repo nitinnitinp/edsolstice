@@ -1,6 +1,8 @@
 package com.edsolstice.educationportal.dbmodel;
 
 import java.io.Serializable;
+
+import javax.annotation.Generated;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 @MappedSuperclass
@@ -30,6 +32,7 @@ public class BaseObject implements Serializable {
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
+	@Generated(value = { "1" })
 	public long getId() {
 		return id;
 	}

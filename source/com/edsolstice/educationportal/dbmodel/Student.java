@@ -2,7 +2,6 @@ package com.edsolstice.educationportal.dbmodel;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,8 +22,8 @@ public class Student extends BaseObject {
     String password;
     String role;
     String activationCode;
-    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)  
-    @JoinColumn(name = "uid")
+   
+    @OneToOne(cascade = CascadeType.ALL)
     Subscription subscription;
   
     boolean isActive;
