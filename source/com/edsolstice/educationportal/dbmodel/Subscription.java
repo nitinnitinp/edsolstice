@@ -16,18 +16,17 @@ public class Subscription extends BaseObject {
     private static final long serialVersionUID = 1L;
 
 
-    @OneToMany( fetch = FetchType.LAZY )  
-   // @JoinColumn(name = "uid",nullable=false)
-  
+    @OneToMany( fetch = FetchType.EAGER )  
+    @JoinColumn(name = "uid",nullable=false)
     Map<String , Student> studentSubscriptionSent  = new HashMap<String , Student> ();
 
-    @OneToMany( fetch = FetchType.LAZY  )  
-  //  @JoinColumn(name = "uid",nullable=false)
+    @OneToMany( fetch = FetchType.EAGER  )  
+    @JoinColumn(name = "uid",nullable=false)
    
     Map<String , Student> studentSubscriptionPending  = new HashMap<String , Student> ();
 
-    @OneToMany( fetch = FetchType.LAZY)  
-  //  @JoinColumn(name = "uid",nullable=false)
+    @OneToMany( fetch = FetchType.EAGER)  
+    @JoinColumn(name = "uid",nullable=false)
     Map<String , Student> subscribedStudent  = new HashMap<String , Student> ();
 
 

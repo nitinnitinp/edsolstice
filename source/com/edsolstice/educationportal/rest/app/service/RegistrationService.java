@@ -48,6 +48,7 @@ public class RegistrationService {
 
         Subscription subscription = new Subscription();
         UidUtils.setUID(student.getUid() ,subscription);
+        student.setSubscription(subscription);
 
         //add student in database
         DBFactory.getStudentDB().save(student);
