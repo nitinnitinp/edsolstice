@@ -42,7 +42,7 @@ public class StudentRest {
 			@PathVariable ("uid") String uid) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
-		System.out.println( "uid " +uid);
+		
 			
 		 return studentService.getStudent(uid);
 		
@@ -51,6 +51,7 @@ public class StudentRest {
 
 	}
 	
+
 	@RequestMapping (value = "/students/{uid}/subscribe" , method = RequestMethod.POST)
 	@ResponseStatus (HttpStatus.NO_CONTENT)
 	public void subscribeStudent (HttpServletRequest request,HttpServletResponse response,	
@@ -63,6 +64,21 @@ public class StudentRest {
 		
 		
 	}
+	
+	
+	@RequestMapping (value = "/students/{uid}/unsubscribe" , method = RequestMethod.POST)
+    @ResponseStatus (HttpStatus.NO_CONTENT)
+    public void unsubscribeStudent (HttpServletRequest request,HttpServletResponse response,  
+            @RequestHeader(Constants.AUTH_HEADER) String sessionToken,
+            @PathVariable ("uid") String uid,@RequestParam ("id") String id) throws Exception  {
+    
+        SessionService.isUserValid(sessionToken);
+        
+        studentService.unsubscribeStudent(uid, id);
+        
+        
+    }
+    
 	
 	
 	
@@ -78,6 +94,22 @@ public class StudentRest {
 		
 		
 	}
+	
+	
+	@RequestMapping (value = "/students/{uid}" , method = RequestMethod.DELETE)
+	@ResponseStatus (HttpStatus.NO_CONTENT)
+    public @ResponseBody void delete (HttpServletRequest request,HttpServletResponse response, 
+            @RequestHeader(Constants.AUTH_HEADER) String sessionToken,
+            @PathVariable ("uid") String uid) throws Exception  {
+    
+        SessionService.isUserValid(sessionToken);
+            
+         studentService.delete(uid);
+        
+        
+
+
+    }
 
 
 }
