@@ -1,8 +1,15 @@
 package com.edsolstice.educationportal.dbmodel;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,9 +30,59 @@ public class Student extends BaseObject {
     String role;
     String activationCode;
    
-    @OneToOne(cascade = CascadeType.ALL)
-    Subscription subscription;
-  
+    @ManyToMany(
+        targetEntity=com.edsolstice.educationportal.dbmodel.Student.class,
+        cascade={CascadeType.PERSIST, CascadeType.MERGE} , fetch =FetchType.EAGER
+    )
+    @JoinTable(
+        name="STUDENTSUBSCRIPTION_SENT",
+        joinColumns=@JoinColumn(name="studentSubscriptionSent"),
+        inverseJoinColumns=@JoinColumn(name="uid")
+    )
+    Map<String , Student> studentSubscriptionSent  = new HashMap<String , Student> ();
+
+    @ManyToMany(
+        targetEntity=com.edsolstice.educationportal.dbmodel.Student.class,
+        cascade={CascadeType.PERSIST, CascadeType.MERGE} ,fetch =FetchType.EAGER
+    )
+    @JoinTable(
+        name="STUDENTSUBSCRIPTION_PENDING",
+        joinColumns=@JoinColumn(name="studentSubscriptionPending"),
+        inverseJoinColumns=@JoinColumn(name="uid")
+    )
+    Map<String , Student> studentSubscriptionPending  = new HashMap<String , Student> ();
+
+    @ManyToMany(
+        targetEntity=com.edsolstice.educationportal.dbmodel.Student.class,
+        cascade={CascadeType.PERSIST, CascadeType.MERGE} ,fetch =FetchType.EAGER
+    )
+    @JoinTable(
+        name="SUBSCRIBEDSTUDENT",
+        joinColumns=@JoinColumn(name="subscribedStudent"),
+        inverseJoinColumns=@JoinColumn(name="uid")
+    )
+    Map<String , Student> subscribedStudent  = new HashMap<String , Student> ();
+
+
+    public Map<String, Student> getStudentSubscriptionSent() {
+        return studentSubscriptionSent;
+    }
+    public void setStudentSubscriptionSent(Map<String, Student> studentSubscriptionSent) {
+        this.studentSubscriptionSent = studentSubscriptionSent;
+    }
+    public Map<String, Student> getStudentSubscriptionPending() {
+        return studentSubscriptionPending;
+    }
+    public void setStudentSubscriptionPending(Map<String, Student> studentSubscriptionPending) {
+        this.studentSubscriptionPending = studentSubscriptionPending;
+    }
+
+    public Map<String, Student> getSubscribedStudent() {
+        return subscribedStudent;
+    }
+    public void setSubscribedStudent(Map<String, Student> subscribedStudent) {
+        this.subscribedStudent = subscribedStudent;
+    }
     boolean isActive;
 
     public String getEmail() {
@@ -105,11 +162,5 @@ public class Student extends BaseObject {
     }
 
 
-    public Subscription getSubscription() {
-        return subscription;
-    }
-    public void setSubscription(Subscription subscription) {
-        this.subscription = subscription;
-    }
 }
 

@@ -5,7 +5,6 @@ import java.security.SecureRandom;
 
 import com.edsolstice.educationportal.dbmodel.BaseObject;
 import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.dbmodel.Subscription;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSOperationException;
 
@@ -41,13 +40,6 @@ public class UidUtils {
 		return id;
 	}
 
-    public static void setUID(String parentId, Subscription subscription) throws EDSOperationException {
-      
-        if(parentId == null) throw new EDSOperationException(EDSExceptionErrorCode.INVALIDINPUTS, "Student uid is not valid");  
-        
-        subscription.setParentId(parentId);
-        setUID(subscription, parentId , getUid());
-        
-    }
+   
 
 }

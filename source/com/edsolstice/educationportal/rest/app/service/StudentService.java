@@ -1,13 +1,9 @@
 package com.edsolstice.educationportal.rest.app.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.dbmodel.Subscription;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
@@ -27,12 +23,12 @@ public class StudentService {
         Student subscribedStudent = getRegisteredStudent(subscribedId) ;
         
         // update request sent in the suscription
-		Subscription subscription = student.getSubscription();
-		subscription.getStudentSubscriptionSent().put(subscribedStudent.getUid(), subscribedStudent);
+		
+		student.getStudentSubscriptionSent().put(subscribedStudent.getUid(), subscribedStudent);
 		
 		
-        Subscription subscribed = subscribedStudent.getSubscription();
-        subscribed.getStudentSubscriptionPending().put(student.getUid(), student);
+       
+        subscribedStudent.getStudentSubscriptionPending().put(student.getUid(), student);
        
 
 		//update student in database
@@ -53,13 +49,13 @@ public class StudentService {
         Student studentsubscribed = getRegisteredStudent(acceptedId) ;
         
         // update request sent in the suscription
-        Subscription subscription = studentSubscribing.getSubscription();
-        subscription.getStudentSubscriptionSent().remove(studentsubscribed.getUid()); 
-        subscription.getSubscribedStudent().put(studentsubscribed.getUid(), studentsubscribed);
+       
+        studentSubscribing.getStudentSubscriptionSent().remove(studentsubscribed.getUid()); 
+        studentSubscribing.getSubscribedStudent().put(studentsubscribed.getUid(), studentsubscribed);
         
-        Subscription subscribed = studentsubscribed.getSubscription();
-        subscribed.getStudentSubscriptionPending().remove(studentSubscribing.getUid());
-        subscribed.getSubscribedStudent().put(studentSubscribing.getUid(), studentSubscribing);
+        
+        studentsubscribed.getStudentSubscriptionPending().remove(studentSubscribing.getUid());
+        studentsubscribed.getSubscribedStudent().put(studentSubscribing.getUid(), studentSubscribing);
        
 		//update student in database
         DBFactory.getStudentDB().update(studentSubscribing ,studentsubscribed);

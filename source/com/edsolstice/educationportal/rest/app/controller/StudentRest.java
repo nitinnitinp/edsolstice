@@ -27,6 +27,7 @@ import com.edsolstice.educationportal.utility.Constants;
 /**
  * RESTful operations implementation for users.
  */
+@SuppressWarnings("unused")
 @Controller
 @RequestMapping("/studentservice")
 public class StudentRest {
@@ -48,8 +49,6 @@ public class StudentRest {
 
 
 	}
-	
-	
 	
 	@RequestMapping (value = "/students/{uid}/subscribe/{id}" , method = RequestMethod.POST)
 	@ResponseStatus (HttpStatus.NO_CONTENT)

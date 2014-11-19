@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import com.edsolstice.educationportal.auth.AuthorizedUserManager;
 import com.edsolstice.educationportal.db.DBFactory;
 import com.edsolstice.educationportal.dbmodel.Student;
-import com.edsolstice.educationportal.dbmodel.Subscription;
 import com.edsolstice.educationportal.exception.EDSExceptionErrorCode;
 import com.edsolstice.educationportal.exception.EDSExceptionMessage;
 import com.edsolstice.educationportal.exception.EDSOperationException;
@@ -46,9 +45,7 @@ public class RegistrationService {
         student.setActivationCode(AuthorizedUserManager.getActivationToken());
         UidUtils.setUID(student);
 
-        Subscription subscription = new Subscription();
-        UidUtils.setUID(student.getUid() ,subscription);
-        student.setSubscription(subscription);
+       
 
         //add student in database
         DBFactory.getStudentDB().save(student);
