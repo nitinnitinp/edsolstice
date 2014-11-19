@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -50,11 +51,11 @@ public class StudentRest {
 
 	}
 	
-	@RequestMapping (value = "/students/{uid}/subscribe/{id}" , method = RequestMethod.POST)
+	@RequestMapping (value = "/students/{uid}/subscribe" , method = RequestMethod.POST)
 	@ResponseStatus (HttpStatus.NO_CONTENT)
 	public void subscribeStudent (HttpServletRequest request,HttpServletResponse response,	
 			@RequestHeader(Constants.AUTH_HEADER) String sessionToken,
-			@PathVariable ("uid") String uid,@PathVariable ("id") String id) throws Exception  {
+			@PathVariable ("uid") String uid,@RequestParam ("id") String id) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
 		
@@ -65,11 +66,11 @@ public class StudentRest {
 	
 	
 	
-	@RequestMapping (value = "/students/{uid}/accept/{id}" , method = RequestMethod.POST)
+	@RequestMapping (value = "/students/{uid}/accept" , method = RequestMethod.POST)
 	@ResponseStatus (HttpStatus.NO_CONTENT)
 	public void acceptStudentRequest (HttpServletRequest request,HttpServletResponse response,	
 			@RequestHeader(Constants.AUTH_HEADER) String sessionToken,
-			@PathVariable ("uid") String uid,@PathVariable ("id") String id) throws Exception  {
+			@PathVariable ("uid") String uid,@RequestParam ("id") String id) throws Exception  {
 	
 		SessionService.isUserValid(sessionToken);
 
